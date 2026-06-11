@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="html-root">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>B12 VENTURES — Digital Growth & AI Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#0c0c0a;--bg2:#141412;--bg3:#1c1c19;
+  --cream:#f5edda;--c80:rgba(245,237,218,.8);--c60:rgba(245,237,218,.6);
+  --c40:rgba(245,237,218,.4);--c20:rgba(245,237,218,.2);--c10:rgba(245,237,218,.1);
+  --c06:rgba(245,237,218,.06);--c03:rgba(245,237,218,.03);
+  --blue:#0055ff;--blue-lo:rgba(0,85,255,.15);
+  --mono:'Space Mono',monospace;--disp:'Anton',sans-serif;--body:'Inter',sans-serif;
+  --ease-out:cubic-bezier(.16,1,.3,1);--ease-in:cubic-bezier(.7,0,.84,0);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scrollbar-width:thin;scrollbar-color:var(--c20) transparent}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--c20);border-radius:2px}
+body{font-family:var(--body);background:var(--bg);color:var(--cream);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+[dir="rtl"] body{font-family:'Arial','Segoe UI',var(--body)}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:inherit;border:none;background:none;color:inherit}
+body:not(.touch) *{cursor:none}
+
+/* GRAIN */
+#grain{position:fixed;inset:-100%;width:300%;height:300%;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E");
+  opacity:.18;pointer-events:none;z-index:9000;animation:grain .3s steps(3) infinite}
+@keyframes grain{0%,100%{transform:translate(0,0)}25%{transform:translate(-2%,-3%)}50%{transform:translate(3%,2%)}75%{transform:translate(-1%,4%)}}
+
+/* CURSOR */
+#cur-dot{position:fixed;width:6px;height:6px;background:var(--cream);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s var(--ease-out),height .2s,opacity .2s}
+#cur-ring{position:fixed;width:32px;height:32px;border:1px solid var(--c40);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .15s var(--ease-out),height .15s,border-color .2s}
+#cur-dot.hv{width:0;height:0;opacity:0}
+#cur-ring.hv{width:52px;height:52px;border-color:rgba(0,85,255,.7)}
+
+/* LOADER */
+#loader{position:fixed;inset:0;z-index:8000;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;transition:opacity .6s,visibility .6s}
+#loader.done{opacity:0;visibility:hidden;pointer-events:none}
+.ld-logo{font-family:var(--disp);font-size:clamp(32px,5vw,56px);letter-spacing:.08em}
+.ld-logo span{color:var(--blue)}
+.ld-bar{width:120px;height:1px;background:var(--c10);position:relative;overflow:hidden}
+.ld-bar::after{content:'';position:absolute;left:-100%;top:0;width:100%;height:100%;background:var(--blue);animation:ldbar 1.4s var(--ease-out) forwards}
+@keyframes ldbar{to{left:0}}
+
+/* FULLSCREEN MENU */
+#fullmenu{position:fixed;inset:0;z-index:900;background:var(--bg2);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .5s var(--ease-out),visibility .5s}
+#fullmenu.open{opacity:1;visibility:visible}
+.fm-inner{display:flex;flex-direction:column;align-items:center;gap:4px}
+.fm-link{font-family:var(--disp);font-size:clamp(40px,8vw,90px);letter-spacing:-.01em;text-transform:uppercase;color:var(--c20);display:block;overflow:hidden;transition:color .3s}
+.fm-link span{display:block;transform:translateY(110%);transition:transform .7s var(--ease-out)}
+#fullmenu.open .fm-link span{transform:none}
+#fullmenu.open .fm-link:nth-child(1) span{transition-delay:.05s}
+#fullmenu.open .fm-link:nth-child(2) span{transition-delay:.12s}
+#fullmenu.open .fm-link:nth-child(3) span{transition-delay:.19s}
+#fullmenu.open .fm-link:nth-child(4) span{transition-delay:.26s}
+#fullmenu.open .fm-link:nth-child(5) span{transition-delay:.33s}
+.fm-link:hover{color:var(--cream)}
+.fm-foot{position:absolute;bottom:36px;left:0;right:0;display:flex;justify-content:space-between;padding:0 48px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--c40)}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:24px 48px;transition:padding .4s var(--ease-out),background .4s,border-color .4s}
+#nav.scrolled{padding:14px 48px;background:rgba(12,12,10,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--c10)}
+.nav-logo{font-family:var(--disp);font-size:15px;letter-spacing:.12em;display:flex;align-items:center;gap:8px;z-index:10}
+.nav-logo-b{color:var(--blue)}
+.nav-right{display:flex;align-items:center;gap:16px}
+
+/* LANGUAGE SWITCHER */
+.lang-sw{display:flex;align-items:center;gap:2px;border:1px solid var(--c10);border-radius:2px;overflow:hidden}
+.lang-btn{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:7px 10px;color:var(--c40);transition:all .2s;background:none;border:none}
+.lang-btn.active{background:var(--blue);color:#fff}
+.lang-btn:hover:not(.active){color:var(--cream)}
+.nav-cta{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--c60);border:1px solid var(--c20);padding:8px 18px;border-radius:1px;transition:all .25s;display:none}
+.nav-cta:hover{color:var(--cream);border-color:var(--cream)}
+@media(min-width:769px){.nav-cta{display:block}}
+.menu-btn{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--c60);display:flex;align-items:center;gap:8px;transition:color .25s}
+.menu-btn:hover{color:var(--cream)}
+.menu-bars{display:flex;flex-direction:column;gap:5px;width:22px}
+.menu-bars span{display:block;height:1.5px;background:currentColor;transition:all .4s var(--ease-out)}
+.menu-bars span:first-child{width:22px}.menu-bars span:last-child{width:14px}
+.menu-bars.open span:first-child{transform:rotate(45deg) translateY(3.5px)}
+.menu-bars.open span:last-child{transform:rotate(-45deg) translateY(-3.5px);width:22px}
+
+/* HERO */
+#hero{position:relative;height:100vh;min-height:600px;overflow:hidden;display:flex;align-items:flex-end}
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.hero-bg{position:absolute;inset:-10%;width:120%;height:120%;z-index:0;background:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1800&q=80&auto=format&fit=crop') center/cover no-repeat;opacity:.1;will-change:transform}
+.hero-vig{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(to top,var(--bg) 0%,rgba(12,12,10,.6) 40%,transparent 70%),linear-gradient(to bottom,var(--bg) 0%,transparent 18%)}
+.hero-content{position:relative;z-index:3;width:100%;padding:0 48px 60px}
+.hero-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:12px;margin-bottom:18px;opacity:0;transform:translateY(16px)}
+.hero-kicker::before{content:'';width:28px;height:1px;background:var(--blue);display:block}
+.hero-kicker.in{opacity:1;transform:none;transition:opacity .8s var(--ease-out) .2s,transform .8s var(--ease-out) .2s}
+.hero-title{font-family:var(--disp);font-size:clamp(68px,13.5vw,196px);letter-spacing:-.02em;line-height:.92;text-transform:uppercase;margin-bottom:36px}
+.hw{display:inline-block;overflow:hidden;vertical-align:bottom;margin-right:.1em}
+.hw .hi{display:inline-block;transform:translateY(110%) skewY(4deg);transition:transform .9s var(--ease-out)}
+.hw.in .hi{transform:none}
+.hw.in:nth-child(1) .hi{transition-delay:.1s}.hw.in:nth-child(2) .hi{transition-delay:.2s}
+.hw.in:nth-child(3) .hi{transition-delay:.3s}.hw.in:nth-child(4) .hi{transition-delay:.4s}
+.accent{color:var(--blue)}
+.hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px;opacity:0;transform:translateY(20px)}
+.hero-bottom.in{opacity:1;transform:none;transition:opacity .8s var(--ease-out) .7s,transform .8s var(--ease-out) .7s}
+.hero-desc{font-size:14px;line-height:1.8;color:var(--c60);max-width:340px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero-scroll{position:absolute;bottom:32px;right:48px;z-index:4;display:flex;flex-direction:column;align-items:center;gap:8px}
+.hero-scroll-txt{font-family:var(--mono);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--c20);writing-mode:vertical-rl;transform:rotate(180deg)}
+.hero-scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--c40),transparent);animation:sline 2s ease-in-out infinite}
+@keyframes sline{0%,100%{opacity:.5}50%{opacity:1}}
+
+/* BUTTONS */
+.btn{position:relative;display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:13px 26px;border-radius:2px;overflow:hidden;transition:color .3s}
+.btn::before{content:'';position:absolute;inset:0;transform:translateY(101%);transition:transform .35s var(--ease-out)}
+.btn:hover::before{transform:none}
+.btn span{position:relative;z-index:1}
+.btn-solid{background:var(--cream);color:var(--bg)}.btn-solid::before{background:var(--blue)}
+.btn-solid:hover{color:#fff}
+.btn-border{border:1px solid var(--c20);color:var(--c80)}.btn-border::before{background:rgba(245,237,218,.08)}
+.btn-border:hover{border-color:var(--cream);color:var(--cream)}
+
+/* MARQUEE */
+.mqwrap{overflow:hidden;border-top:1px solid var(--c10);border-bottom:1px solid var(--c10);background:var(--bg2);padding:11px 0}
+.mqtrack{display:flex;white-space:nowrap;width:max-content;animation:mq 28s linear infinite}
+.mqwrap:hover .mqtrack{animation-play-state:paused}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mqi{display:inline-flex;align-items:center;font-family:var(--disp);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--c20);padding:0 36px}
+.mqi::after{content:'✦';font-size:7px;color:var(--blue);margin-left:36px}
+
+/* SHARED SECTION */
+.sec{padding:120px 0}
+.wrap{max-width:1440px;margin:0 auto;padding:0 48px}
+.sec-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--blue);display:inline-flex;align-items:center;gap:10px;margin-bottom:18px}
+.sec-lbl::before{content:'';width:20px;height:1px;background:var(--blue);display:block}
+
+/* SPLIT TITLE */
+.st{font-family:var(--disp);font-size:clamp(36px,5.2vw,76px);letter-spacing:-.025em;line-height:1;text-transform:uppercase}
+.st .sw{display:inline-block;overflow:hidden;vertical-align:bottom;margin-right:.12em}
+.st .si{display:inline-block;transform:translateY(110%);transition:transform .85s var(--ease-out)}
+.st.vis .sw:nth-child(1) .si{transform:none;transition-delay:.04s}
+.st.vis .sw:nth-child(2) .si{transform:none;transition-delay:.1s}
+.st.vis .sw:nth-child(3) .si{transform:none;transition-delay:.16s}
+.st.vis .sw:nth-child(4) .si{transform:none;transition-delay:.22s}
+.st.vis .sw:nth-child(5) .si{transform:none;transition-delay:.28s}
+.st.vis .sw:nth-child(6) .si{transform:none;transition-delay:.34s}
+.st.vis .sw:nth-child(7) .si{transform:none;transition-delay:.40s}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .85s var(--ease-out),transform .85s var(--ease-out)}
+.rv.vis{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+.rv.d4{transition-delay:.32s}.rv.d5{transition-delay:.40s}
+
+/* ABOUT */
+#about{background:var(--bg2);border-top:1px solid var(--c10)}
+.ab-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.ab-img{position:relative;height:480px;overflow:hidden;clip-path:inset(0 100% 0 0);transition:clip-path 1.2s var(--ease-out)}
+.ab-img.vis{clip-path:inset(0 0% 0 0)}
+.ab-h{font-family:var(--disp);font-size:clamp(28px,3.8vw,52px);letter-spacing:-.02em;text-transform:uppercase;line-height:1.05;margin:12px 0 20px}
+.ab-p{font-size:14px;line-height:1.85;color:var(--c60);margin-bottom:16px}
+.ab-p strong{color:var(--cream)}
+
+/* SERVICES */
+#services{background:var(--bg);border-top:1px solid var(--c10)}
+.svc-hd{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:28px;margin-bottom:44px}
+.svc-hd-r{font-size:13px;line-height:1.75;color:var(--c60);max-width:280px}
+.svc-list{border-top:1px solid var(--c10)}
+.svc-row{display:grid;grid-template-columns:56px 1fr 180px;gap:20px;align-items:start;padding:28px 0;border-bottom:1px solid var(--c10);position:relative;transition:padding .35s var(--ease-out)}
+.svc-row:hover{padding:28px 18px;margin:0 -18px}
+.svc-row::after{content:'';position:absolute;left:0;bottom:-1px;width:0;height:1px;background:var(--blue);transition:width .7s var(--ease-out)}
+.svc-row:hover::after{width:100%}
+.svc-num{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--c20);padding-top:4px}
+.svc-nm{font-family:var(--disp);font-size:clamp(22px,3vw,44px);letter-spacing:-.02em;text-transform:uppercase;line-height:1;transition:color .3s}
+.svc-row:hover .svc-nm{color:var(--blue)}
+.svc-exp{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease-out)}
+.svc-exp-in{overflow:hidden}
+.svc-row:hover .svc-exp{grid-template-rows:1fr}
+.svc-exp-c{padding-top:12px;font-size:13px;color:var(--c60);line-height:1.75;max-width:500px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tag{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--c40);border:1px solid var(--c10);padding:4px 8px;border-radius:1px}
+.svc-img{height:120px;overflow:hidden;border-radius:1px;opacity:0;transform:scale(.92) translateX(10px);transition:opacity .45s var(--ease-out),transform .45s var(--ease-out)}
+.svc-row:hover .svc-img{opacity:1;transform:none}
+
+/* ── SPLITE SECTION ── */
+#splite{background:var(--bg);border-top:1px solid var(--c10);overflow:hidden;min-height:600px;display:flex}
+.splite-wrap{display:grid;grid-template-columns:1fr 1fr;width:100%;min-height:600px}
+.splite-left{position:relative;padding:80px 64px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;border-right:1px solid var(--c10)}
+.splite-spotlight{position:absolute;inset:0;pointer-events:none;background:radial-gradient(600px at 50% 50%,rgba(0,85,255,.08),transparent 70%);transition:background .15s;z-index:0}
+.splite-left-content{position:relative;z-index:1}
+.splite-sup{font-family:var(--mono);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--blue);display:inline-flex;align-items:center;gap:10px;margin-bottom:20px}
+.splite-sup::before{content:'';width:20px;height:1px;background:var(--blue);display:block}
+.splite-h{font-family:var(--disp);font-size:clamp(44px,6vw,88px);letter-spacing:-.03em;text-transform:uppercase;line-height:.92;margin-bottom:28px}
+.splite-h .gr{background:linear-gradient(135deg,var(--cream) 0%,rgba(245,237,218,.55) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.splite-p{font-size:14px;line-height:1.85;color:var(--c60);max-width:400px;margin-bottom:32px}
+.splite-right{position:relative;display:flex;align-items:center;justify-content:center;padding:60px 48px;background:var(--bg2);perspective:800px}
+/* AI Dashboard Card */
+.ai-card{width:100%;max-width:400px;background:var(--bg3);border:1px solid var(--c10);border-radius:8px;overflow:hidden;transform-style:preserve-3d;transition:transform .12s var(--ease-out);box-shadow:0 40px 80px rgba(0,0,0,.5)}
+.ai-card-bar{display:flex;align-items:center;gap:7px;padding:14px 18px;border-bottom:1px solid var(--c10);background:rgba(245,237,218,.03)}
+.ai-card-dots span{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:5px}
+.ai-card-dots .d1{background:#ff5f56}.ai-card-dots .d2{background:#ffbd2e}.ai-card-dots .d3{background:#27c93f}
+.ai-card-title{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--c40);margin-left:4px}
+.ai-status{margin-left:auto;display:flex;align-items:center;gap:5px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:#27c93f}
+.ai-status::before{content:'';width:6px;height:6px;border-radius:50%;background:#27c93f;animation:pulse-g .9s ease-in-out infinite alternate}
+@keyframes pulse-g{from{opacity:.4}to{opacity:1}}
+.ai-metrics{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--c10)}
+.ai-metric{background:var(--bg3);padding:18px;text-align:center}
+.ai-m-val{font-family:var(--disp);font-size:clamp(22px,3vw,32px);letter-spacing:-.02em;color:var(--cream);line-height:1}
+.ai-m-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--c40);margin-top:5px}
+.ai-m-val.blue{color:var(--blue)}
+.ai-feed{padding:18px}
+.ai-feed-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--c06);font-size:12px;color:var(--c60)}
+.ai-feed-row:last-child{border-bottom:none}
+.ai-feed-ic{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0}
+.ai-feed-ic.done{background:rgba(39,201,63,.15);color:#27c93f}
+.ai-feed-ic.spin{background:rgba(0,85,255,.15);color:var(--blue);animation:spin 1.2s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ai-graph{padding:18px;border-top:1px solid var(--c10)}
+.ai-graph-bars{display:flex;align-items:flex-end;gap:4px;height:50px}
+.ai-bar{flex:1;background:var(--blue);border-radius:2px 2px 0 0;opacity:.6;transition:opacity .2s}
+.ai-bar:hover{opacity:1}
+.ai-graph-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--c20);margin-top:8px;text-align:center}
+
+/* MISSION */
+#mission{padding:100px 0;text-align:center;background:var(--bg2);border-top:1px solid var(--c10)}
+.mission-body{font-family:var(--disp);font-size:clamp(30px,4.8vw,68px);letter-spacing:-.025em;text-transform:uppercase;line-height:1.1;max-width:1050px;margin:0 auto}
+.mission-blue{color:var(--blue)}
+
+/* WHY */
+#why{background:var(--bg);border-top:1px solid var(--c10)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.why-sub{font-size:14px;color:var(--c60);line-height:1.8;margin:16px 0 40px;max-width:380px}
+.wf{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--c10);transition:all .3s;align-items:flex-start}
+.wf:first-child{border-top:1px solid var(--c10)}
+.wf:hover{padding:20px 12px;margin:0 -12px;background:var(--c03)}
+.wf-ic{width:36px;height:36px;border:1px solid var(--c10);border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px}
+.wf-h{font-family:var(--disp);font-size:15px;text-transform:uppercase;letter-spacing:.02em;margin-bottom:3px}
+.wf-p{font-size:13px;color:var(--c60);line-height:1.65}
+.why-photo{position:relative;height:560px;overflow:hidden;clip-path:inset(0 0 100% 0);transition:clip-path 1.2s var(--ease-out)}
+.why-photo.vis{clip-path:inset(0 0 0% 0)}
+.why-ov{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:28px;background:linear-gradient(to top,rgba(12,12,10,.9) 0%,transparent 55%)}
+.why-stats{display:flex;gap:28px;flex-wrap:wrap}
+.wstat-n{font-family:var(--disp);font-size:clamp(28px,3.8vw,48px);letter-spacing:-.02em;color:var(--cream);line-height:1}
+.wstat-l{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--c40);margin-top:4px}
+.cnt{color:var(--blue)}
+
+/* ── WORLD MAP ── */
+#mapzone{background:var(--bg2);border-top:1px solid var(--c10);padding:100px 0 80px}
+.map-head{text-align:center;margin-bottom:56px}
+.map-container{position:relative;width:100%;max-width:1100px;margin:0 auto}
+#world-canvas{width:100%;display:block;border-radius:4px}
+.map-locations{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:36px}
+.map-loc{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--c60);border:1px solid var(--c10);padding:8px 16px;border-radius:2px;display:flex;align-items:center;gap:7px;transition:all .25s}
+.map-loc::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);animation:maploc 1.4s ease-in-out infinite alternate}
+.map-loc:nth-child(2)::before{animation-delay:.2s}
+.map-loc:nth-child(3)::before{animation-delay:.4s}
+.map-loc:nth-child(4)::before{animation-delay:.6s}
+.map-loc:nth-child(5)::before{animation-delay:.8s}
+.map-loc:hover{border-color:var(--blue);color:var(--cream)}
+@keyframes maploc{from{opacity:.3}to{opacity:1}}
+
+/* PROCESS */
+#process{background:var(--bg2);border-top:1px solid var(--c10)}
+.ps-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--c10);margin-top:48px;gap:1px;background:var(--c10)}
+.ps{background:var(--bg2);padding:36px 24px;transition:background .3s}
+.ps:hover{background:var(--bg3)}
+.ps-n{font-family:var(--disp);font-size:48px;color:var(--blue);opacity:.3;line-height:1;margin-bottom:20px;letter-spacing:-.02em}
+.ps-h{font-family:var(--disp);font-size:16px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px}
+.ps-p{font-size:13px;color:var(--c60);line-height:1.7}
+
+/* CTA */
+#ctaband{padding:120px 0;text-align:center;background:var(--bg);border-top:1px solid var(--c10);position:relative;overflow:hidden}
+#ctaband::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:350px;background:radial-gradient(ellipse,rgba(0,85,255,.07) 0%,transparent 70%);pointer-events:none}
+.cta-sup{font-family:var(--mono);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:16px}
+.cta-h{font-family:var(--disp);font-size:clamp(42px,6.5vw,90px);letter-spacing:-.025em;text-transform:uppercase;line-height:.95;margin-bottom:24px}
+.cta-sub{font-size:14px;color:var(--c60);line-height:1.8;max-width:400px;margin:0 auto 36px}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* CONTACT */
+#contact{background:var(--bg2);border-top:1px solid var(--c10)}
+.ct-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start}
+.ci-list{margin-top:36px;display:flex;flex-direction:column}
+.ci{display:flex;gap:16px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--c10);transition:all .3s}
+.ci:first-child{border-top:1px solid var(--c10)}
+.ci:hover{padding:20px 12px;margin:0 -12px;background:var(--c03)}
+.ci-ic{width:38px;height:38px;border:1px solid var(--c10);border-radius:1px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.ci-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--c40);margin-bottom:4px}
+.ci-val{font-size:14px;font-weight:500;color:var(--c80)}
+.ci-val a:hover{color:var(--blue)}
+.cf{background:var(--bg3);border:1px solid var(--c10);padding:40px;border-radius:2px}
+.cf-h{font-family:var(--disp);font-size:24px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px}
+.cf-sub{font-size:12.5px;color:var(--c60);line-height:1.65;margin-bottom:28px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--c40);margin-bottom:6px}
+.fg input,.fg select,.fg textarea{width:100%;background:var(--bg);border:1px solid var(--c10);border-radius:1px;padding:11px 13px;font-size:13px;color:var(--cream);font-family:var(--body);outline:none;transition:border-color .25s,background .25s;resize:none;-webkit-appearance:none}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(245,237,218,.2)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue);background:rgba(0,85,255,.05)}
+.fg select option{background:var(--bg3);color:var(--cream)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cf-btn{width:100%;background:var(--cream);color:var(--bg);border:none;border-radius:1px;padding:14px;font-family:var(--disp);font-size:13px;letter-spacing:.1em;text-transform:uppercase;transition:all .3s var(--ease-out);display:flex;align-items:center;justify-content:center;gap:10px;margin-top:6px;position:relative;overflow:hidden}
+.cf-btn::before{content:'';position:absolute;inset:0;background:var(--blue);transform:translateY(101%);transition:transform .35s var(--ease-out)}
+.cf-btn:hover::before{transform:none}.cf-btn:hover{color:#fff}
+.cf-btn-txt{position:relative;z-index:1}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
+.ft-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:44px}
+.ft-wm{font-family:var(--disp);font-size:16px;letter-spacing:.1em;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.ft-wm .ft-acc{color:var(--blue)}
+.ft-desc{font-size:12.5px;color:var(--c40);line-height:1.8;max-width:240px}
+.ft-col h5{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--c40);margin-bottom:16px}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ft-col a{font-size:13px;color:var(--c40);transition:color .2s}
+.ft-col a:hover{color:var(--cream)}
+.ft-bot{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid var(--c10);flex-wrap:wrap;gap:12px}
+.ft-copy{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--c20)}
+.ft-soc{display:flex;gap:8px}
+.soc{width:32px;height:32px;border:1px solid var(--c10);border-radius:1px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;color:var(--c40);transition:all .22s}
+.soc:hover{border-color:var(--c40);color:var(--cream)}
+
+/* RTL overrides */
+[dir="rtl"] .hero-kicker::before,[dir="rtl"] .sec-lbl::before,[dir="rtl"] .splite-sup::before{margin-left:0;margin-right:10px;order:-1}
+[dir="rtl"] .ab-grid,[dir="rtl"] .why-grid,[dir="rtl"] .ct-grid{direction:rtl}
+[dir="rtl"] .fm-foot{direction:rtl}
+[dir="rtl"] .svc-row{direction:rtl}
+[dir="rtl"] .hero-content{direction:rtl;text-align:right}
+[dir="rtl"] .hero-kicker{flex-direction:row-reverse;justify-content:flex-end}
+[dir="rtl"] .hero-bottom{flex-direction:row-reverse}
+[dir="rtl"] .hero-scroll{right:auto;left:48px}
+
+/* RESPONSIVE */
+@media(max-width:1024px){.ps-grid{grid-template-columns:1fr 1fr}.ft-grid{grid-template-columns:1fr 1fr}.splite-wrap{grid-template-columns:1fr}}
+@media(max-width:768px){
+  #nav{padding:20px 24px}.wrap{padding:0 24px}.sec{padding:80px 0}
+  .hero-content{padding:0 24px 48px}
+  .ab-grid,.why-grid,.ct-grid{grid-template-columns:1fr}
+  .svc-row{grid-template-columns:44px 1fr;padding:22px 0}.svc-img{display:none}
+  .ps-grid{grid-template-columns:1fr}.ft-grid{grid-template-columns:1fr}
+  .fg-row{grid-template-columns:1fr}.fm-foot{padding:0 24px}
+  .splite-left{padding:52px 28px}.splite-right{padding:40px 24px}
+}
+</style>
+</head>
+<body>
+
+<div id="grain" aria-hidden="true"></div>
+<div id="cur-dot" aria-hidden="true"></div>
+<div id="cur-ring" aria-hidden="true"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-logo">B<span>12</span> VENTURES</div>
+  <div class="ld-bar"></div>
+</div>
+
+<!-- FULLSCREEN MENU -->
+<div id="fullmenu" role="dialog" aria-hidden="true">
+  <nav class="fm-inner">
+    <a class="fm-link" href="#services"  onclick="closeMenu()"><span data-i18n="nav_services">Services</span></a>
+    <a class="fm-link" href="#about"     onclick="closeMenu()"><span data-i18n="nav_about">About</span></a>
+    <a class="fm-link" href="#mapzone"   onclick="closeMenu()"><span data-i18n="nav_global">Global</span></a>
+    <a class="fm-link" href="#process"   onclick="closeMenu()"><span data-i18n="nav_process">Process</span></a>
+    <a class="fm-link" href="#contact"   onclick="closeMenu()"><span style="color:var(--blue)" data-i18n="nav_contact">Contact</span></a>
+  </nav>
+  <div class="fm-foot">
+    <span>+1 (778) 802-4486</span>
+    <span>contact@b12ventures.vip</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">
+    <span class="nav-logo-b">B12</span>&nbsp;VENTURES
+  </a>
+  <div class="nav-right">
+    <!-- Language Switcher -->
+    <div class="lang-sw" role="group" aria-label="Language">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="ar">AR</button>
+    </div>
+    <a href="#contact" class="nav-cta" data-i18n="nav_cta">Get Started →</a>
+    <button class="menu-btn" id="menu-btn" aria-expanded="false">
+      <div class="menu-bars" id="menu-bars"><span></span><span></span></div>
+      <span id="menu-txt" data-i18n="nav_menu">Menu</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-bg" id="hero-bg" aria-hidden="true"></div>
+  <div class="hero-vig" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="hero-kicker" id="hero-kicker">
+      <span data-i18n="hero_kicker">AI-Powered Digital Growth Agency — Vancouver, BC</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="hw" id="hw1"><span class="hi">B12</span></span>
+      <span class="hw accent" id="hw2"><span class="hi" data-i18n="hero_t2">Ventures</span></span><br/>
+      <span class="hw" id="hw3"><span class="hi" data-i18n="hero_t3">Digital</span></span>
+      <span class="hw" id="hw4"><span class="hi" data-i18n="hero_t4">Growth.</span></span>
+    </h1>
+    <div class="hero-bottom" id="hero-bottom">
+      <p class="hero-desc" data-i18n="hero_desc">We help businesses attract more customers, increase sales, and build a stronger online presence through AI automation, digital marketing &amp; immersive virtual experiences.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-solid"><span data-i18n="hero_cta1">Start Growing →</span></a>
+        <a href="#services" class="btn btn-border"><span data-i18n="hero_cta2">Our Services</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="hero-scroll-line"></div>
+    <span class="hero-scroll-txt">Scroll</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mqwrap" aria-hidden="true">
+  <div class="mqtrack">
+    <span class="mqi">Virtual Tours</span><span class="mqi">AI Automation</span><span class="mqi">Digital Marketing</span>
+    <span class="mqi">Web Development</span><span class="mqi">Matterport 3D</span><span class="mqi">Photography &amp; Video</span>
+    <span class="mqi">Google Ads</span><span class="mqi">AI Voice Agents</span><span class="mqi">CRM Automation</span>
+    <span class="mqi">Virtual Tours</span><span class="mqi">AI Automation</span><span class="mqi">Digital Marketing</span>
+    <span class="mqi">Web Development</span><span class="mqi">Matterport 3D</span><span class="mqi">Photography &amp; Video</span>
+    <span class="mqi">Google Ads</span><span class="mqi">AI Voice Agents</span><span class="mqi">CRM Automation</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="sec">
+  <div class="wrap">
+    <div class="ab-grid">
+      <div class="ab-img rv">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=80&auto=format&fit=crop" alt="B12 team" loading="lazy"/>
+      </div>
+      <div>
+        <div class="sec-lbl rv" data-i18n="lbl_mission">Our Mission</div>
+        <h2 class="ab-h rv d1" data-i18n="about_h">Help Businesses Grow Faster With Technology.</h2>
+        <p class="ab-p rv d2" data-i18n="about_p1">At B12 Ventures, we combine <strong>AI automation</strong>, <strong>digital marketing</strong>, and <strong>immersive virtual experiences</strong> to help businesses across Vancouver and beyond attract more customers and increase sales.</p>
+        <p class="ab-p rv d3" data-i18n="about_p2">Our mission is simple: deliver measurable growth while saving you time through smart technology and data-driven solutions.</p>
+        <a href="#contact" class="btn btn-solid rv d4" style="display:inline-flex;margin-top:6px"><span data-i18n="about_cta">Book a Free Strategy Call →</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="sec">
+  <div class="wrap">
+    <div class="svc-hd">
+      <div>
+        <div class="sec-lbl rv" data-i18n="lbl_services">What We Do</div>
+        <h2 class="st rv d1">
+          <span class="sw"><span class="si" data-i18n="svc_h1">Six</span></span>
+          <span class="sw"><span class="si" data-i18n="svc_h2">Services.</span></span>
+          <span class="sw" style="color:var(--blue)"><span class="si" data-i18n="svc_h3">One</span></span>
+          <span class="sw" style="color:var(--blue)"><span class="si" data-i18n="svc_h4">Partner.</span></span>
+        </h2>
+      </div>
+      <p class="svc-hd-r rv d2" data-i18n="svc_sub">Everything your business needs to attract customers, automate operations, and scale — under one roof.</p>
+    </div>
+    <div class="svc-list">
+      <div class="svc-row rv"><div class="svc-num">01</div><div><div class="svc-nm" data-i18n="s1_name">Virtual Tours &amp; 3D Visits</div><div class="svc-exp"><div class="svc-exp-in"><div class="svc-exp-c" data-i18n="s1_desc">Immersive Matterport 360° virtual tours integrated with Google Maps and Google Street View — let customers explore your business from anywhere.<div class="tags"><span class="tag">Matterport 3D</span><span class="tag">Google Street View</span><span class="tag">360° Walkthroughs</span></div></div></div></div></div><div class="svc-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=75&auto=format" alt="" loading="lazy"/></div></div>
+      <div class="svc-row rv d1"><div class="svc-num">02</div><div><div class="svc-nm" data-i18n="s2_name">Photography &amp; Videography</div><div class="svc-exp"><div class="svc-exp-in"><div class="svc-exp-c" data-i18n="s2_desc">High-quality commercial photography, cinematic drone footage, and social-ready reels that convert viewers into customers.<div class="tags"><span class="tag">Commercial Photography</span><span class="tag">Drone Footage</span><span class="tag">Reels</span></div></div></div></div></div><div class="svc-img"><img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=400&q=75&auto=format" alt="" loading="lazy"/></div></div>
+      <div class="svc-row rv d2"><div class="svc-num">03</div><div><div class="svc-nm" data-i18n="s3_name">AI Automation &amp; AI Agents</div><div class="svc-exp"><div class="svc-exp-in"><div class="svc-exp-c" data-i18n="s3_desc">AI chatbots and voice receptionists that work 24/7 to qualify leads, book appointments, and follow up — automatically.<div class="tags"><span class="tag">AI Chatbots</span><span class="tag">Voice Receptionists</span><span class="tag">Lead Qualification</span></div></div></div></div></div><div class="svc-img"><img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=400&q=75&auto=format" alt="" loading="lazy"/></div></div>
+      <div class="svc-row rv d3"><div class="svc-num">04</div><div><div class="svc-nm" data-i18n="s4_name">Digital Marketing &amp; Ads</div><div class="svc-exp"><div class="svc-exp-in"><div class="svc-exp-c" data-i18n="s4_desc">Data-driven Google and Meta campaigns that generate qualified leads and grow your visibility with real, measurable ROI.<div class="tags"><span class="tag">Google Ads</span><span class="tag">Meta Ads</span><span class="tag">Local SEO</span></div></div></div></div></div><div class="svc-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=75&auto=format" alt="" loading="lazy"/></div></div>
+      <div class="svc-row rv d4"><div class="svc-num">05</div><div><div class="svc-nm" data-i18n="s5_name">Website &amp; Landing Page Dev</div><div class="svc-exp"><div class="svc-exp-in"><div class="svc-exp-c" data-i18n="s5_desc">Modern, fast, conversion-focused websites and landing pages built to rank on Google and turn visitors into paying customers.<div class="tags"><span class="tag">Business Websites</span><span class="tag">Landing Pages</span><span class="tag">SEO-Friendly</span></div></div></div></div></div><div class="svc-img"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&q=75&auto=format" alt="" loading="lazy"/></div></div>
+      <div class="svc-row rv d5"><div class="svc-num">06</div><div><div class="svc-nm" data-i18n="s6_name">CRM &amp; Business Automation</div><div class="svc-exp"><div class="svc-exp-in"><div class="svc-exp-c" data-i18n="s6_desc">Centralize operations with Go High Level CRM, automated pipelines, email/SMS workflows, and full customer journey automation.<div class="tags"><span class="tag">GHL CRM</span><span class="tag">Sales Pipelines</span><span class="tag">Email &amp; SMS</span></div></div></div></div></div><div class="svc-img"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=75&auto=format" alt="" loading="lazy"/></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPLITE SECTION -->
+<section id="splite">
+  <div class="splite-wrap">
+    <div class="splite-left" id="splite-left">
+      <div class="splite-spotlight" id="splite-sl"></div>
+      <div class="splite-left-content">
+        <div class="splite-sup rv" data-i18n="splite_lbl">AI-Powered Intelligence</div>
+        <h2 class="splite-h rv d1">
+          <span class="gr" data-i18n="splite_h1">AI-Powered.</span><br/>
+          <span data-i18n="splite_h2">Human-Driven.</span>
+        </h2>
+        <p class="splite-p rv d2" data-i18n="splite_p">Our AI agents handle the repetitive — lead capture, follow-up, appointment booking — while your team focuses on closing deals and delivering exceptional service.</p>
+        <a href="#contact" class="btn btn-solid rv d3" style="display:inline-flex"><span data-i18n="splite_cta">Deploy Your AI Agent →</span></a>
+      </div>
+    </div>
+    <div class="splite-right">
+      <div class="ai-card" id="ai-card">
+        <div class="ai-card-bar">
+          <div class="ai-card-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+          <span class="ai-card-title" data-i18n="card_title">AI Agent — Live Dashboard</span>
+          <div class="ai-status" data-i18n="card_status">Active</div>
+        </div>
+        <div class="ai-metrics">
+          <div class="ai-metric"><div class="ai-m-val blue cnt" data-to="47">0</div><div class="ai-m-lbl" data-i18n="card_m1">Leads Today</div></div>
+          <div class="ai-metric"><div class="ai-m-val">0.3s</div><div class="ai-m-lbl" data-i18n="card_m2">Response</div></div>
+          <div class="ai-metric"><div class="ai-m-val"><span class="cnt" data-to="34">0</span>%</div><div class="ai-m-lbl" data-i18n="card_m3">Conversion</div></div>
+        </div>
+        <div class="ai-feed">
+          <div class="ai-feed-row"><div class="ai-feed-ic done">✓</div><span data-i18n="feed1">Lead captured → Email sent in 0.3s</span></div>
+          <div class="ai-feed-row"><div class="ai-feed-ic done">✓</div><span data-i18n="feed2">Calendar appointment booked</span></div>
+          <div class="ai-feed-row"><div class="ai-feed-ic done">✓</div><span data-i18n="feed3">Follow-up SMS sent</span></div>
+          <div class="ai-feed-row"><div class="ai-feed-ic spin">↻</div><span id="feed-live" data-i18n="feed4">Qualifying new lead...</span></div>
+        </div>
+        <div class="ai-graph">
+          <div class="ai-graph-bars" id="ai-bars"></div>
+          <div class="ai-graph-lbl" data-i18n="card_graph">Leads / Last 7 Days</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section id="mission">
+  <div class="wrap">
+    <p class="mission-body rv" data-i18n="mission_body">Our Mission — <span class="mission-blue">Help Businesses Grow Faster</span> While Saving Time Through Technology &amp; Smart Marketing.</p>
+  </div>
+</section>
+
+<!-- WHY B12 -->
+<section id="why" class="sec">
+  <div class="wrap">
+    <div class="why-grid">
+      <div>
+        <div class="sec-lbl rv" data-i18n="lbl_why">Why B12 Ventures</div>
+        <h2 class="st rv d1">
+          <span class="sw"><span class="si" data-i18n="why_h1">Your</span></span>
+          <span class="sw"><span class="si" data-i18n="why_h2">Growth</span></span>
+          <span class="sw" style="color:var(--blue)"><span class="si" data-i18n="why_h3">Is Our</span></span>
+          <span class="sw" style="color:var(--blue)"><span class="si" data-i18n="why_h4">Mission.</span></span>
+        </h2>
+        <p class="why-sub rv d2" data-i18n="why_sub">We build long-term growth engines using the best technology available — not just one-off campaigns.</p>
+        <div class="rv d3">
+          <div class="wf"><div class="wf-ic">🎯</div><div><div class="wf-h" data-i18n="wf1h">Increase Online Visibility</div><div class="wf-p" data-i18n="wf1p">Appear at the top of Google when customers are searching for you.</div></div></div>
+          <div class="wf"><div class="wf-ic">⚡</div><div><div class="wf-h" data-i18n="wf2h">Generate More Leads</div><div class="wf-p" data-i18n="wf2p">Targeted funnels that bring in buyers, not just browsers.</div></div></div>
+          <div class="wf"><div class="wf-ic">🤖</div><div><div class="wf-h" data-i18n="wf3h">Automate Repetitive Tasks</div><div class="wf-p" data-i18n="wf3p">AI handles follow-ups, booking, and support so you focus on growth.</div></div></div>
+          <div class="wf"><div class="wf-ic">🚀</div><div><div class="wf-h" data-i18n="wf4h">Scale Faster With AI</div><div class="wf-p" data-i18n="wf4p">Multiply your team's output without multiplying your costs.</div></div></div>
+          <div class="wf"><div class="wf-ic">🏆</div><div><div class="wf-h" data-i18n="wf5h">Showcase With Virtual Tours</div><div class="wf-p" data-i18n="wf5p">Immersive 3D experiences that give your business a global reach.</div></div></div>
+        </div>
+      </div>
+      <div class="why-photo rv">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80&auto=format&fit=crop" alt="Office" loading="lazy"/>
+        <div class="why-ov">
+          <div class="why-stats">
+            <div><div class="wstat-n"><span class="cnt" data-to="200">0</span>+</div><div class="wstat-l" data-i18n="stat1">Clients Served</div></div>
+            <div><div class="wstat-n"><span class="cnt" data-to="97">0</span>%</div><div class="wstat-l" data-i18n="stat2">Satisfaction</div></div>
+            <div><div class="wstat-n">5×</div><div class="wstat-l" data-i18n="stat3">Avg ROI</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORLD MAP -->
+<section id="mapzone">
+  <div class="wrap">
+    <div class="map-head">
+      <div class="sec-lbl rv" style="justify-content:center" data-i18n="lbl_map">Global Presence</div>
+      <h2 class="st rv d1" style="text-align:center">
+        <span class="sw"><span class="si" data-i18n="map_h1">Serving</span></span>
+        <span class="sw"><span class="si" data-i18n="map_h2">Clients</span></span>
+        <span class="sw" style="color:var(--blue)"><span class="si" data-i18n="map_h3">Worldwide.</span></span>
+      </h2>
+    </div>
+    <div class="map-container rv">
+      <canvas id="world-canvas" height="400"></canvas>
+    </div>
+    <div class="map-locations rv d1">
+      <div class="map-loc">🇦🇪 <span data-i18n="loc1">Dubai, UAE</span></div>
+      <div class="map-loc">🇲🇦 <span data-i18n="loc2">Morocco</span></div>
+      <div class="map-loc">🇨🇦 <span data-i18n="loc3">Canada</span></div>
+      <div class="map-loc">🇺🇸 <span data-i18n="loc4">United States</span></div>
+      <div class="map-loc">🇹🇭 <span data-i18n="loc5">Thailand</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="sec">
+  <div class="wrap">
+    <div class="sec-lbl rv" data-i18n="lbl_process">How It Works</div>
+    <h2 class="st rv d1">
+      <span class="sw"><span class="si" data-i18n="proc_h1">From</span></span>
+      <span class="sw"><span class="si" data-i18n="proc_h2">Strategy</span></span>
+      <span class="sw" style="color:var(--blue)"><span class="si" data-i18n="proc_h3">To Results.</span></span>
+    </h2>
+    <div class="ps-grid">
+      <div class="ps rv d1"><div class="ps-n">01</div><div class="ps-h" data-i18n="ps1h">Discovery Call</div><p class="ps-p" data-i18n="ps1p">A free 30-minute strategy session to understand your business, goals, and challenges — no pressure, just clarity.</p></div>
+      <div class="ps rv d2"><div class="ps-n">02</div><div class="ps-h" data-i18n="ps2h">Custom Strategy</div><p class="ps-p" data-i18n="ps2p">A tailored growth plan combining the right mix of AI, marketing, and technology for your specific industry.</p></div>
+      <div class="ps rv d3"><div class="ps-n">03</div><div class="ps-h" data-i18n="ps3h">Launch &amp; Execute</div><p class="ps-p" data-i18n="ps3p">Our team deploys campaigns, automations, and assets — typically within 48 hours of kick-off.</p></div>
+      <div class="ps rv d4"><div class="ps-n">04</div><div class="ps-h" data-i18n="ps4h">Optimize &amp; Scale</div><p class="ps-p" data-i18n="ps4p">We monitor every metric, optimize weekly, and scale what's working — delivering compounding growth over time.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="ctaband">
+  <div class="wrap">
+    <span class="cta-sup rv" data-i18n="cta_sup">Ready to Grow?</span>
+    <h2 class="cta-h rv d1"><span data-i18n="cta_h1">Let's Build</span><br/><span style="color:var(--blue)" data-i18n="cta_h2">Something Real.</span></h2>
+    <p class="cta-sub rv d2" data-i18n="cta_sub">Book a free 30-minute strategy session. No commitment — just a clear roadmap for growing your business.</p>
+    <div class="cta-btns rv d3">
+      <a href="#contact" class="btn btn-solid"><span data-i18n="cta_btn1">Book Free Strategy Call →</span></a>
+      <a href="tel:+17788024486" class="btn btn-border"><span>📞 +1 (778) 802-4486</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec">
+  <div class="wrap">
+    <div class="ct-grid">
+      <div>
+        <div class="sec-lbl rv" data-i18n="lbl_contact">Get In Touch</div>
+        <h2 class="st rv d1">
+          <span class="sw"><span class="si" data-i18n="ct_h1">Start Your</span></span><br/>
+          <span class="sw" style="color:var(--blue)"><span class="si" data-i18n="ct_h2">Growth Journey.</span></span>
+        </h2>
+        <div class="ci-list">
+          <div class="ci rv d1"><div class="ci-ic">📞</div><div><div class="ci-lbl" data-i18n="ci_phone">Phone</div><div class="ci-val"><a href="tel:+17788024486">+1 (778) 802-4486</a></div></div></div>
+          <div class="ci rv d2"><div class="ci-ic">📧</div><div><div class="ci-lbl" data-i18n="ci_email">Email</div><div class="ci-val"><a href="mailto:contact@b12ventures.vip">contact@b12ventures.vip</a></div></div></div>
+          <div class="ci rv d3"><div class="ci-ic">🌐</div><div><div class="ci-lbl" data-i18n="ci_web">Website</div><div class="ci-val">b12ventures.vip</div></div></div>
+          <div class="ci rv d4"><div class="ci-ic">⏱</div><div><div class="ci-lbl" data-i18n="ci_resp">Response Time</div><div class="ci-val" data-i18n="ci_resp_val">Within 24 hours</div></div></div>
+        </div>
+      </div>
+      <div class="cf rv">
+        <h3 class="cf-h" data-i18n="cf_h">Send A Message</h3>
+        <p class="cf-sub" data-i18n="cf_sub">Tell us about your project — we'll reply within 24 hours.</p>
+        <form id="contact-form" novalidate>
+          <input type="hidden" name="access_key" value="32d4e8ae-4d1f-4990-858e-dc074c55bbbe"/>
+          <input type="hidden" name="subject" value="New Inquiry — B12 Ventures Website"/>
+          <input type="hidden" name="from_name" value="B12 Ventures Website"/>
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off"/>
+          <div class="fg-row">
+            <div class="fg"><label data-i18n="cf_fn">First Name</label><input type="text" name="first_name" placeholder="John" required autocomplete="given-name"/></div>
+            <div class="fg"><label data-i18n="cf_ln">Last Name</label><input type="text" name="last_name" placeholder="Smith" required autocomplete="family-name"/></div>
+          </div>
+          <div class="fg"><label data-i18n="cf_em">Email</label><input type="email" name="email" placeholder="john@company.com" required autocomplete="email"/></div>
+          <div class="fg"><label data-i18n="cf_ph">Phone</label><input type="tel" name="phone" placeholder="+1 (555) 000-0000" autocomplete="tel"/></div>
+          <div class="fg">
+            <label data-i18n="cf_sv">Service of Interest</label>
+            <select name="service"><option value="" disabled selected data-i18n="cf_sv_ph">Select a service...</option>
+              <option data-i18n="sv1">Virtual Tours &amp; Matterport 3D</option>
+              <option data-i18n="sv2">Photography &amp; Videography</option>
+              <option data-i18n="sv3">AI Automation &amp; AI Agents</option>
+              <option data-i18n="sv4">Digital Marketing &amp; Ads</option>
+              <option data-i18n="sv5">Website Development</option>
+              <option data-i18n="sv6">CRM &amp; Business Automation</option>
+            </select>
+          </div>
+          <div class="fg"><label data-i18n="cf_msg">Message</label><textarea name="message" rows="4" placeholder="Tell us about your business..."></textarea></div>
+          <button type="submit" class="cf-btn"><span class="cf-btn-txt" id="cf-btn-txt" data-i18n="cf_send">Send Message →</span></button>
+          <p id="cf-error" style="display:none;font-size:11px;color:#ff5f56;margin-top:10px;text-align:center;font-family:var(--mono)">Something went wrong. Please try again or email us directly.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-wm">
+          <svg width="18" height="18" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" style="color:var(--blue)"><path d="M18 4C14.5 4 12 6.5 11 9C8.5 9 5 11 5 14.5C5 16.5 6 18 7.5 19C6.5 20 6 21.5 6 23C6 25.5 7.5 27.5 10 28C10.5 29.5 12 31 14 31.5L18 32L22 31.5C24 31 25.5 29.5 26 28C28.5 27.5 30 25.5 30 23C30 21.5 29.5 20 28.5 19C30 18 31 16.5 31 14.5C31 11 27.5 9 25 9C24 6.5 21.5 4 18 4Z"/><line x1="18" y1="8" x2="18" y2="32"/><circle cx="12" cy="17" r="1.8" fill="currentColor" stroke="none"/><circle cx="24" cy="17" r="1.8" fill="currentColor" stroke="none"/><circle cx="18" cy="23" r="1.8" fill="currentColor" stroke="none"/></svg>
+          <span class="ft-acc">B12</span> VENTURES
+        </div>
+        <p class="ft-desc" data-i18n="ft_desc">Digital Growth &amp; AI Solutions. Helping businesses attract more customers, increase sales, and build a stronger online presence.</p>
+      </div>
+      <div class="ft-col"><h5 data-i18n="ft_services">Services</h5><ul>
+        <li><a href="#services" data-i18n="s1_name">Virtual Tours</a></li>
+        <li><a href="#services" data-i18n="s2_name">Photography &amp; Video</a></li>
+        <li><a href="#services" data-i18n="s3_name">AI Automation</a></li>
+        <li><a href="#services" data-i18n="s4_name">Digital Marketing</a></li>
+        <li><a href="#services" data-i18n="s5_name">Web Development</a></li>
+        <li><a href="#services" data-i18n="s6_name">CRM Automation</a></li>
+      </ul></div>
+      <div class="ft-col"><h5 data-i18n="ft_company">Company</h5><ul>
+        <li><a href="#about" data-i18n="nav_about">About Us</a></li>
+        <li><a href="#process" data-i18n="nav_process">Process</a></li>
+        <li><a href="#mapzone" data-i18n="nav_global">Global</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+      </ul></div>
+      <div class="ft-col"><h5 data-i18n="ft_contact">Contact</h5><ul>
+        <li><a href="tel:+17788024486">+1 (778) 802-4486</a></li>
+        <li><a href="mailto:contact@b12ventures.vip">contact@b12ventures.vip</a></li>
+        <li><a href="#">b12ventures.vip</a></li>
+      </ul></div>
+    </div>
+    <div class="ft-bot">
+      <span class="ft-copy">© 2025 B12 Ventures. All rights reserved.</span>
+      <div class="ft-soc">
+        <a class="soc" href="#" aria-label="Instagram">IG</a>
+        <a class="soc" href="#" aria-label="LinkedIn">LI</a>
+        <a class="soc" href="#" aria-label="Facebook">FB</a>
+        <a class="soc" href="#" aria-label="YouTube">YT</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){'use strict';
+
+/* ── i18n ── */
+var TRANS={
+  en:{
+    nav_services:'Services',nav_about:'About',nav_global:'Global',nav_process:'Process',
+    nav_contact:'Contact',nav_cta:'Get Started →',nav_menu:'Menu',
+    hero_kicker:'AI-Powered Digital Growth Agency — Vancouver, BC',
+    hero_t2:'Ventures',hero_t3:'Digital',hero_t4:'Growth.',
+    hero_desc:'We help businesses attract more customers, increase sales, and build a stronger online presence through AI automation, digital marketing & immersive virtual experiences.',
+    hero_cta1:'Start Growing →',hero_cta2:'Our Services',
+    lbl_mission:'Our Mission',about_h:'Help Businesses Grow Faster With Technology.',
+    about_p1:'At B12 Ventures, we combine AI automation, digital marketing, and immersive virtual experiences to help businesses attract more customers and increase sales.',
+    about_p2:'Our mission: deliver measurable growth while saving you time through smart technology.',
+    about_cta:'Book a Free Strategy Call →',
+    lbl_services:'What We Do',svc_h1:'Six',svc_h2:'Services.',svc_h3:'One',svc_h4:'Partner.',
+    svc_sub:'Everything your business needs to attract customers, automate, and scale.',
+    s1_name:'Virtual Tours & 3D Visits',s2_name:'Photography & Videography',
+    s3_name:'AI Automation & AI Agents',s4_name:'Digital Marketing & Ads',
+    s5_name:'Website & Landing Page Dev',s6_name:'CRM & Business Automation',
+    splite_lbl:'AI-Powered Intelligence',splite_h1:'AI-Powered.',splite_h2:'Human-Driven.',
+    splite_p:'Our AI agents handle lead capture, follow-up, and appointment booking — while your team focuses on closing deals.',
+    splite_cta:'Deploy Your AI Agent →',
+    card_title:'AI Agent — Live',card_status:'Active',
+    card_m1:'Leads Today',card_m2:'Response',card_m3:'Conversion',card_graph:'Leads / Last 7 Days',
+    feed1:'Lead captured → Email sent in 0.3s',feed2:'Calendar appointment booked',
+    feed3:'Follow-up SMS sent',feed4:'Qualifying new lead...',
+    mission_body:'Our Mission — Help Businesses Grow Faster While Saving Time Through Technology & Smart Marketing.',
+    lbl_why:'Why B12 Ventures',why_h1:'Your',why_h2:'Growth',why_h3:'Is Our',why_h4:'Mission.',
+    why_sub:'We build long-term growth engines using the best technology available.',
+    wf1h:'Increase Online Visibility',wf1p:'Appear at the top of Google when customers search for you.',
+    wf2h:'Generate More Leads',wf2p:'Targeted funnels that bring in buyers, not just browsers.',
+    wf3h:'Automate Repetitive Tasks',wf3p:'AI handles follow-ups, booking, and support.',
+    wf4h:'Scale Faster With AI',wf4p:'Multiply output without multiplying costs.',
+    wf5h:'Showcase With Virtual Tours',wf5p:'Immersive 3D experiences with global reach.',
+    stat1:'Clients Served',stat2:'Satisfaction',stat3:'Avg ROI',
+    lbl_map:'Global Presence',map_h1:'Serving',map_h2:'Clients',map_h3:'Worldwide.',
+    loc1:'Dubai, UAE',loc2:'Morocco',loc3:'Canada',loc4:'United States',loc5:'Thailand',
+    lbl_process:'How It Works',proc_h1:'From',proc_h2:'Strategy',proc_h3:'To Results.',
+    ps1h:'Discovery Call',ps1p:'A free 30-min strategy session — no pressure, just clarity.',
+    ps2h:'Custom Strategy',ps2p:'A tailored plan combining AI, marketing, and technology.',
+    ps3h:'Launch & Execute',ps3p:'Campaigns and automations deployed within 48 hours.',
+    ps4h:'Optimize & Scale',ps4p:'Weekly optimization and compounding growth over time.',
+    cta_sup:'Ready to Grow?',cta_h1:"Let's Build",cta_h2:'Something Real.',
+    cta_sub:'Book a free 30-minute strategy session. No commitment.',
+    cta_btn1:'Book Free Strategy Call →',
+    lbl_contact:'Get In Touch',ct_h1:'Start Your',ct_h2:'Growth Journey.',
+    ci_phone:'Phone',ci_email:'Email',ci_web:'Website',ci_resp:'Response Time',ci_resp_val:'Within 24 hours',
+    cf_h:'Send A Message',cf_sub:"Tell us about your project — we'll reply within 24 hours.",
+    cf_fn:'First Name',cf_ln:'Last Name',cf_em:'Email',cf_ph:'Phone',
+    cf_sv:'Service of Interest',cf_sv_ph:'Select a service...',cf_msg:'Message',cf_send:'Send Message →',
+    sv1:'Virtual Tours & Matterport 3D',sv2:'Photography & Videography',sv3:'AI Automation & AI Agents',
+    sv4:'Digital Marketing & Ads',sv5:'Website Development',sv6:'CRM & Business Automation',
+    ft_desc:'Digital Growth & AI Solutions. Helping businesses attract more customers and increase sales.',
+    ft_services:'Services',ft_company:'Company',ft_contact:'Contact'
+  },
+  fr:{
+    nav_services:'Services',nav_about:'À Propos',nav_global:'Mondial',nav_process:'Processus',
+    nav_contact:'Contact',nav_cta:'Commencer →',nav_menu:'Menu',
+    hero_kicker:'Agence de Croissance Digitale & IA — Vancouver, BC',
+    hero_t2:'Ventures',hero_t3:'Croissance',hero_t4:'Digitale.',
+    hero_desc:"Nous aidons les entreprises à attirer plus de clients, augmenter les ventes et construire une présence en ligne plus forte grâce à l'IA et au marketing digital.",
+    hero_cta1:'Commencer à Croître →',hero_cta2:'Nos Services',
+    lbl_mission:'Notre Mission',about_h:'Aider les Entreprises à Croître Plus Vite.',
+    about_p1:"Chez B12 Ventures, nous combinons l'automatisation IA, le marketing digital et les expériences virtuelles immersives pour aider les entreprises à attirer plus de clients.",
+    about_p2:'Notre mission : livrer une croissance mesurable tout en vous faisant gagner du temps.',
+    about_cta:'Réserver un Appel Stratégique Gratuit →',
+    lbl_services:'Ce Que Nous Faisons',svc_h1:'Six',svc_h2:'Services.',svc_h3:'Un',svc_h4:'Partenaire.',
+    svc_sub:'Tout ce dont votre entreprise a besoin pour attirer des clients et croître.',
+    s1_name:'Visites Virtuelles & 3D',s2_name:'Photographie & Vidéo',
+    s3_name:'Automatisation IA & Agents IA',s4_name:'Marketing Digital & Publicités',
+    s5_name:'Développement Web & Pages',s6_name:'CRM & Automatisation',
+    splite_lbl:'Intelligence IA',splite_h1:'Propulsé par IA.',splite_h2:'Piloté par Humains.',
+    splite_p:"Nos agents IA gèrent la capture de leads, les suivis et les prises de rendez-vous — pendant que votre équipe se concentre sur la conclusion des ventes.",
+    splite_cta:'Déployer Votre Agent IA →',
+    card_title:'Agent IA — En Direct',card_status:'Actif',
+    card_m1:"Leads Aujourd'hui",card_m2:'Réponse',card_m3:'Conversion',card_graph:'Leads / 7 Derniers Jours',
+    feed1:'Lead capturé → Email envoyé en 0.3s',feed2:'Rendez-vous calendrier réservé',
+    feed3:'SMS de suivi envoyé',feed4:'Qualification du nouveau lead...',
+    mission_body:"Notre Mission — Aider les Entreprises à Croître Plus Vite Grâce à la Technologie & au Marketing Intelligent.",
+    lbl_why:'Pourquoi B12 Ventures',why_h1:'Votre',why_h2:'Croissance',why_h3:'Est Notre',why_h4:'Mission.',
+    why_sub:'Nous construisons des moteurs de croissance à long terme avec la meilleure technologie disponible.',
+    wf1h:'Augmenter la Visibilité',wf1p:'Apparaître en haut de Google quand vos clients vous cherchent.',
+    wf2h:'Générer Plus de Leads',wf2p:'Des entonnoirs ciblés qui attirent des acheteurs.',
+    wf3h:'Automatiser les Tâches',wf3p:"L'IA gère les suivis, la réservation et le support.",
+    wf4h:'Croître Avec IA',wf4p:'Multipliez la production sans multiplier les coûts.',
+    wf5h:'Visites Virtuelles',wf5p:'Expériences 3D immersives avec portée mondiale.',
+    stat1:'Clients Servis',stat2:'Satisfaction',stat3:'ROI Moyen',
+    lbl_map:'Présence Mondiale',map_h1:'Servir des',map_h2:'Clients',map_h3:'Partout.',
+    loc1:'Dubaï, EAU',loc2:'Maroc',loc3:'Canada',loc4:'États-Unis',loc5:'Thaïlande',
+    lbl_process:'Comment Ça Marche',proc_h1:'De la',proc_h2:'Stratégie',proc_h3:'Aux Résultats.',
+    ps1h:'Appel de Découverte',ps1p:'Une session stratégique gratuite de 30 min — sans pression.',
+    ps2h:'Stratégie Personnalisée',ps2p:'Un plan sur mesure combinant IA, marketing et technologie.',
+    ps3h:'Lancement & Exécution',ps3p:'Campagnes et automatisations déployées en 48 heures.',
+    ps4h:'Optimisation & Scale',ps4p:'Optimisation hebdomadaire et croissance composée.',
+    cta_sup:'Prêt à Croître ?',cta_h1:'Construisons',cta_h2:'Quelque Chose de Réel.',
+    cta_sub:'Réservez une session stratégique gratuite. Sans engagement.',
+    cta_btn1:'Réserver un Appel Gratuit →',
+    lbl_contact:'Contactez-Nous',ct_h1:'Commencez Votre',ct_h2:'Voyage de Croissance.',
+    ci_phone:'Téléphone',ci_email:'E-mail',ci_web:'Site Web',ci_resp:'Temps de Réponse',ci_resp_val:'Sous 24 heures',
+    cf_h:'Envoyer un Message',cf_sub:"Parlez-nous de votre projet — nous répondons sous 24 heures.",
+    cf_fn:'Prénom',cf_ln:'Nom',cf_em:'E-mail',cf_ph:'Téléphone',
+    cf_sv:'Service Souhaité',cf_sv_ph:'Sélectionner un service...',cf_msg:'Message',cf_send:'Envoyer →',
+    sv1:'Visites Virtuelles & Matterport 3D',sv2:'Photographie & Vidéo',sv3:'Automatisation IA',
+    sv4:'Marketing Digital & Publicités',sv5:'Développement Web',sv6:'CRM & Automatisation',
+    ft_desc:'Croissance Digitale & Solutions IA. Aider les entreprises à attirer plus de clients.',
+    ft_services:'Services',ft_company:'Entreprise',ft_contact:'Contact'
+  },
+  ar:{
+    nav_services:'الخدمات',nav_about:'من نحن',nav_global:'عالمي',nav_process:'العملية',
+    nav_contact:'تواصل',nav_cta:'ابدأ الآن ←',nav_menu:'القائمة',
+    hero_kicker:'وكالة نمو رقمي بالذكاء الاصطناعي — فانكوفر، كندا',
+    hero_t2:'فينتشرز',hero_t3:'نمو',hero_t4:'رقمي.',
+    hero_desc:'نساعد الشركات على جذب المزيد من العملاء وزيادة المبيعات وبناء حضور قوي على الإنترنت من خلال الذكاء الاصطناعي والتسويق الرقمي.',
+    hero_cta1:'← ابدأ النمو',hero_cta2:'خدماتنا',
+    lbl_mission:'مهمتنا',about_h:'مساعدة الشركات على النمو بشكل أسرع.',
+    about_p1:'في B12 Ventures، ندمج الأتمتة بالذكاء الاصطناعي والتسويق الرقمي والتجارب الافتراضية لمساعدة الشركات على جذب المزيد من العملاء.',
+    about_p2:'مهمتنا: تحقيق نمو قابل للقياس مع توفير وقتك من خلال التكنولوجيا الذكية.',
+    about_cta:'← احجز استشارة مجانية',
+    lbl_services:'ما نقدمه',svc_h1:'ست',svc_h2:'خدمات.',svc_h3:'شريك',svc_h4:'واحد.',
+    svc_sub:'كل ما تحتاجه شركتك لجذب العملاء والتوسع تحت سقف واحد.',
+    s1_name:'جولات افتراضية ثلاثية الأبعاد',s2_name:'التصوير الفوتوغرافي والمرئي',
+    s3_name:'أتمتة الذكاء الاصطناعي',s4_name:'التسويق الرقمي والإعلانات',
+    s5_name:'تطوير المواقع والصفحات',s6_name:'CRM وأتمتة الأعمال',
+    splite_lbl:'الذكاء الاصطناعي المتقدم',splite_h1:'مدعوم بالذكاء',splite_h2:'الاصطناعي.',
+    splite_p:'يتولى وكلاء الذكاء الاصطناعي لدينا التقاط العملاء المحتملين والمتابعة وحجز المواعيد — بينما يركز فريقك على إتمام الصفقات.',
+    splite_cta:'← نشر وكيل الذكاء الاصطناعي',
+    card_title:'وكيل ذكاء اصطناعي — مباشر',card_status:'نشط',
+    card_m1:'العملاء اليوم',card_m2:'وقت الرد',card_m3:'معدل التحويل',card_graph:'العملاء / آخر ٧ أيام',
+    feed1:'تم التقاط عميل محتمل ← تم إرسال البريد في 0.3 ثانية',feed2:'تم حجز موعد في التقويم',
+    feed3:'تم إرسال رسالة متابعة',feed4:'تأهيل عميل محتمل جديد...',
+    mission_body:'مهمتنا — مساعدة الشركات على النمو بشكل أسرع مع توفير الوقت من خلال التكنولوجيا والتسويق الذكي.',
+    lbl_why:'لماذا B12',why_h1:'نموك',why_h2:'هو',why_h3:'مهمتنا.',why_h4:'',
+    why_sub:'نبني محركات نمو طويلة الأمد باستخدام أفضل التقنيات المتاحة.',
+    wf1h:'زيادة الظهور الرقمي',wf1p:'اظهر في قمة نتائج البحث عندما يبحث عنك العملاء.',
+    wf2h:'توليد المزيد من العملاء',wf2p:'قمع تسويقي موجه يجذب المشترين لا المتصفحين.',
+    wf3h:'أتمتة المهام المتكررة',wf3p:'الذكاء الاصطناعي يتولى المتابعة والحجز والدعم.',
+    wf4h:'التوسع بالذكاء الاصطناعي',wf4p:'ضاعف إنتاجية فريقك دون مضاعفة التكاليف.',
+    wf5h:'الجولات الافتراضية',wf5p:'تجارب ثلاثية الأبعاد غامرة بحضور عالمي.',
+    stat1:'عميل تم خدمته',stat2:'معدل الرضا',stat3:'متوسط العائد',
+    lbl_map:'الحضور العالمي',map_h1:'نخدم',map_h2:'عملاء',map_h3:'حول العالم.',
+    loc1:'دبي، الإمارات',loc2:'المغرب',loc3:'كندا',loc4:'الولايات المتحدة',loc5:'تايلاند',
+    lbl_process:'كيف نعمل',proc_h1:'من',proc_h2:'الاستراتيجية',proc_h3:'إلى النتائج.',
+    ps1h:'مكالمة استكشاف',ps1p:'جلسة استراتيجية مجانية لمدة 30 دقيقة — بدون ضغط.',
+    ps2h:'استراتيجية مخصصة',ps2p:'خطة نمو مصممة خصيصاً لصناعتك.',
+    ps3h:'الإطلاق والتنفيذ',ps3p:'نشر الحملات والأتمتة في غضون 48 ساعة.',
+    ps4h:'التحسين والتوسع',ps4p:'تحسين أسبوعي ونمو مضاعف مع مرور الوقت.',
+    cta_sup:'هل أنت مستعد للنمو؟',cta_h1:'لنبني',cta_h2:'شيئاً حقيقياً.',
+    cta_sub:'احجز جلسة استراتيجية مجانية لمدة 30 دقيقة. بدون التزام.',
+    cta_btn1:'← احجز مكالمة مجانية',
+    lbl_contact:'تواصل معنا',ct_h1:'ابدأ',ct_h2:'رحلة نموك.',
+    ci_phone:'الهاتف',ci_email:'البريد الإلكتروني',ci_web:'الموقع الإلكتروني',ci_resp:'وقت الرد',ci_resp_val:'خلال 24 ساعة',
+    cf_h:'أرسل رسالة',cf_sub:'أخبرنا عن مشروعك — سنرد خلال 24 ساعة.',
+    cf_fn:'الاسم الأول',cf_ln:'اسم العائلة',cf_em:'البريد الإلكتروني',cf_ph:'الهاتف',
+    cf_sv:'الخدمة المطلوبة',cf_sv_ph:'اختر خدمة...',cf_msg:'الرسالة',cf_send:'← إرسال',
+    sv1:'جولات افتراضية & Matterport',sv2:'التصوير والفيديو',sv3:'أتمتة الذكاء الاصطناعي',
+    sv4:'التسويق الرقمي والإعلانات',sv5:'تطوير المواقع',sv6:'CRM وأتمتة الأعمال',
+    ft_desc:'نمو رقمي وحلول ذكاء اصطناعي. نساعد الشركات على جذب المزيد من العملاء وزيادة المبيعات.',
+    ft_services:'الخدمات',ft_company:'الشركة',ft_contact:'تواصل'
+  }
+};
+
+var currentLang='en';
+function setLang(lang){
+  currentLang=lang;
+  var t=TRANS[lang];
+  var html=document.getElementById('html-root');
+  if(lang==='ar'){html.setAttribute('dir','rtl');html.setAttribute('lang','ar')}
+  else{html.setAttribute('dir','ltr');html.setAttribute('lang',lang)}
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(t[k]!==undefined) el.innerHTML=t[k];
+  });
+  document.querySelectorAll('.lang-btn').forEach(function(b){
+    b.classList.toggle('active',b.getAttribute('data-lang')===lang);
+  });
+}
+document.querySelectorAll('.lang-btn').forEach(function(b){
+  b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'))});
+});
+
+/* ── Touch ── */
+if('ontouchstart' in window) document.body.classList.add('touch');
+
+/* ── Loader ── */
+window.addEventListener('load',function(){
+  setTimeout(function(){
+    document.getElementById('loader').classList.add('done');
+    startHero();
+  },1300);
+});
+function startHero(){
+  var k=document.getElementById('hero-kicker');
+  if(k) k.classList.add('in');
+  ['hw1','hw2','hw3','hw4'].forEach(function(id,i){
+    setTimeout(function(){var e=document.getElementById(id);if(e)e.classList.add('in');},180+i*110);
+  });
+  setTimeout(function(){var b=document.getElementById('hero-bottom');if(b)b.classList.add('in');},780);
+}
+
+/* ── Cursor ── */
+(function(){
+  var dot=document.getElementById('cur-dot'),ring=document.getElementById('cur-ring');
+  if(!dot||!ring)return;
+  var mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+  (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
+  document.querySelectorAll('a,button,[role=button],input,textarea,select').forEach(function(el){
+    el.addEventListener('mouseenter',function(){dot.classList.add('hv');ring.classList.add('hv');});
+    el.addEventListener('mouseleave',function(){dot.classList.remove('hv');ring.classList.remove('hv');});
+  });
+})();
+
+/* ── Nav scroll ── */
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',scrollY>60);},{passive:true});
+
+/* ── Menu ── */
+var menuOpen=false;
+function closeMenu(){
+  menuOpen=false;
+  document.getElementById('fullmenu').classList.remove('open');
+  document.getElementById('fullmenu').setAttribute('aria-hidden','true');
+  document.getElementById('menu-bars').classList.remove('open');
+  document.getElementById('menu-txt').setAttribute('data-i18n','nav_menu');
+  document.getElementById('menu-txt').textContent=TRANS[currentLang].nav_menu||'Menu';
+  document.getElementById('menu-btn').setAttribute('aria-expanded','false');
+}
+document.getElementById('menu-btn').addEventListener('click',function(){
+  if(menuOpen){closeMenu();}
+  else{
+    menuOpen=true;
+    document.getElementById('fullmenu').classList.add('open');
+    document.getElementById('fullmenu').setAttribute('aria-hidden','false');
+    document.getElementById('menu-bars').classList.add('open');
+    document.getElementById('menu-txt').textContent='✕';
+    document.getElementById('menu-btn').setAttribute('aria-expanded','true');
+  }
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menuOpen)closeMenu();});
+
+/* ── Smooth anchor ── */
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var t=document.querySelector(this.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+
+/* ── IntersectionObserver ── */
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}
+  });
+},{threshold:.08});
+document.querySelectorAll('.rv,.st,.ab-img,.why-photo').forEach(function(el){obs.observe(el);});
+
+/* ── Counter ── */
+function animCnt(el){
+  var to=parseInt(el.getAttribute('data-to'),10),dur=1800,start=performance.now();
+  (function step(now){
+    var p=Math.min((now-start)/dur,1),ep=p===1?1:1-Math.pow(2,-10*p);
+    el.textContent=Math.floor(ep*to);
+    if(p<1)requestAnimationFrame(step);else el.textContent=to;
+  })(start);
+}
+var cntObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){animCnt(e.target);cntObs.unobserve(e.target);}});
+},{threshold:.5});
+document.querySelectorAll('.cnt[data-to]').forEach(function(el){cntObs.observe(el);});
+
+/* ── Hero parallax ── */
+var heroBg=document.getElementById('hero-bg');
+window.addEventListener('scroll',function(){if(heroBg)heroBg.style.transform='translateY('+(scrollY*.35)+'px)';},{passive:true});
+
+/* ── Magnetic buttons ── */
+document.querySelectorAll('.btn').forEach(function(b){
+  b.addEventListener('mousemove',function(e){
+    var r=b.getBoundingClientRect();
+    b.style.transform='translate('+(e.clientX-r.left-r.width/2)*.16+'px,'+(e.clientY-r.top-r.height/2)*.16+'px)';
+  });
+  b.addEventListener('mouseleave',function(){b.style.transform='';});
+});
+
+/* ── Splite Spotlight ── */
+var sl=document.getElementById('splite-sl'),sl2=document.getElementById('splite-left');
+if(sl&&sl2){
+  sl2.addEventListener('mousemove',function(e){
+    var r=sl2.getBoundingClientRect();
+    sl.style.background='radial-gradient(600px at '+(e.clientX-r.left)+'px '+(e.clientY-r.top)+'px,rgba(0,85,255,.12),transparent 70%)';
+  });
+  sl2.addEventListener('mouseleave',function(){
+    sl.style.background='radial-gradient(600px at 50% 50%,rgba(0,85,255,.06),transparent 70%)';
+  });
+}
+
+/* ── Splite Card 3D tilt ── */
+var card=document.getElementById('ai-card'),cardWrap=document.querySelector('.splite-right');
+if(card&&cardWrap){
+  cardWrap.addEventListener('mousemove',function(e){
+    var r=cardWrap.getBoundingClientRect();
+    var x=(e.clientX-r.left-r.width/2)/(r.width/2);
+    var y=(e.clientY-r.top-r.height/2)/(r.height/2);
+    card.style.transform='rotateY('+(x*8)+'deg) rotateX('+(-y*6)+'deg) translateZ(20px)';
+  });
+  cardWrap.addEventListener('mouseleave',function(){card.style.transform='';});
+}
+
+/* ── AI Card graph bars ── */
+(function(){
+  var bars=document.getElementById('ai-bars');
+  if(!bars)return;
+  var h=[30,55,40,70,45,85,60];
+  h.forEach(function(v){
+    var d=document.createElement('div');
+    d.className='ai-bar';d.style.height=(v/100*50)+'px';
+    d.style.animationDelay=(Math.random()*.3)+'s';
+    bars.appendChild(d);
+  });
+})();
+
+/* ── AI Feed live animation ── */
+(function(){
+  var el=document.getElementById('feed-live');if(!el)return;
+  var msgs=['Qualifying new lead...','Processing form submission...','Sending automated reply...','Booking appointment slot...','Updating CRM record...'];
+  var i=0;
+  setInterval(function(){i=(i+1)%msgs.length;el.style.opacity='0';setTimeout(function(){el.textContent=msgs[i];el.style.opacity='1';},300);},3000);
+})();
+
+/* ── Hero Particle Canvas ── */
+(function(){
+  var c=document.getElementById('hero-canvas');if(!c)return;
+  var ctx=c.getContext('2d');
+  var W,H,pts=[];
+  var mouse={x:-999,y:-999};
+  function resize(){W=c.width=c.offsetWidth||innerWidth;H=c.height=c.offsetHeight||innerHeight;}
+  window.addEventListener('resize',resize,{passive:true});resize();
+  var N=Math.min(70,Math.floor(W*H/14000));
+  for(var i=0;i<N;i++) pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,r:Math.random()*1.2+.4,c:Math.random()>.5?'blue':'cyan'});
+  document.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
+  function tick(){
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(function(p){
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+      var dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<100){var f=(100-d)/100*.3;p.vx+=dx/d*f;p.vy+=dy/d*f;}
+      var sp=Math.sqrt(p.vx*p.vx+p.vy*p.vy);if(sp>1){p.vx/=sp;p.vy/=sp;}
+    });
+    for(var a=0;a<pts.length;a++)for(var b=a+1;b<pts.length;b++){
+      var dx=pts[a].x-pts[b].x,dy=pts[a].y-pts[b].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<130){ctx.beginPath();ctx.moveTo(pts[a].x,pts[a].y);ctx.lineTo(pts[b].x,pts[b].y);ctx.strokeStyle='rgba(0,85,255,'+(1-d/130)*.1+')';ctx.lineWidth=.7;ctx.stroke();}
+    }
+    pts.forEach(function(p){ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.c==='blue'?'rgba(0,85,255,.6)':'rgba(0,200,180,.5)';ctx.fill();});
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+/* ── WORLD MAP CANVAS ── */
+(function(){
+  var c=document.getElementById('world-canvas');if(!c)return;
+  var ctx=c.getContext('2d');
+
+  /* Simplified continent polygons [lng,lat] */
+  var LAND=[
+    /* North America */
+    [[-168,60],[-130,54],[-125,50],[-95,50],[-75,45],[-60,46],[-53,47],[-53,58],[-60,68],[-78,74],[-95,80],[-130,80],[-168,72],[-168,60]],
+    /* USA + Mexico */
+    [[-125,49],[-67,47],[-67,25],[-87,16],[-92,18],[-87,16],[-83,10],[-78,8],[-80,8],[-85,10],[-90,16],[-100,20],[-117,32],[-125,49]],
+    /* South America */
+    [[-80,12],[-65,12],[-52,5],[-35,-10],[-34,-34],[-52,-55],[-68,-55],[-75,-50],[-80,-35],[-80,8],[-80,12]],
+    /* Europe */
+    [[-10,36],[10,36],[15,37],[28,36],[37,37],[42,42],[40,52],[35,60],[28,72],[18,72],[5,62],[-2,60],[-5,58],[-10,56],[-10,44],[-10,36]],
+    /* Africa */
+    [[-18,16],[52,18],[52,10],[44,12],[52,5],[52,-15],[35,-35],[15,-35],[10,-20],[0,5],[-5,5],[-15,10],[-18,16]],
+    /* Russia/N Asia */
+    [[25,55],[50,58],[80,60],[130,60],[165,55],[180,55],[180,75],[130,75],[100,78],[50,72],[25,72],[25,55]],
+    /* Middle East + S Asia */
+    [[25,38],[75,38],[80,36],[92,22],[80,8],[78,6],[70,22],[60,22],[45,15],[38,10],[44,12],[44,28],[38,36],[25,38]],
+    /* SE Asia / China */
+    [[100,52],[140,52],[145,38],[130,30],[125,22],[115,18],[102,2],[102,-5],[118,-8],[110,1],[103,2],[100,5],[100,22],[108,22],[130,30],[140,36],[145,44],[145,55],[130,60],[100,52]],
+    /* Australia */
+    [[114,-18],[154,-18],[154,-39],[140,-40],[130,-38],[116,-32],[114,-24],[114,-18]],
+    /* Greenland */
+    [[-75,83],[-15,83],[-15,72],[-45,72],[-75,78],[-75,83]],
+    /* Japan */
+    [[130,31],[145,31],[145,45],[132,45],[130,31]],
+    /* UK + Ireland (rough) */
+    [[-8,50],[2,50],[2,52],[-2,54],[-6,58],[-8,58],[-8,52],[-8,50]]
+  ];
+
+  function pip(lng,lat,poly){
+    var inside=false;
+    for(var i=0,j=poly.length-1;i<poly.length;j=i++){
+      var xi=poly[i][0],yi=poly[i][1],xj=poly[j][0],yj=poly[j][1];
+      if(((yi>lat)!==(yj>lat))&&(lng<(xj-xi)*(lat-yi)/(yj-yi)+xi)) inside=!inside;
+    }
+    return inside;
+  }
+  function isLand(lng,lat){return LAND.some(function(p){return pip(lng,lat,p);});}
+
+  function project(lng,lat,W,H){
+    return {x:(lng+180)/360*W, y:(90-lat)/180*H};
+  }
+
+  /* Locations */
+  var LOCS=[
+    {name:'Dubai',     lng:55.3,  lat:25.2,  flag:'🇦🇪'},
+    {name:'Morocco',   lng:-5.0,  lat:32.0,  flag:'🇲🇦'},
+    {name:'Canada',    lng:-96.0, lat:56.0,  flag:'🇨🇦'},
+    {name:'USA',       lng:-95.0, lat:39.0,  flag:'🇺🇸'},
+    {name:'Thailand',  lng:101.5, lat:14.0,  flag:'🇹🇭'}
+  ];
+
+  /* Arc connections */
+  var ARCS=[[0,1],[1,2],[2,3],[3,0],[0,4],[4,2]];
+
+  var W,H;
+  function draw(){
+    W=c.width=c.parentElement.offsetWidth;
+    H=c.height=400;
+    ctx.clearRect(0,0,W,H);
+
+    /* Dots */
+    var cols=90,rows=45;
+    for(var r=0;r<rows;r++){
+      for(var col2=0;col2<cols;col2++){
+        var lng=(col2/cols)*360-180;
+        var lat=90-(r/rows)*180;
+        if(isLand(lng,lat)){
+          var p=project(lng,lat,W,H);
+          ctx.beginPath();ctx.arc(p.x,p.y,1.6,0,Math.PI*2);
+          ctx.fillStyle='rgba(245,237,218,0.15)';ctx.fill();
+        }
+      }
+    }
+
+    /* Arc lines */
+    var t=Date.now()/1000;
+    ARCS.forEach(function(pair,idx){
+      var a=LOCS[pair[0]],b=LOCS[pair[1]];
+      var pa=project(a.lng,a.lat,W,H),pb=project(b.lng,b.lat,W,H);
+      var cpx=(pa.x+pb.x)/2,cpy=Math.min(pa.y,pb.y)-H*0.12;
+      var prog=(Math.sin(t*0.7+idx*1.1)+1)/2;
+      var steps=60;
+      ctx.beginPath();
+      var first=true;
+      for(var s=0;s<=Math.floor(steps*prog);s++){
+        var tt=s/steps;
+        var x=(1-tt)*(1-tt)*pa.x+2*(1-tt)*tt*cpx+tt*tt*pb.x;
+        var y=(1-tt)*(1-tt)*pa.y+2*(1-tt)*tt*cpy+tt*tt*pb.y;
+        if(first){ctx.moveTo(x,y);first=false;}else ctx.lineTo(x,y);
+      }
+      ctx.strokeStyle='rgba(0,85,255,0.55)';ctx.lineWidth=1.5;
+      ctx.setLineDash([4,3]);ctx.stroke();ctx.setLineDash([]);
+    });
+
+    /* Pulsing markers */
+    var pulse=(Math.sin(t*2)+1)/2;
+    LOCS.forEach(function(loc){
+      var p=project(loc.lng,loc.lat,W,H);
+      /* Outer pulse */
+      ctx.beginPath();ctx.arc(p.x,p.y,6+pulse*6,0,Math.PI*2);
+      ctx.strokeStyle='rgba(0,85,255,'+(0.5-pulse*0.4)+')';ctx.lineWidth=1.5;ctx.stroke();
+      /* Inner dot */
+      ctx.beginPath();ctx.arc(p.x,p.y,4,0,Math.PI*2);
+      ctx.fillStyle='#0055ff';ctx.fill();
+      ctx.beginPath();ctx.arc(p.x,p.y,2,0,Math.PI*2);
+      ctx.fillStyle='#fff';ctx.fill();
+      /* Label */
+      ctx.font='bold 10px "Space Mono",monospace';
+      ctx.fillStyle='rgba(245,237,218,0.8)';
+      ctx.textAlign='center';
+      ctx.fillText(loc.name,p.x,p.y-12);
+    });
+  }
+
+  draw();
+  window.addEventListener('resize',draw,{passive:true});
+  (function anim(){draw();requestAnimationFrame(anim);})();
+})();
+
+/* ── Contact Form (Web3Forms) ── */
+(function(){
+  var form=document.getElementById('contact-form');
+  var btn=document.getElementById('cf-btn-txt');
+  var errEl=document.getElementById('cf-error');
+  var defaultTxt=function(){return TRANS[currentLang].cf_send||'Send Message →';};
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    errEl.style.display='none';
+    btn.textContent='Sending...';
+
+    var formData=new FormData(form);
+    fetch('https://api.web3forms.com/submit',{
+      method:'POST',
+      headers:{'Accept':'application/json'},
+      body:formData
+    })
+    .then(function(res){return res.json();})
+    .then(function(data){
+      if(data.success){
+        btn.textContent='✓ Sent! We\'ll reply within 24h';
+        form.reset();
+      } else {
+        throw new Error(data.message||'Submission failed');
+      }
+    })
+    .catch(function(){
+      btn.textContent=defaultTxt();
+      errEl.style.display='block';
+    })
+    .finally(function(){
+      setTimeout(function(){
+        btn.setAttribute('data-i18n','cf_send');
+        btn.textContent=defaultTxt();
+      },5000);
+    });
+  });
+})();
+
+})();
+</script>
+</body>
+</html>
