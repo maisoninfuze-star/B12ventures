@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Terms &amp; Conditions — B12 VENTURES</title>
+<meta name="description" content="Terms and Conditions of B12 Ventures, including our SMS/text messaging program terms (opt-in, STOP, HELP, message frequency and rates)."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#0c0c0a;--bg2:#141412;--cream:#f5edda;--c80:rgba(245,237,218,.8);--c60:rgba(245,237,218,.6);
+  --c40:rgba(245,237,218,.4);--c20:rgba(245,237,218,.2);--c10:rgba(245,237,218,.1);
+  --blue:#0055ff;--mono:'Space Mono',monospace;--disp:'Anton',sans-serif;--body:'Inter',sans-serif;
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scrollbar-width:thin;scrollbar-color:var(--c20) transparent}
+body{font-family:var(--body);background:var(--bg);color:var(--cream);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:inherit;border:none;background:none;color:inherit}
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:rgba(12,12,10,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--c10)}
+.nav-logo{font-family:var(--disp);font-size:15px;letter-spacing:.12em}
+.nav-logo-b{color:var(--blue)}
+.nav-back{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--c60)}
+.nav-back:hover{color:var(--cream)}
+.wrap{max-width:860px;margin:0 auto;padding:0 32px}
+header{padding:150px 0 40px}
+.kicker{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.kicker::before{content:'';width:28px;height:1px;background:var(--blue)}
+h1{font-family:var(--disp);font-size:clamp(38px,7vw,72px);letter-spacing:-.02em;line-height:.95;text-transform:uppercase;margin-bottom:20px}
+.updated{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--c40)}
+.langtog{display:inline-flex;gap:2px;border:1px solid var(--c10);border-radius:2px;overflow:hidden;margin-top:24px}
+.langtog button{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:8px 16px;color:var(--c40)}
+.langtog button.on{background:var(--blue);color:#fff}
+main{padding:20px 0 100px}
+h2{font-family:var(--disp);font-size:clamp(19px,2.4vw,26px);letter-spacing:.02em;text-transform:uppercase;margin:44px 0 14px;color:var(--cream)}
+h3{font-size:14px;font-weight:600;margin:24px 0 8px;color:var(--c80)}
+p,li{font-size:14px;line-height:1.85;color:var(--c60);margin-bottom:12px}
+ul{padding-left:20px;margin-bottom:12px}
+li{margin-bottom:6px}
+strong{color:var(--cream);font-weight:600}
+a.lnk{color:var(--blue);border-bottom:1px solid rgba(0,85,255,.35)}
+.box{border:1px solid var(--c10);background:var(--bg2);padding:22px 24px;border-radius:2px;margin:18px 0}
+.box p:last-child{margin-bottom:0}
+footer{border-top:1px solid var(--c10);padding:36px 0}
+.ft{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.ft-wm{font-family:var(--disp);font-size:13px;letter-spacing:.12em}
+.ft-acc{color:var(--blue)}
+.ft-l{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--c40)}
+.ft-l:hover{color:var(--cream)}
+#fr{display:none}
+html.show-fr #en{display:none}
+html.show-fr #fr{display:block}
+@media(max-width:768px){#nav{padding:16px 24px}header{padding:120px 0 30px}}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><span class="nav-logo-b">B12</span>&nbsp;VENTURES</a>
+  <a href="index.html" class="nav-back">← Home</a>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">Legal</div>
+    <h1>Terms &amp;<br/>Conditions.</h1>
+    <div class="updated">Last updated: July 18, 2026 · Dernière mise à jour : 18 juillet 2026</div>
+    <div class="langtog">
+      <button id="btn-en" class="on" onclick="setL('en')">English</button>
+      <button id="btn-fr" onclick="setL('fr')">Français</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+  <!-- ============ ENGLISH ============ -->
+  <div id="en" lang="en">
+
+    <h2>1. Agreement to Terms</h2>
+    <p>These Terms &amp; Conditions ("Terms") govern your use of the website <strong>b12ventures.com</strong> (the "Site") and the services offered by <strong>B12 Ventures</strong> ("B12 Ventures," "we," "us," or "our"), a digital growth and AI solutions agency operating in Laval, Québec, Canada. By accessing the Site, submitting a form, or using our services, you agree to be bound by these Terms. If you do not agree, please do not use the Site.</p>
+
+    <h2>2. Our Services</h2>
+    <p>B12 Ventures provides digital services to businesses, including website design and development, Matterport 3D virtual tours, photography and video, AI automation, digital marketing, and CRM automation. Specific engagements are governed by the written proposal, quote, or agreement provided for that engagement; these Terms apply in addition to any such agreement.</p>
+
+    <h2>3. SMS / Text Messaging Terms &amp; Conditions</h2>
+    <p>B12 Ventures operates a text messaging program (the "Messaging Program") to communicate with clients and prospective clients who have opted in. By opting in, you consent to receive text messages from B12 Ventures at the mobile number you provided. Consent is not a condition of purchasing any goods or services.</p>
+
+    <h3>3.1 Types of Messages</h3>
+    <ul>
+      <li><strong>Informational / customer-care messages</strong> — replies to your inquiries, appointment confirmations and reminders, project and service updates, and account notifications.</li>
+      <li><strong>Marketing messages</strong> — special offers, promotions, and service updates. Marketing messages are only sent if you have given separate, express consent for marketing.</li>
+    </ul>
+
+    <h3>3.2 How You Opt In</h3>
+    <p>You can opt in to the Messaging Program by checking the applicable consent box(es) on the contact form of this Site, or by otherwise providing us your express written consent. Consent checkboxes are optional and never pre-selected.</p>
+
+    <h3>3.3 Message Frequency &amp; Rates</h3>
+    <div class="box">
+      <p><strong>Message and data rates may apply</strong> for any messages sent to you from us and to us from you. Message frequency varies depending on your interactions with us (for example: replies to inquiries, appointment reminders, and occasional offers if you opted in to marketing). If you have any questions about your text plan or data plan, please contact your wireless provider.</p>
+    </div>
+
+    <h3>3.4 How to Opt Out (STOP)</h3>
+    <div class="box">
+      <p>You can cancel the SMS service at any time. Simply text <strong>"STOP"</strong> to <strong>+1 (778) 802-4486</strong>. After you send the SMS message "STOP" to us, we will send you an SMS message to confirm that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, simply sign up as you did the first time and we will start sending SMS messages to you again.</p>
+    </div>
+
+    <h3>3.5 Help (HELP)</h3>
+    <div class="box">
+      <p>If you are experiencing issues with the Messaging Program, you can reply with the keyword <strong>"HELP"</strong> for more assistance, or you can get help directly at <a class="lnk" href="mailto:contact@b12ventures.vip">contact@b12ventures.vip</a> or <a class="lnk" href="tel:+17788024486">+1 (778) 802-4486</a>.</p>
+    </div>
+
+    <h3>3.6 Carriers</h3>
+    <p><strong>Carriers are not liable for delayed or undelivered messages.</strong></p>
+
+    <h3>3.7 Privacy</h3>
+    <p>If you have any questions regarding privacy, please read our <a class="lnk" href="privacy.html">Privacy Policy</a>. As stated in our Privacy Policy, no mobile information will be shared with third parties or affiliates for marketing or promotional purposes.</p>
+
+    <h2>4. Quotes, Payments &amp; Deliverables</h2>
+    <p>Prices, deliverables, and timelines for services are set out in individual proposals or agreements. Unless otherwise agreed in writing, invoices are payable upon the terms stated on the invoice. Work product is delivered upon receipt of payment as agreed.</p>
+
+    <h2>5. Intellectual Property</h2>
+    <p>All content on this Site — including text, design, graphics, logos, and code — is the property of B12 Ventures or its licensors and is protected by Canadian and international copyright and trademark laws. You may not reproduce, distribute, or create derivative works from Site content without our prior written consent. Upon full payment, clients receive the rights to final deliverables as described in their service agreement.</p>
+
+    <h2>6. Acceptable Use</h2>
+    <p>You agree not to use the Site or our services for any unlawful purpose, to transmit spam or malicious code, to attempt unauthorized access to our systems, or to infringe the rights of others.</p>
+
+    <h2>7. Disclaimers &amp; Limitation of Liability</h2>
+    <p>The Site is provided "as is" and "as available." To the maximum extent permitted by applicable law, B12 Ventures disclaims all warranties not expressly stated in a written service agreement, and shall not be liable for indirect, incidental, or consequential damages arising from use of the Site.</p>
+    <p><strong>Consumer rights notice:</strong> Nothing in these Terms limits or excludes rights that cannot be limited or excluded under applicable law, including the legal warranties and protections provided by the <em>Consumer Protection Act</em> (Québec) and the <em>Civil Code of Québec</em> where they apply to you.</p>
+
+    <h2>8. Governing Law &amp; Jurisdiction</h2>
+    <p>These Terms are governed by and construed in accordance with the laws of the <strong>Province of Québec</strong> and the federal laws of Canada applicable therein. Any dispute arising from these Terms or your use of the Site shall be subject to the exclusive jurisdiction of the courts of the Province of Québec, in the judicial district of Laval, subject to any mandatory consumer-protection rules granting you the right to proceed in another district.</p>
+
+    <h2>9. Language</h2>
+    <p>These Terms are made available in both English and French. In accordance with the <em>Charter of the French language</em> (Québec), the French version is available above via the "Français" button. In case of discrepancy affecting a Québec consumer, the French version prevails to the extent required by law.</p>
+
+    <h2>10. Changes to These Terms</h2>
+    <p>We may update these Terms from time to time. The "Last updated" date at the top of this page indicates the most recent revision. Continued use of the Site after changes constitutes acceptance of the revised Terms.</p>
+
+    <h2>11. Contact Us</h2>
+    <p>B12 Ventures — Laval, Québec, Canada<br/>
+    Email: <a class="lnk" href="mailto:contact@b12ventures.vip">contact@b12ventures.vip</a><br/>
+    Phone: <a class="lnk" href="tel:+17788024486">+1 (778) 802-4486</a><br/>
+    Web: <a class="lnk" href="https://b12ventures.com">b12ventures.com</a></p>
+  </div>
+
+  <!-- ============ FRANÇAIS ============ -->
+  <div id="fr" lang="fr">
+
+    <h2>1. Acceptation des conditions</h2>
+    <p>Les présentes Conditions générales (« Conditions ») régissent votre utilisation du site web <strong>b12ventures.com</strong> (le « Site ») et des services offerts par <strong>B12 Ventures</strong> (« B12 Ventures », « nous »), une agence de croissance numérique et de solutions d'IA exerçant ses activités à Laval, Québec, Canada. En accédant au Site, en soumettant un formulaire ou en utilisant nos services, vous acceptez d'être lié par ces Conditions. Si vous n'êtes pas d'accord, veuillez ne pas utiliser le Site.</p>
+
+    <h2>2. Nos services</h2>
+    <p>B12 Ventures fournit des services numériques aux entreprises : conception et développement de sites web, visites virtuelles 3D Matterport, photographie et vidéo, automatisation par IA, marketing numérique et automatisation CRM. Chaque mandat est régi par la proposition, la soumission ou le contrat écrit qui s'y rapporte ; les présentes Conditions s'appliquent en complément.</p>
+
+    <h2>3. Conditions du programme de messagerie texte (SMS)</h2>
+    <p>B12 Ventures exploite un programme de messagerie texte (le « Programme ») pour communiquer avec les clients et clients potentiels qui y ont consenti. En vous inscrivant, vous consentez à recevoir des messages texte de B12 Ventures au numéro de mobile fourni. Le consentement n'est pas une condition d'achat de biens ou de services.</p>
+
+    <h3>3.1 Types de messages</h3>
+    <ul>
+      <li><strong>Messages informationnels / service à la clientèle</strong> — réponses à vos demandes, confirmations et rappels de rendez-vous, suivis de projet et notifications de compte.</li>
+      <li><strong>Messages promotionnels</strong> — offres spéciales, promotions et nouveautés. Ces messages ne sont envoyés que si vous avez donné un consentement exprès distinct au volet marketing.</li>
+    </ul>
+
+    <h3>3.2 Comment s'inscrire</h3>
+    <p>Vous pouvez vous inscrire au Programme en cochant la ou les cases de consentement applicables du formulaire de contact du Site, ou en nous fournissant autrement votre consentement exprès écrit. Les cases de consentement sont facultatives et jamais précochées.</p>
+
+    <h3>3.3 Fréquence des messages et tarifs</h3>
+    <div class="box">
+      <p><strong>Des frais de messagerie et de données peuvent s'appliquer</strong> pour tout message que nous vous envoyons et que vous nous envoyez. La fréquence des messages varie selon vos interactions avec nous (par exemple : réponses à vos demandes, rappels de rendez-vous et offres occasionnelles si vous avez consenti au volet marketing). Pour toute question sur votre forfait texte ou données, veuillez contacter votre fournisseur de services sans fil.</p>
+    </div>
+
+    <h3>3.4 Désabonnement (STOP)</h3>
+    <div class="box">
+      <p>Vous pouvez annuler le service SMS à tout moment. Il suffit de texter <strong>« STOP »</strong> au <strong>+1 (778) 802-4486</strong>. Après l'envoi du message « STOP », nous vous enverrons un SMS confirmant votre désabonnement. Vous ne recevrez plus de messages de notre part par la suite. Pour vous réinscrire, inscrivez-vous simplement comme la première fois et nous recommencerons à vous envoyer des messages.</p>
+    </div>
+
+    <h3>3.5 Aide (HELP)</h3>
+    <div class="box">
+      <p>Si vous éprouvez des difficultés avec le Programme, répondez avec le mot-clé <strong>« HELP »</strong> pour obtenir de l'assistance, ou contactez-nous directement à <a class="lnk" href="mailto:contact@b12ventures.vip">contact@b12ventures.vip</a> ou au <a class="lnk" href="tel:+17788024486">+1 (778) 802-4486</a>.</p>
+    </div>
+
+    <h3>3.6 Fournisseurs de services sans fil</h3>
+    <p><strong>Les fournisseurs de services sans fil ne sont pas responsables des messages retardés ou non livrés.</strong></p>
+
+    <h3>3.7 Vie privée</h3>
+    <p>Pour toute question relative à la vie privée, veuillez consulter notre <a class="lnk" href="privacy.html">Politique de confidentialité</a>. Comme il y est indiqué, aucune information mobile ne sera partagée avec des tiers ou des sociétés affiliées à des fins de marketing ou de promotion.</p>
+
+    <h2>4. Soumissions, paiements et livrables</h2>
+    <p>Les prix, livrables et échéanciers sont précisés dans les propositions ou contrats individuels. Sauf entente écrite contraire, les factures sont payables selon les modalités qui y sont indiquées.</p>
+
+    <h2>5. Propriété intellectuelle</h2>
+    <p>Tout le contenu du Site — textes, design, graphiques, logos et code — appartient à B12 Ventures ou à ses concédants et est protégé par les lois canadiennes et internationales sur le droit d'auteur et les marques. Toute reproduction sans consentement écrit préalable est interdite. Après paiement complet, le client reçoit les droits sur les livrables finaux tels que décrits à son contrat de service.</p>
+
+    <h2>6. Utilisation acceptable</h2>
+    <p>Vous vous engagez à ne pas utiliser le Site ou nos services à des fins illégales, pour transmettre du pourriel ou du code malveillant, pour tenter d'accéder sans autorisation à nos systèmes, ou pour porter atteinte aux droits d'autrui.</p>
+
+    <h2>7. Exclusions et limitation de responsabilité</h2>
+    <p>Le Site est fourni « tel quel » et « selon la disponibilité ». Dans la mesure maximale permise par la loi applicable, B12 Ventures décline toute garantie non expressément stipulée dans un contrat de service écrit et ne peut être tenue responsable des dommages indirects ou consécutifs découlant de l'utilisation du Site.</p>
+    <p><strong>Avis — droits des consommateurs :</strong> Rien dans les présentes Conditions ne limite ni n'exclut les droits qui ne peuvent l'être en vertu de la loi applicable, notamment les garanties légales et protections prévues par la <em>Loi sur la protection du consommateur</em> (Québec) et le <em>Code civil du Québec</em> lorsqu'elles s'appliquent à vous.</p>
+
+    <h2>8. Droit applicable et juridiction</h2>
+    <p>Les présentes Conditions sont régies par les lois de la <strong>province de Québec</strong> et les lois fédérales du Canada qui s'y appliquent. Tout litige relève de la compétence exclusive des tribunaux du Québec, district judiciaire de Laval, sous réserve des règles impératives de protection du consommateur.</p>
+
+    <h2>9. Langue</h2>
+    <p>Les présentes Conditions sont offertes en français et en anglais, conformément à la <em>Charte de la langue française</em>. En cas de divergence concernant un consommateur québécois, la version française prévaut dans la mesure requise par la loi.</p>
+
+    <h2>10. Modifications</h2>
+    <p>Nous pouvons mettre à jour ces Conditions de temps à autre. La date de « Dernière mise à jour » en haut de la page indique la révision la plus récente.</p>
+
+    <h2>11. Nous joindre</h2>
+    <p>B12 Ventures — Laval, Québec, Canada<br/>
+    Courriel : <a class="lnk" href="mailto:contact@b12ventures.vip">contact@b12ventures.vip</a><br/>
+    Téléphone : <a class="lnk" href="tel:+17788024486">+1 (778) 802-4486</a><br/>
+    Web : <a class="lnk" href="https://b12ventures.com">b12ventures.com</a></p>
+  </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div class="ft-wm"><span class="ft-acc">B12</span> VENTURES</div>
+      <div style="display:flex;gap:20px">
+        <a class="ft-l" href="privacy.html">Privacy Policy</a>
+        <a class="ft-l" href="terms.html">Terms &amp; Conditions</a>
+        <a class="ft-l" href="index.html">Home</a>
+      </div>
+      <span class="ft-l" style="color:var(--c20)">© 2026 B12 Ventures</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function setL(l){
+  document.documentElement.classList.toggle('show-fr',l==='fr');
+  document.getElementById('btn-en').classList.toggle('on',l==='en');
+  document.getElementById('btn-fr').classList.toggle('on',l==='fr');
+  document.documentElement.setAttribute('lang',l);
+}
+</script>
+</body>
+</html>

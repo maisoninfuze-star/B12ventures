@@ -297,6 +297,11 @@ body:not(.touch) *{cursor:none}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue);background:rgba(0,85,255,.05)}
 .fg select option{background:var(--bg3);color:var(--cream)}
 .fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cf-consent{display:flex;align-items:flex-start;gap:10px;margin:4px 0;cursor:pointer}
+.cf-consent input{margin-top:3px;width:14px;height:14px;flex-shrink:0;accent-color:var(--blue);cursor:pointer}
+.cf-consent span{font-size:10.5px;line-height:1.6;color:var(--c40)}
+.cf-legal{font-size:10.5px;line-height:1.6;color:var(--c40);margin:8px 0 4px}
+.cf-legal a{color:var(--blue);border-bottom:1px solid rgba(0,85,255,.35)}
 .cf-btn{width:100%;background:var(--cream);color:var(--bg);border:none;border-radius:1px;padding:14px;font-family:var(--disp);font-size:13px;letter-spacing:.1em;text-transform:uppercase;transition:all .3s var(--ease-out);display:flex;align-items:center;justify-content:center;gap:10px;margin-top:6px;position:relative;overflow:hidden}
 .cf-btn::before{content:'';position:absolute;inset:0;background:var(--blue);transform:translateY(101%);transition:transform .35s var(--ease-out)}
 .cf-btn:hover::before{transform:none}.cf-btn:hover{color:#fff}
@@ -656,6 +661,15 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
             </select>
           </div>
           <div class="fg"><label data-i18n="cf_msg">Message</label><textarea name="message" rows="4" placeholder="Tell us about your business..."></textarea></div>
+          <label class="cf-consent">
+            <input type="checkbox" name="sms_consent_customer_care" value="Yes"/>
+            <span data-i18n="cf_sms_nm">I consent to receive non-marketing text messages from B12 Ventures about my inquiry, appointments, and customer care at the phone number provided. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.</span>
+          </label>
+          <label class="cf-consent">
+            <input type="checkbox" name="sms_consent_marketing" value="Yes"/>
+            <span data-i18n="cf_sms_mk">I consent to receive marketing text messages from B12 Ventures about special offers, discounts, and service updates at the phone number provided. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.</span>
+          </label>
+          <p class="cf-legal"><span data-i18n="cf_legal">By submitting this form, you agree to our</span> <a href="terms.html" target="_blank" data-i18n="cf_legal_t">Terms &amp; Conditions</a> <span data-i18n="cf_legal_and">and</span> <a href="privacy.html" target="_blank" data-i18n="cf_legal_p">Privacy Policy</a>.</p>
           <button type="submit" class="cf-btn"><span class="cf-btn-txt" id="cf-btn-txt" data-i18n="cf_send">Send Message →</span></button>
           <p id="cf-error" style="display:none;font-size:11px;color:#ff5f56;margin-top:10px;text-align:center;font-family:var(--mono)">Something went wrong. Please try again or email us directly.</p>
         </form>
@@ -685,6 +699,8 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
       </ul></div>
       <div class="ft-col"><h5 data-i18n="ft_company">Company</h5><ul>
         <li><a href="portfolio.html" data-i18n="nav_work">Portfolio</a></li>
+        <li><a href="terms.html" data-i18n="ft_terms">Terms &amp; Conditions</a></li>
+        <li><a href="privacy.html" data-i18n="ft_privacy">Privacy Policy</a></li>
         <li><a href="#about" data-i18n="nav_about">About Us</a></li>
         <li><a href="#process" data-i18n="nav_process">Process</a></li>
         <li><a href="#mapzone" data-i18n="nav_global">Global</a></li>
@@ -760,6 +776,10 @@ var TRANS={
     cf_h:'Send A Message',cf_sub:"Tell us about your project — we'll reply within 24 hours.",
     cf_fn:'First Name',cf_ln:'Last Name',cf_em:'Email',cf_ph:'Phone',
     cf_sv:'Service of Interest',cf_sv_ph:'Select a service...',cf_msg:'Message',cf_send:'Send Message →',
+    cf_sms_nm:'I consent to receive non-marketing text messages from B12 Ventures about my inquiry, appointments, and customer care at the phone number provided. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.',
+    cf_sms_mk:'I consent to receive marketing text messages from B12 Ventures about special offers, discounts, and service updates at the phone number provided. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.',
+    cf_legal:'By submitting this form, you agree to our',cf_legal_t:'Terms &amp; Conditions',cf_legal_and:'and',cf_legal_p:'Privacy Policy',
+    ft_terms:'Terms &amp; Conditions',ft_privacy:'Privacy Policy',
     sv1:'Virtual Tours & Matterport 3D',sv2:'Photography & Videography',sv3:'AI Automation & AI Agents',
     sv4:'Digital Marketing & Ads',sv5:'Website Development',sv6:'CRM & Business Automation',
     ft_desc:'Digital Growth & AI Solutions. Helping businesses attract more customers and increase sales.',
@@ -812,6 +832,10 @@ var TRANS={
     cf_h:'Envoyer un Message',cf_sub:"Parlez-nous de votre projet — nous répondons sous 24 heures.",
     cf_fn:'Prénom',cf_ln:'Nom',cf_em:'E-mail',cf_ph:'Téléphone',
     cf_sv:'Service Souhaité',cf_sv_ph:'Sélectionner un service...',cf_msg:'Message',cf_send:'Envoyer →',
+    cf_sms_nm:'Je consens à recevoir des messages textes non marketing de B12 Ventures concernant ma demande, mes rendez-vous et le service à la clientèle au numéro fourni. La fréquence des messages peut varier. Des frais de messagerie et de données peuvent s\'appliquer. Textez HELP pour de l\'aide, répondez STOP pour vous désabonner.',
+    cf_sms_mk:'Je consens à recevoir des messages textes marketing de B12 Ventures concernant des offres spéciales, rabais et nouveautés au numéro fourni. La fréquence des messages peut varier. Des frais de messagerie et de données peuvent s\'appliquer. Textez HELP pour de l\'aide, répondez STOP pour vous désabonner.',
+    cf_legal:'En soumettant ce formulaire, vous acceptez nos',cf_legal_t:'Conditions Générales',cf_legal_and:'et notre',cf_legal_p:'Politique de Confidentialité',
+    ft_terms:'Conditions Générales',ft_privacy:'Politique de Confidentialité',
     sv1:'Visites Virtuelles & Matterport 3D',sv2:'Photographie & Vidéo',sv3:'Automatisation IA',
     sv4:'Marketing Digital & Publicités',sv5:'Développement Web',sv6:'CRM & Automatisation',
     ft_desc:'Croissance Digitale & Solutions IA. Aider les entreprises à attirer plus de clients.',
@@ -864,6 +888,10 @@ var TRANS={
     cf_h:'أرسل رسالة',cf_sub:'أخبرنا عن مشروعك — سنرد خلال 24 ساعة.',
     cf_fn:'الاسم الأول',cf_ln:'اسم العائلة',cf_em:'البريد الإلكتروني',cf_ph:'الهاتف',
     cf_sv:'الخدمة المطلوبة',cf_sv_ph:'اختر خدمة...',cf_msg:'الرسالة',cf_send:'← إرسال',
+    cf_sms_nm:'أوافق على تلقي رسائل نصية غير تسويقية من B12 Ventures بخصوص طلبي ومواعيدي وخدمة العملاء على الرقم المقدم. قد يختلف تواتر الرسائل. قد تُطبق رسوم الرسائل والبيانات. أرسل HELP للمساعدة أو STOP لإلغاء الاشتراك.',
+    cf_sms_mk:'أوافق على تلقي رسائل نصية تسويقية من B12 Ventures بخصوص العروض الخاصة والخصومات والتحديثات على الرقم المقدم. قد يختلف تواتر الرسائل. قد تُطبق رسوم الرسائل والبيانات. أرسل HELP للمساعدة أو STOP لإلغاء الاشتراك.',
+    cf_legal:'بإرسال هذا النموذج، فإنك توافق على',cf_legal_t:'الشروط والأحكام',cf_legal_and:'و',cf_legal_p:'سياسة الخصوصية',
+    ft_terms:'الشروط والأحكام',ft_privacy:'سياسة الخصوصية',
     sv1:'جولات افتراضية & Matterport',sv2:'التصوير والفيديو',sv3:'أتمتة الذكاء الاصطناعي',
     sv4:'التسويق الرقمي والإعلانات',sv5:'تطوير المواقع',sv6:'CRM وأتمتة الأعمال',
     ft_desc:'نمو رقمي وحلول ذكاء اصطناعي. نساعد الشركات على جذب المزيد من العملاء وزيادة المبيعات.',
