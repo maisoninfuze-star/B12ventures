@@ -58,6 +58,7 @@ body:not(.touch) *{cursor:none}
 #fullmenu.open .fm-link:nth-child(3) span{transition-delay:.19s}
 #fullmenu.open .fm-link:nth-child(4) span{transition-delay:.26s}
 #fullmenu.open .fm-link:nth-child(5) span{transition-delay:.33s}
+#fullmenu.open .fm-link:nth-child(6) span{transition-delay:.40s}
 .fm-link:hover{color:var(--cream)}
 .fm-foot{position:absolute;bottom:36px;left:0;right:0;display:flex;justify-content:space-between;padding:0 48px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--c40)}
 
@@ -359,6 +360,7 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
     <a class="fm-link" href="#about"     onclick="closeMenu()"><span data-i18n="nav_about">About</span></a>
     <a class="fm-link" href="#mapzone"   onclick="closeMenu()"><span data-i18n="nav_global">Global</span></a>
     <a class="fm-link" href="#process"   onclick="closeMenu()"><span data-i18n="nav_process">Process</span></a>
+    <a class="fm-link" href="portfolio.html"><span data-i18n="nav_work">Portfolio</span></a>
     <a class="fm-link" href="#contact"   onclick="closeMenu()"><span style="color:var(--blue)" data-i18n="nav_contact">Contact</span></a>
   </nav>
   <div class="fm-foot">
@@ -682,6 +684,7 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
         <li><a href="#services" data-i18n="s6_name">CRM Automation</a></li>
       </ul></div>
       <div class="ft-col"><h5 data-i18n="ft_company">Company</h5><ul>
+        <li><a href="portfolio.html" data-i18n="nav_work">Portfolio</a></li>
         <li><a href="#about" data-i18n="nav_about">About Us</a></li>
         <li><a href="#process" data-i18n="nav_process">Process</a></li>
         <li><a href="#mapzone" data-i18n="nav_global">Global</a></li>
@@ -712,7 +715,7 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
 var TRANS={
   en:{
     nav_services:'Services',nav_about:'About',nav_global:'Global',nav_process:'Process',
-    nav_contact:'Contact',nav_cta:'Get Started →',nav_menu:'Menu',
+    nav_work:'Portfolio',nav_contact:'Contact',nav_cta:'Get Started →',nav_menu:'Menu',
     hero_kicker:'AI-Powered Digital Growth Agency — Vancouver, BC',
     hero_t2:'Ventures',hero_t3:'Digital',hero_t4:'Growth.',
     hero_desc:'We help businesses attract more customers, increase sales, and build a stronger online presence through AI automation, digital marketing & immersive virtual experiences.',
@@ -764,7 +767,7 @@ var TRANS={
   },
   fr:{
     nav_services:'Services',nav_about:'À Propos',nav_global:'Mondial',nav_process:'Processus',
-    nav_contact:'Contact',nav_cta:'Commencer →',nav_menu:'Menu',
+    nav_work:'Portfolio',nav_contact:'Contact',nav_cta:'Commencer →',nav_menu:'Menu',
     hero_kicker:'Agence de Croissance Digitale & IA — Vancouver, BC',
     hero_t2:'Ventures',hero_t3:'Croissance',hero_t4:'Digitale.',
     hero_desc:"Nous aidons les entreprises à attirer plus de clients, augmenter les ventes et construire une présence en ligne plus forte grâce à l'IA et au marketing digital.",
@@ -816,7 +819,7 @@ var TRANS={
   },
   ar:{
     nav_services:'الخدمات',nav_about:'من نحن',nav_global:'عالمي',nav_process:'العملية',
-    nav_contact:'تواصل',nav_cta:'ابدأ الآن ←',nav_menu:'القائمة',
+    nav_work:'أعمالنا',nav_contact:'تواصل',nav_cta:'ابدأ الآن ←',nav_menu:'القائمة',
     hero_kicker:'وكالة نمو رقمي بالذكاء الاصطناعي — فانكوفر، كندا',
     hero_t2:'فينتشرز',hero_t3:'نمو',hero_t4:'رقمي.',
     hero_desc:'نساعد الشركات على جذب المزيد من العملاء وزيادة المبيعات وبناء حضور قوي على الإنترنت من خلال الذكاء الاصطناعي والتسويق الرقمي.',

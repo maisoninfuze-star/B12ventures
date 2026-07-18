@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Portfolio — B12 VENTURES</title>
+<meta name="description" content="Selected work by B12 Ventures — websites built and 3D virtual tours filmed across Canada, Morocco and beyond."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#0c0c0a;--bg2:#141412;--bg3:#1c1c19;
+  --cream:#f5edda;--c80:rgba(245,237,218,.8);--c60:rgba(245,237,218,.6);
+  --c40:rgba(245,237,218,.4);--c20:rgba(245,237,218,.2);--c10:rgba(245,237,218,.1);
+  --c06:rgba(245,237,218,.06);--c03:rgba(245,237,218,.03);
+  --blue:#0055ff;--blue-lo:rgba(0,85,255,.15);
+  --mono:'Space Mono',monospace;--disp:'Anton',sans-serif;--body:'Inter',sans-serif;
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scrollbar-width:thin;scrollbar-color:var(--c20) transparent;scroll-behavior:smooth}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--c20);border-radius:2px}
+body{font-family:var(--body);background:var(--bg);color:var(--cream);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:inherit;border:none;background:none;color:inherit}
+body:not(.touch) *{cursor:none}
+
+/* GRAIN */
+#grain{position:fixed;inset:-100%;width:300%;height:300%;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E");
+  opacity:.18;pointer-events:none;z-index:9000;animation:grain .3s steps(3) infinite}
+@keyframes grain{0%,100%{transform:translate(0,0)}25%{transform:translate(-2%,-3%)}50%{transform:translate(3%,2%)}75%{transform:translate(-1%,4%)}}
+
+/* CURSOR */
+#cur-dot{position:fixed;width:6px;height:6px;background:var(--cream);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s var(--ease-out),height .2s,opacity .2s}
+#cur-ring{position:fixed;width:32px;height:32px;border:1px solid var(--c40);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .15s var(--ease-out),height .15s,border-color .2s}
+#cur-dot.hv{width:0;height:0;opacity:0}
+#cur-ring.hv{width:52px;height:52px;border-color:rgba(0,85,255,.7)}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:24px 48px;transition:padding .4s var(--ease-out),background .4s,border-color .4s}
+#nav.scrolled{padding:14px 48px;background:rgba(12,12,10,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--c10)}
+.nav-logo{font-family:var(--disp);font-size:15px;letter-spacing:.12em;display:flex;align-items:center;gap:8px;z-index:10}
+.nav-logo-b{color:var(--blue)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-back{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--c60);transition:color .25s}
+.nav-back:hover{color:var(--cream)}
+.nav-cta{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--c60);border:1px solid var(--c20);padding:8px 18px;border-radius:1px;transition:all .25s}
+.nav-cta:hover{color:var(--cream);border-color:var(--cream)}
+
+/* SHARED */
+.sec{padding:120px 0}
+.wrap{max-width:1440px;margin:0 auto;padding:0 48px}
+.sec-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--blue);display:inline-flex;align-items:center;gap:10px;margin-bottom:18px}
+.sec-lbl::before{content:'';width:20px;height:1px;background:var(--blue);display:block}
+.st{font-family:var(--disp);font-size:clamp(36px,5.2vw,76px);letter-spacing:-.025em;line-height:1;text-transform:uppercase}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .85s var(--ease-out),transform .85s var(--ease-out)}
+.rv.vis{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+.accent{color:var(--blue)}
+
+/* HEADER */
+#phead{padding:190px 0 90px;position:relative;overflow:hidden}
+.ph-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.ph-kicker::before{content:'';width:28px;height:1px;background:var(--blue);display:block}
+.ph-title{font-family:var(--disp);font-size:clamp(58px,11vw,168px);letter-spacing:-.02em;line-height:.92;text-transform:uppercase;margin-bottom:40px}
+.ph-stats{display:flex;gap:56px;flex-wrap:wrap;border-top:1px solid var(--c10);padding-top:28px}
+.ph-stat .n{font-family:var(--disp);font-size:clamp(28px,3.6vw,48px);color:var(--cream)}
+.ph-stat .n em{font-style:normal;color:var(--blue)}
+.ph-stat .l{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--c40);margin-top:6px}
+
+/* MARQUEE */
+.mqwrap{overflow:hidden;border-top:1px solid var(--c10);border-bottom:1px solid var(--c10);background:var(--bg2);padding:11px 0}
+.mqtrack{display:flex;white-space:nowrap;width:max-content;animation:mq 28s linear infinite}
+.mqwrap:hover .mqtrack{animation-play-state:paused}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mqi{display:inline-flex;align-items:center;font-family:var(--disp);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--c20);padding:0 36px}
+.mqi::after{content:'✦';font-size:7px;color:var(--blue);margin-left:36px}
+
+/* WEBSITES LIST */
+#websites{background:var(--bg)}
+.wk-hd{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:28px;margin-bottom:44px}
+.wk-hd-r{font-size:13px;line-height:1.75;color:var(--c60);max-width:300px}
+.wk-list{border-top:1px solid var(--c10)}
+.wk-row{display:grid;grid-template-columns:56px 1fr auto;gap:20px;align-items:center;padding:26px 0;border-bottom:1px solid var(--c10);position:relative;transition:padding .35s var(--ease-out)}
+a.wk-row:hover{padding:26px 18px;margin:0 -18px}
+.wk-row::after{content:'';position:absolute;left:0;bottom:-1px;width:0;height:1px;background:var(--blue);transition:width .7s var(--ease-out)}
+.wk-row:hover::after{width:100%}
+.wk-num{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--c20)}
+.wk-main{display:flex;flex-direction:column;gap:6px}
+.wk-nm{font-family:var(--disp);font-size:clamp(20px,2.8vw,40px);letter-spacing:-.02em;text-transform:uppercase;line-height:1;transition:color .3s}
+.wk-row:hover .wk-nm{color:var(--blue)}
+.wk-meta{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--c40)}
+.wk-right{display:flex;align-items:center;gap:14px}
+.wk-tag{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--c40);border:1px solid var(--c10);padding:5px 10px;border-radius:1px;white-space:nowrap}
+.wk-tag.live{color:#7dffa8;border-color:rgba(125,255,168,.25)}
+.wk-arrow{font-family:var(--mono);font-size:14px;color:var(--c40);transition:transform .3s var(--ease-out),color .3s}
+a.wk-row:hover .wk-arrow{transform:translate(4px,-4px);color:var(--blue)}
+
+/* TOURS */
+#tours{background:var(--bg2);border-top:1px solid var(--c10)}
+.tour-note{font-size:13px;line-height:1.75;color:var(--c60);max-width:300px}
+.tour-region{margin-top:52px}
+.tour-region-h{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+.tour-flag{font-size:20px}
+.tour-region-nm{font-family:var(--disp);font-size:clamp(18px,2.2vw,28px);letter-spacing:.02em;text-transform:uppercase}
+.tour-region-ct{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--c40)}
+.tour-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--c10);border:1px solid var(--c10)}
+.tour-card{background:var(--bg2);padding:26px 24px;position:relative;overflow:hidden;transition:background .3s}
+.tour-card:hover{background:var(--bg3)}
+.tour-card::before{content:'';position:absolute;top:0;left:0;width:0;height:2px;background:var(--blue);transition:width .5s var(--ease-out)}
+.tour-card:hover::before{width:100%}
+.tour-ic{font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.tour-ic::before{content:'◉';font-size:9px}
+.tour-nm{font-family:var(--disp);font-size:clamp(17px,1.8vw,23px);letter-spacing:.01em;text-transform:uppercase;line-height:1.15;margin-bottom:8px}
+.tour-loc{font-size:12px;color:var(--c60);line-height:1.5}
+.tour-date{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--c20);margin-top:14px}
+
+/* CTA BAND */
+#ctaband{padding:110px 0;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--c10)}
+#ctaband::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 120%,var(--blue-lo),transparent 60%)}
+.cta-h{font-family:var(--disp);font-size:clamp(36px,6vw,84px);letter-spacing:-.02em;text-transform:uppercase;line-height:1;margin-bottom:28px;position:relative}
+.btn{position:relative;display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:13px 26px;border-radius:2px;overflow:hidden;transition:color .3s}
+.btn::before{content:'';position:absolute;inset:0;transform:translateY(101%);transition:transform .35s var(--ease-out)}
+.btn:hover::before{transform:none}
+.btn span{position:relative;z-index:1}
+.btn-solid{background:var(--cream);color:var(--bg)}.btn-solid::before{background:var(--blue)}
+.btn-solid:hover{color:#fff}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--c10);padding:44px 0}
+.ft-bot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.ft-wm{font-family:var(--disp);font-size:14px;letter-spacing:.12em}
+.ft-acc{color:var(--blue)}
+.ft-copy{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--c20)}
+.ft-link{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--c40);transition:color .25s}
+.ft-link:hover{color:var(--cream)}
+
+@media(max-width:768px){
+  #nav{padding:20px 24px}.wrap{padding:0 24px}.sec{padding:80px 0}
+  #phead{padding:150px 0 60px}
+  .ph-stats{gap:32px}
+  .wk-row{grid-template-columns:36px 1fr auto;gap:12px}
+  .nav-back{display:none}
+}
+</style>
+</head>
+<body>
+<div id="grain"></div>
+<div id="cur-dot"></div><div id="cur-ring"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><span class="nav-logo-b">B12</span>&nbsp;VENTURES</a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">← Home</a>
+    <a href="index.html#contact" class="nav-cta">Get Started →</a>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header id="phead">
+  <div class="wrap">
+    <div class="ph-kicker rv">Selected Work — Websites &amp; 3D Virtual Tours</div>
+    <h1 class="ph-title rv d1">Our <span class="accent">Work.</span></h1>
+    <div class="ph-stats rv d2">
+      <div class="ph-stat"><div class="n">3</div><div class="l">Live Websites</div></div>
+      <div class="ph-stat"><div class="n">18<em>+</em></div><div class="l">Spaces Filmed in 3D</div></div>
+      <div class="ph-stat"><div class="n">2</div><div class="l">Continents</div></div>
+      <div class="ph-stat"><div class="n">5<em>+</em></div><div class="l">Cities</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<div class="mqwrap"><div class="mqtrack" id="mqtrack">
+  <span class="mqi">Web Development</span><span class="mqi">Matterport 3D Tours</span><span class="mqi">Restaurants</span><span class="mqi">Retail</span><span class="mqi">Hospitality</span><span class="mqi">Services</span><span class="mqi">Canada</span><span class="mqi">Morocco</span>
+</div></div>
+
+<!-- WEBSITES -->
+<section class="sec" id="websites">
+  <div class="wrap">
+    <div class="wk-hd">
+      <div>
+        <div class="sec-lbl rv">01 — Web Development</div>
+        <h2 class="st rv d1">Websites We Built.</h2>
+      </div>
+      <p class="wk-hd-r rv d2">Custom, high-performance websites designed to attract customers and convert — for restaurants, retail, and service businesses across Canada and beyond.</p>
+    </div>
+    <div class="wk-list rv d2">
+
+      <a class="wk-row" href="https://b12ventures.com" target="_blank" rel="noopener">
+        <span class="wk-num">01</span>
+        <span class="wk-main"><span class="wk-nm">B12 Ventures</span><span class="wk-meta">Digital Agency — Vancouver, BC</span></span>
+        <span class="wk-right"><span class="wk-tag live">● Live</span><span class="wk-arrow">↗</span></span>
+      </a>
+      <a class="wk-row" href="https://marchefreshco.com" target="_blank" rel="noopener">
+        <span class="wk-num">02</span>
+        <span class="wk-main"><span class="wk-nm">Marché Freshco</span><span class="wk-meta">International Grocery — Pierrefonds, QC</span></span>
+        <span class="wk-right"><span class="wk-tag live">● Live</span><span class="wk-arrow">↗</span></span>
+      </a>
+      <a class="wk-row" href="https://navcanexpress.com" target="_blank" rel="noopener">
+        <span class="wk-num">03</span>
+        <span class="wk-main"><span class="wk-nm">Nav Can Movers Express</span><span class="wk-meta">Moving Company — Montréal, QC</span></span>
+        <span class="wk-right"><span class="wk-tag live">● Live</span><span class="wk-arrow">↗</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- VIRTUAL TOURS -->
+<section class="sec" id="tours">
+  <div class="wrap">
+    <div class="wk-hd">
+      <div>
+        <div class="sec-lbl rv">02 — Immersive Experiences</div>
+        <h2 class="st rv d1">Spaces Filmed in 3D.</h2>
+      </div>
+      <p class="tour-note rv d2">Matterport 3D virtual tours — we scan restaurants, retail stores, malls and commercial spaces so customers can walk through them from anywhere in the world.</p>
+    </div>
+
+    <div class="tour-region rv">
+      <div class="tour-region-h">
+        <span class="tour-flag">🇨🇦</span>
+        <span class="tour-region-nm">Canada</span>
+        <span class="tour-region-ct">— Greater Montréal, QC</span>
+      </div>
+      <div class="tour-grid">
+        <div class="tour-card"><div class="tour-ic">3D Virtual Tour</div><div class="tour-nm">Bombay Grill &amp; Sweets</div><div class="tour-loc">4771 Bd des Sources, Pierrefonds</div><div class="tour-date">Filmed 2026</div></div>
+        <div class="tour-card"><div class="tour-ic">3D Virtual Tour</div><div class="tour-nm">1001 Nuits</div><div class="tour-loc">Boul. des Sources, Dollard-des-Ormeaux</div><div class="tour-date">Filmed 2026</div></div>
+        <div class="tour-card"><div class="tour-ic">3D Virtual Tour</div><div class="tour-nm">Punjabi Cuisine</div><div class="tour-loc">4847 Bd des Sources, Dollard-des-Ormeaux</div><div class="tour-date">Filmed 2026</div></div>
+        <div class="tour-card"><div class="tour-ic">3D Virtual Tour</div><div class="tour-nm">Lala Masala</div><div class="tour-loc">3689 Boul. Saint-Jean, Dollard-des-Ormeaux</div><div class="tour-date">Filmed 2026</div></div>
+        <div class="tour-card"><div class="tour-ic">3D Virtual Tour</div><div class="tour-nm">Marché Freshco</div><div class="tour-loc">Pierrefonds</div><div class="tour-date">Filmed 2026</div></div>
+        <div class="tour-card"><div class="tour-ic">3D Virtual Tour</div><div class="tour-nm">Navcan Services</div><div class="tour-loc">9541 Boul. Gouin O, Montréal</div><div class="tour-date">Filmed 2026</div></div>
+        <div class="tour-card"><div class="tour-ic">3D Virtual Tour</div><div class="tour-nm">Le Traditionnel</div><div class="tour-loc">Montréal</div><div class="tour-date">Filmed 2026</div></div>
+        <div class="tour-card"><div class="tour-ic">3D Virtual Tour</div><div class="tour-nm">Verlet Café</div><div class="tour-loc">Montréal</div><div class="tour-date">Filmed 2026</div></div>
+        <div class="tour-card"><div class="tour-ic">3D Virtual Tour</div><div class="tour-nm">Bocado</div><div class="tour-loc">Montréal</div><div class="tour-date">Filmed 2026</div></div>
+        <div class="tour-card"><div class="tour-ic">3D Virtual Tour</div><div class="tour-nm">Cent Un</div><div class="tour-loc">Montréal</div><div class="tour-date">Filmed 2026</div></div>
+        <div class="tour-card"><div class="tour-ic">3D Virtual Tour</div><div class="tour-nm">Synaptik</div><div class="tour-loc">Montréal</div><div class="tour-date">Filmed 2026</div></div>
+      </div>
+    </div>
+
+    <div class="tour-region rv">
+      <div class="tour-region-h">
+        <span class="tour-flag">🇲🇦</span>
+        <span class="tour-region-nm">Morocco</span>
+        <span class="tour-region-ct">— Casablanca &amp; Rabat</span>
+      </div>
+      <div class="tour-grid">
+        <div class="tour-card"><div class="tour-ic">3D Virtual Tour</div><div class="tour-nm">20 Rue Daoud Dahiri</div><div class="tour-loc">Casablanca</div><div class="tour-date">Filmed 2026</div></div>
+        <div class="tour-card"><div class="tour-ic">3D Virtual Tour</div><div class="tour-nm">Boulevard Dammam</div><div class="tour-loc">Casablanca</div><div class="tour-date">Filmed 2026</div></div>
+        <div class="tour-card"><div class="tour-ic">3D Virtual Tour</div><div class="tour-nm">Boulevard de Biarritz</div><div class="tour-loc">Casablanca</div><div class="tour-date">Filmed 2026</div></div>
+        <div class="tour-card"><div class="tour-ic">3D Virtual Tour</div><div class="tour-nm">Le Mall du Carrousel</div><div class="tour-loc">Rabat — 2 scans</div><div class="tour-date">Filmed 2026</div></div>
+        <div class="tour-card"><div class="tour-ic">3D Virtual Tour</div><div class="tour-nm">Mall Arribat Center</div><div class="tour-loc">Yamal Acham, Rabat</div><div class="tour-date">Filmed 2026</div></div>
+        <div class="tour-card"><div class="tour-ic">3D Virtual Tour</div><div class="tour-nm">Avenue Maghreb Arabe</div><div class="tour-loc">Yama Acham, Rabat</div><div class="tour-date">Filmed 2026</div></div>
+        <div class="tour-card"><div class="tour-ic">3D Virtual Tour</div><div class="tour-nm">76 Avenue Oqba</div><div class="tour-loc">Rabat</div><div class="tour-date">Filmed 2026</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="ctaband">
+  <div class="wrap">
+    <h2 class="cta-h rv">Your Business<br/>Could Be <span class="accent">Next.</span></h2>
+    <a href="index.html#contact" class="btn btn-solid rv d1"><span>Start Your Project →</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="ft-bot">
+      <div class="ft-wm"><span class="ft-acc">B12</span> VENTURES</div>
+      <a class="ft-link" href="index.html">← Back to Home</a>
+      <span class="ft-copy">© 2026 B12 Ventures. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){'use strict';
+var isTouch=('ontouchstart' in window)||navigator.maxTouchPoints>0;
+if(isTouch)document.body.classList.add('touch');
+
+/* cursor */
+if(!isTouch){
+  var dot=document.getElementById('cur-dot'),ring=document.getElementById('cur-ring');
+  var mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;
+    dot.style.left=mx+'px';dot.style.top=my+'px'});
+  (function loop(){rx+=(mx-rx)*.15;ry+=(my-ry)*.15;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
+  document.querySelectorAll('a,button,.tour-card').forEach(function(el){
+    el.addEventListener('mouseenter',function(){dot.classList.add('hv');ring.classList.add('hv')});
+    el.addEventListener('mouseleave',function(){dot.classList.remove('hv');ring.classList.remove('hv')});
+  });
+}
+
+/* nav scroll */
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40)},{passive:true});
+
+/* marquee duplicate */
+var mq=document.getElementById('mqtrack');mq.innerHTML+=mq.innerHTML;
+
+/* reveal */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){
+  if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+})();
+</script>
+</body>
+</html>
