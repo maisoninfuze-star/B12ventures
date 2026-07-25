@@ -20,7 +20,6 @@
 html{scrollbar-width:thin;scrollbar-color:var(--c20) transparent}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--c20);border-radius:2px}
 body{font-family:var(--body);background:var(--bg);color:var(--cream);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-[dir="rtl"] body{font-family:'Arial','Segoe UI',var(--body)}
 a{color:inherit;text-decoration:none}
 button{cursor:pointer;font-family:inherit;border:none;background:none;color:inherit}
 body:not(.touch) *{cursor:none}
@@ -324,15 +323,6 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
 .soc{width:32px;height:32px;border:1px solid var(--c10);border-radius:1px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;color:var(--c40);transition:all .22s}
 .soc:hover{border-color:var(--c40);color:var(--cream)}
 
-/* RTL overrides */
-[dir="rtl"] .hero-kicker::before,[dir="rtl"] .sec-lbl::before,[dir="rtl"] .splite-sup::before{margin-left:0;margin-right:10px;order:-1}
-[dir="rtl"] .ab-grid,[dir="rtl"] .why-grid,[dir="rtl"] .ct-grid{direction:rtl}
-[dir="rtl"] .fm-foot{direction:rtl}
-[dir="rtl"] .svc-row{direction:rtl}
-[dir="rtl"] .hero-content{direction:rtl;text-align:right}
-[dir="rtl"] .hero-kicker{flex-direction:row-reverse;justify-content:flex-end}
-[dir="rtl"] .hero-bottom{flex-direction:row-reverse}
-[dir="rtl"] .hero-scroll{right:auto;left:48px}
 
 /* RESPONSIVE */
 @media(max-width:1024px){.ps-grid{grid-template-columns:1fr 1fr}.ft-grid{grid-template-columns:1fr 1fr}.splite-wrap{grid-template-columns:1fr}}
@@ -345,6 +335,21 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
   .fg-row{grid-template-columns:1fr}.fm-foot{padding:0 24px}
   .splite-left{padding:52px 28px}.splite-right{padding:40px 24px}
 }
+/* ── Futuristic hero FX ── */
+#fx-canvas{position:absolute;right:5vw;top:47%;transform:translateY(-56%);width:min(56vh,42vw);aspect-ratio:1;z-index:1;pointer-events:none;opacity:0;transition:opacity 1.4s var(--ease-out)}
+#fx-canvas.on{opacity:1}
+.hero-scan{position:absolute;left:0;right:0;height:130px;z-index:2;pointer-events:none;background:linear-gradient(to bottom,transparent,rgba(0,85,255,.14),transparent);mix-blend-mode:screen;animation:scanY 6.3s ease-in-out infinite alternate}
+@keyframes scanY{from{top:-12%}to{top:96%}}
+.explore-btn{position:absolute;bottom:28px;left:50%;z-index:4;display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--c60);border:1px solid var(--c10);border-radius:999px;padding:10px 18px;background:rgba(12,12,10,.45);backdrop-filter:blur(6px);cursor:pointer;opacity:0;transform:translate(-50%,10px);animation:fadeUpBtn .8s var(--ease-out) 2.2s forwards;transition:color .3s,border-color .3s}
+.explore-btn:hover{color:var(--cream);border-color:var(--c40)}
+.explore-arrow svg{display:block;animation:bounceY 1.6s ease-in-out infinite}
+@keyframes bounceY{0%,100%{transform:translateY(-2px)}50%{transform:translateY(3px)}}
+@keyframes fadeUpBtn{to{opacity:1;transform:translate(-50%,0)}}
+.nav-links{display:flex;gap:26px}
+.nav-link{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--c60);transition:color .3s}
+.nav-link:hover{color:var(--cream)}
+@media(max-width:1020px){.nav-links{display:none}}
+@media(max-width:760px){#fx-canvas{display:none}.hero-scan{display:none}}
 /* ── Pricing ── */
 #pricing .pr-sub{font-size:15px;line-height:1.7;color:var(--c60);max-width:520px;margin:18px 0 50px}
 .pr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:stretch}
@@ -411,12 +416,17 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
   <a href="#hero" class="nav-logo">
     <span class="nav-logo-b">B12</span>&nbsp;VENTURES
   </a>
+  <div class="nav-links" aria-label="Primary">
+    <a class="nav-link" href="#services" data-i18n="nav_services">Services</a>
+    <a class="nav-link" href="#pricing" data-i18n="nav_pricing">Pricing</a>
+    <a class="nav-link" href="portfolio.html" data-i18n="nav_work">Portfolio</a>
+    <a class="nav-link" href="#contact" data-i18n="nav_contact">Contact</a>
+  </div>
   <div class="nav-right">
     <!-- Language Switcher -->
     <div class="lang-sw" role="group" aria-label="Language">
       <button class="lang-btn active" data-lang="en">EN</button>
       <button class="lang-btn" data-lang="fr">FR</button>
-      <button class="lang-btn" data-lang="ar">AR</button>
     </div>
     <a href="#contact" class="nav-cta" data-i18n="nav_cta">Get Started →</a>
     <button class="menu-btn" id="menu-btn" aria-expanded="false">
@@ -431,6 +441,8 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
   <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero-bg" id="hero-bg" aria-hidden="true"></div>
   <div class="hero-vig" aria-hidden="true"></div>
+  <canvas id="fx-canvas" aria-hidden="true"></canvas>
+  <div class="hero-scan" aria-hidden="true"></div>
   <div class="hero-content">
     <div class="hero-kicker" id="hero-kicker">
       <span data-i18n="hero_kicker">AI-Powered Digital Growth Agency — Montréal, QC</span>
@@ -449,10 +461,15 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
       </div>
     </div>
   </div>
-  <div class="hero-scroll" aria-hidden="true">
-    <div class="hero-scroll-line"></div>
-    <span class="hero-scroll-txt">Scroll</span>
-  </div>
+  <button class="explore-btn" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+    <span data-i18n="hero_scroll">Scroll to explore</span>
+    <span class="explore-arrow">
+      <svg width="16" height="16" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11 5V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M6 12L11 17L16 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </span>
+  </button>
 </section>
 
 <!-- MARQUEE -->
@@ -884,6 +901,7 @@ var TRANS={
     sv4:'Digital Marketing & Ads',sv5:'Website Development',sv6:'CRM & Business Automation',
     ft_desc:'Digital Growth & AI Solutions. Helping businesses attract more customers and increase sales.',
     ft_services:'Services',ft_company:'Company',ft_contact:'Contact',
+    hero_scroll:'Scroll to explore',
     nav_pricing:'Pricing',lbl_pricing:'Pricing',pr_h1:'Simple,',pr_h2:'Honest Pricing.',
     pr_sub:'One-time pricing — no subscriptions, no surprises. You pay once, you own everything.',
     pr1_name:'3D Virtual Tour',pr1_per:'Per space · based on size',
@@ -957,6 +975,7 @@ var TRANS={
     sv4:'Marketing Digital & Publicités',sv5:'Développement Web',sv6:'CRM & Automatisation',
     ft_desc:'Croissance Digitale & Solutions IA. Aider les entreprises à attirer plus de clients.',
     ft_services:'Services',ft_company:'Entreprise',ft_contact:'Contact',
+    hero_scroll:'Défiler pour explorer',
     nav_pricing:'Tarifs',lbl_pricing:'Tarifs',pr_h1:'Des Prix',pr_h2:'Simples et Honnêtes.',
     pr_sub:'Tarification unique — pas d\'abonnement, pas de surprise. Vous payez une fois, tout vous appartient.',
     pr1_name:'Visite Virtuelle 3D',pr1_per:'Par espace · selon la superficie',
@@ -974,79 +993,6 @@ var TRANS={
     pr4_f3:'Campagnes publicitaires &amp; stratégie de croissance',pr4_f4:'Combinez tous les services ci-dessus',
     prc_btn:'Commencer →',prc_btn2:'Commencer →',prc_btn3:'Commencer →',prc_btn4:'Obtenir un Devis →',
     pr_note:'<strong>Votre site web vous appartient — entièrement.</strong> Paiement unique, zéro frais mensuels. Nous vous remettons l\'accès admin complet : modifiez textes, photos, menus — tout — quand vous voulez. Aucun frais caché, aucun verrouillage.'
-  },
-  ar:{
-    nav_services:'الخدمات',nav_about:'من نحن',nav_global:'عالمي',nav_process:'العملية',
-    nav_work:'أعمالنا',nav_contact:'تواصل',nav_cta:'ابدأ الآن ←',nav_menu:'القائمة',
-    hero_kicker:'وكالة نمو رقمي بالذكاء الاصطناعي — مونتريال، كندا',
-    hero_t2:'فينتشرز',hero_t3:'نمو',hero_t4:'رقمي.',
-    hero_desc:'نساعد الشركات على جذب المزيد من العملاء وزيادة المبيعات وبناء حضور قوي على الإنترنت من خلال الذكاء الاصطناعي والتسويق الرقمي.',
-    hero_cta1:'← ابدأ النمو',hero_cta2:'خدماتنا',
-    lbl_mission:'مهمتنا',about_h:'مساعدة الشركات على النمو بشكل أسرع.',
-    about_p1:'في B12 Ventures، ندمج الأتمتة بالذكاء الاصطناعي والتسويق الرقمي والتجارب الافتراضية لمساعدة الشركات على جذب المزيد من العملاء.',
-    about_p2:'مهمتنا: تحقيق نمو قابل للقياس مع توفير وقتك من خلال التكنولوجيا الذكية.',
-    about_cta:'← احجز استشارة مجانية',
-    lbl_services:'ما نقدمه',svc_h1:'ست',svc_h2:'خدمات.',svc_h3:'شريك',svc_h4:'واحد.',
-    svc_sub:'كل ما تحتاجه شركتك لجذب العملاء والتوسع تحت سقف واحد.',
-    s1_name:'جولات افتراضية ثلاثية الأبعاد',s2_name:'التصوير الفوتوغرافي والمرئي',
-    s3_name:'أتمتة الذكاء الاصطناعي',s4_name:'التسويق الرقمي والإعلانات',
-    s5_name:'تطوير المواقع والصفحات',s6_name:'CRM وأتمتة الأعمال',
-    splite_lbl:'الذكاء الاصطناعي المتقدم',splite_h1:'مدعوم بالذكاء',splite_h2:'الاصطناعي.',
-    splite_p:'يتولى وكلاء الذكاء الاصطناعي لدينا التقاط العملاء المحتملين والمتابعة وحجز المواعيد — بينما يركز فريقك على إتمام الصفقات.',
-    splite_cta:'← نشر وكيل الذكاء الاصطناعي',
-    card_title:'وكيل ذكاء اصطناعي — مباشر',card_status:'نشط',
-    card_m1:'العملاء اليوم',card_m2:'وقت الرد',card_m3:'معدل التحويل',card_graph:'العملاء / آخر ٧ أيام',
-    feed1:'تم التقاط عميل محتمل ← تم إرسال البريد في 0.3 ثانية',feed2:'تم حجز موعد في التقويم',
-    feed3:'تم إرسال رسالة متابعة',feed4:'تأهيل عميل محتمل جديد...',
-    mission_body:'مهمتنا — مساعدة الشركات على النمو بشكل أسرع مع توفير الوقت من خلال التكنولوجيا والتسويق الذكي.',
-    lbl_why:'لماذا B12',why_h1:'نموك',why_h2:'هو',why_h3:'مهمتنا.',why_h4:'',
-    why_sub:'نبني محركات نمو طويلة الأمد باستخدام أفضل التقنيات المتاحة.',
-    wf1h:'زيادة الظهور الرقمي',wf1p:'اظهر في قمة نتائج البحث عندما يبحث عنك العملاء.',
-    wf2h:'توليد المزيد من العملاء',wf2p:'قمع تسويقي موجه يجذب المشترين لا المتصفحين.',
-    wf3h:'أتمتة المهام المتكررة',wf3p:'الذكاء الاصطناعي يتولى المتابعة والحجز والدعم.',
-    wf4h:'التوسع بالذكاء الاصطناعي',wf4p:'ضاعف إنتاجية فريقك دون مضاعفة التكاليف.',
-    wf5h:'الجولات الافتراضية',wf5p:'تجارب ثلاثية الأبعاد غامرة بحضور عالمي.',
-    stat1:'عميل تم خدمته',stat2:'معدل الرضا',stat3:'متوسط العائد',
-    lbl_map:'الحضور العالمي',map_h1:'نخدم',map_h2:'عملاء',map_h3:'حول العالم.',
-    loc1:'دبي، الإمارات',loc2:'المغرب',loc3:'كندا',loc4:'الولايات المتحدة',loc5:'تايلاند',
-    lbl_process:'كيف نعمل',proc_h1:'من',proc_h2:'الاستراتيجية',proc_h3:'إلى النتائج.',
-    ps1h:'مكالمة استكشاف',ps1p:'جلسة استراتيجية مجانية لمدة 30 دقيقة — بدون ضغط.',
-    ps2h:'استراتيجية مخصصة',ps2p:'خطة نمو مصممة خصيصاً لصناعتك.',
-    ps3h:'الإطلاق والتنفيذ',ps3p:'نشر الحملات والأتمتة في غضون 48 ساعة.',
-    ps4h:'التحسين والتوسع',ps4p:'تحسين أسبوعي ونمو مضاعف مع مرور الوقت.',
-    cta_sup:'هل أنت مستعد للنمو؟',cta_h1:'لنبني',cta_h2:'شيئاً حقيقياً.',
-    cta_sub:'احجز جلسة استراتيجية مجانية لمدة 30 دقيقة. بدون التزام.',
-    cta_btn1:'← احجز مكالمة مجانية',
-    lbl_contact:'تواصل معنا',ct_h1:'ابدأ',ct_h2:'رحلة نموك.',
-    ci_phone:'الهاتف',ci_email:'البريد الإلكتروني',ci_web:'الموقع الإلكتروني',ci_resp:'وقت الرد',ci_resp_val:'خلال 24 ساعة',
-    cf_h:'أرسل رسالة',cf_sub:'أخبرنا عن مشروعك — سنرد خلال 24 ساعة.',
-    cf_fn:'الاسم الأول',cf_ln:'اسم العائلة',cf_em:'البريد الإلكتروني',cf_ph:'الهاتف',
-    cf_sv:'الخدمة المطلوبة',cf_sv_ph:'اختر خدمة...',cf_msg:'الرسالة',cf_send:'← إرسال',
-    cf_sms_nm:'أوافق على تلقي رسائل نصية غير تسويقية من B12 Ventures بخصوص طلبي ومواعيدي وخدمة العملاء على الرقم المقدم. قد يختلف تواتر الرسائل. قد تُطبق رسوم الرسائل والبيانات. أرسل HELP للمساعدة أو STOP لإلغاء الاشتراك.',
-    cf_sms_mk:'أوافق على تلقي رسائل نصية تسويقية من B12 Ventures بخصوص العروض الخاصة والخصومات والتحديثات على الرقم المقدم. قد يختلف تواتر الرسائل. قد تُطبق رسوم الرسائل والبيانات. أرسل HELP للمساعدة أو STOP لإلغاء الاشتراك.',
-    cf_legal:'بإرسال هذا النموذج، فإنك توافق على',cf_legal_t:'الشروط والأحكام',cf_legal_and:'و',cf_legal_p:'سياسة الخصوصية',
-    ft_terms:'الشروط والأحكام',ft_privacy:'سياسة الخصوصية',
-    sv1:'جولات افتراضية & Matterport',sv2:'التصوير والفيديو',sv3:'أتمتة الذكاء الاصطناعي',
-    sv4:'التسويق الرقمي والإعلانات',sv5:'تطوير المواقع',sv6:'CRM وأتمتة الأعمال',
-    ft_desc:'نمو رقمي وحلول ذكاء اصطناعي. نساعد الشركات على جذب المزيد من العملاء وزيادة المبيعات.',
-    ft_services:'الخدمات',ft_company:'الشركة',ft_contact:'تواصل',
-    nav_pricing:'الأسعار',lbl_pricing:'الأسعار',pr_h1:'أسعار',pr_h2:'بسيطة وواضحة.',
-    pr_sub:'دفعة واحدة — بدون اشتراكات وبدون مفاجآت. تدفع مرة واحدة وتملك كل شيء.',
-    pr1_name:'جولة افتراضية ثلاثية الأبعاد',pr1_per:'لكل مساحة · حسب الحجم',
-    pr1_f1:'مسح Matterport ثلاثي الأبعاد كامل لمساحتك',pr1_f2:'جولة غامرة على أي جهاز',
-    pr1_f3:'رابط قابل للمشاركة — يُدمج في موقعك وGoogle',pr1_f4:'تصوير في الموقع وتسليم سريع',
-    pr2_badge:'بدون رسوم شهرية',pr2_name:'موقع إلكتروني',pr2_per:'دفعة واحدة · ملكك للأبد',
-    pr2_f1:'تصميم راقٍ مخصص مصمم لجذب العملاء',pr2_f2:'متوافق مع الجوال + تحسين SEO',
-    pr2_f3:'ثنائي اللغة EN/FR متاح',pr2_f4:'<strong>صلاحية إدارة كاملة</strong> — عدّل أي شيء بنفسك',
-    pr2_f5:'<strong>0$/شهرياً.</strong> بدون اشتراكات أبداً',
-    pr3_badge:'مثالي للمطاعم',pr3_name:'باقة الميديا',pr3_per:'محتوى متكامل لعملك',
-    pr3_f1:'جولة افتراضية ثلاثية الأبعاد مشمولة',pr3_f2:'صور احترافية لإنستغرام وGoogle',
-    pr3_f3:'فيديوهات ترويجية لوسائل التواصل',pr3_f4:'إعادة تصميم قائمة الطعام — جاهزة للطباعة',pr3_f5:'إنشاء قائمة برمز QR',
-    pr4_badge:'وسائل التواصل',pr4_name:'مخصص',pr4_price:'لنتحدث',pr4_per:'حسب أهدافك',
-    pr4_f1:'إدارة وسائل التواصل الاجتماعي',pr4_f2:'إنشاء المحتوى والنشر',
-    pr4_f3:'حملات إعلانية واستراتيجية نمو',pr4_f4:'اجمع بين أي خدمات أعلاه',
-    prc_btn:'ابدأ الآن ←',prc_btn2:'ابدأ الآن ←',prc_btn3:'ابدأ الآن ←',prc_btn4:'اطلب عرض سعر ←',
-    pr_note:'<strong>موقعك ملكك — بالكامل.</strong> دفعة واحدة، صفر رسوم شهرية. نسلمك صلاحية الإدارة الكاملة لتعديل النصوص والصور والقوائم — أي شيء — متى شئت. بدون رسوم خفية وبدون قيود.'
   }
 };
 
@@ -1055,8 +1001,7 @@ function setLang(lang){
   currentLang=lang;
   var t=TRANS[lang];
   var html=document.getElementById('html-root');
-  if(lang==='ar'){html.setAttribute('dir','rtl');html.setAttribute('lang','ar')}
-  else{html.setAttribute('dir','ltr');html.setAttribute('lang',lang)}
+  html.setAttribute('dir','ltr');html.setAttribute('lang',lang);
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var k=el.getAttribute('data-i18n');
     if(t[k]!==undefined) el.innerHTML=t[k];
@@ -1368,6 +1313,88 @@ if(card&&cardWrap){
   draw();
   window.addEventListener('resize',draw,{passive:true});
   (function anim(){draw();requestAnimationFrame(anim);})();
+})();
+
+/* ── Futuristic hero FX (vanilla WebGL port of hero-futuristic) ── */
+(function(){
+  var cv=document.getElementById('fx-canvas');
+  if(!cv) return;
+  var gl=cv.getContext('webgl2',{alpha:true,antialias:true});
+  if(!gl){cv.style.display='none';return;}
+
+  var VS='#version 300 es\nin vec2 p;out vec2 vUv;void main(){vUv=p*.5+.5;gl_Position=vec4(p,0.,1.);}';
+  var FS='#version 300 es\nprecision highp float;\n'+
+  'uniform sampler2D uTex,uDepth;uniform vec2 uPointer;uniform float uProgress,uOpacity;\n'+
+  'in vec2 vUv;out vec4 outC;\n'+
+  'float hash(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}\n'+
+  'void main(){\n'+
+  ' vec2 fuv=vec2(vUv.x,1.0-vUv.y);\n'+
+  ' float depth=texture(uDepth,fuv).r;\n'+
+  ' vec2 puv=fuv+depth*uPointer*0.01;\n'+
+  ' vec4 img=texture(uTex,puv);\n'+
+  ' vec2 tiling=vec2(120.0);\n'+
+  ' vec2 tiled=mod(vUv*tiling,2.0)-1.0;\n'+
+  ' float bright=hash(floor(vUv*tiling/2.0));\n'+
+  ' float dt=smoothstep(0.5,0.49,length(tiled))*bright;\n'+
+  ' float flow=1.0-smoothstep(0.0,0.02,abs(depth-uProgress));\n'+
+  ' vec3 mask=dt*flow*vec3(0.0,3.4,10.0);\n'+
+  ' vec3 col=1.0-(1.0-img.rgb)*(1.0-clamp(mask,0.0,1.0));\n'+
+  ' float scan=1.0-smoothstep(0.0,0.05,abs(vUv.y-(1.0-uProgress)));\n'+
+  ' col+=vec3(0.0,0.13,0.4)*scan;\n'+
+  ' outC=vec4(col*img.a,img.a*uOpacity);\n'+
+  '}';
+  function sh(t,src){var s=gl.createShader(t);gl.shaderSource(s,src);gl.compileShader(s);return s;}
+  var pr=gl.createProgram();
+  gl.attachShader(pr,sh(gl.VERTEX_SHADER,VS));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,FS));
+  gl.linkProgram(pr);
+  if(!gl.getProgramParameter(pr,gl.LINK_STATUS)){cv.style.display='none';return;}
+  gl.useProgram(pr);
+  var buf=gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+  gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+  var loc=gl.getAttribLocation(pr,'p');
+  gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+  var uPointer=gl.getUniformLocation(pr,'uPointer'),uProgress=gl.getUniformLocation(pr,'uProgress'),
+      uOpacity=gl.getUniformLocation(pr,'uOpacity'),uTexL=gl.getUniformLocation(pr,'uTex'),
+      uDepthL=gl.getUniformLocation(pr,'uDepth');
+  gl.uniform1i(uTexL,0);gl.uniform1i(uDepthL,1);
+  gl.enable(gl.BLEND);gl.blendFunc(gl.ONE,gl.ONE_MINUS_SRC_ALPHA);
+
+  function mkTex(unit,img){
+    gl.activeTexture(gl.TEXTURE0+unit);
+    var t=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,t);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+    gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,img);
+    return t;
+  }
+  var loaded=0,imgs=[new Image(),new Image()];
+  imgs[0].src='assets/hero-fx.png';imgs[1].src='assets/hero-fx-depth.webp';
+  imgs.forEach(function(im,i){im.onload=function(){mkTex(i,im);if(++loaded===2){cv.classList.add('on');op=0;raf();}};im.onerror=function(){cv.style.display='none';};});
+
+  var px=0,py=0,tx=0,ty=0,op=0,run=false;
+  window.addEventListener('mousemove',function(e){
+    tx=(e.clientX/window.innerWidth)*2-1;
+    ty=-((e.clientY/window.innerHeight)*2-1);
+  });
+  function resize(){var d=Math.min(window.devicePixelRatio||1,2),r=cv.getBoundingClientRect();cv.width=r.width*d;cv.height=r.height*d;gl.viewport(0,0,cv.width,cv.height);}
+  window.addEventListener('resize',resize);resize();
+  function raf(){
+    if(run) return; run=true;
+    (function loop(){
+      var t=performance.now()/1000;
+      px+=(tx-px)*0.06;py+=(ty-py)*0.06;
+      op+=(1-op)*0.05;
+      gl.uniform2f(uPointer,px,py);
+      gl.uniform1f(uProgress,Math.sin(t*0.5)*0.5+0.5);
+      gl.uniform1f(uOpacity,op);
+      gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.drawArrays(gl.TRIANGLES,0,3);
+      requestAnimationFrame(loop);
+    })();
+  }
 })();
 
 /* ── Pricing card spotlight ── */
