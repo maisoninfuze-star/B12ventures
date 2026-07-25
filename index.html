@@ -59,6 +59,7 @@ body:not(.touch) *{cursor:none}
 #fullmenu.open .fm-link:nth-child(4) span{transition-delay:.26s}
 #fullmenu.open .fm-link:nth-child(5) span{transition-delay:.33s}
 #fullmenu.open .fm-link:nth-child(6) span{transition-delay:.40s}
+#fullmenu.open .fm-link:nth-child(7) span{transition-delay:.47s}
 .fm-link:hover{color:var(--cream)}
 .fm-foot{position:absolute;bottom:36px;left:0;right:0;display:flex;justify-content:space-between;padding:0 48px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--c40)}
 
@@ -344,6 +345,36 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
   .fg-row{grid-template-columns:1fr}.fm-foot{padding:0 24px}
   .splite-left{padding:52px 28px}.splite-right{padding:40px 24px}
 }
+/* ── Pricing ── */
+#pricing .pr-sub{font-size:15px;line-height:1.7;color:var(--c60);max-width:520px;margin:18px 0 50px}
+.pr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:stretch}
+.prc{position:relative;border:1px solid var(--c10);border-radius:3px;padding:30px 24px 26px;background:var(--bg2);display:flex;flex-direction:column;overflow:hidden;transition:transform .4s var(--ease-out),border-color .4s}
+.prc::before{content:'';position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(0,85,255,.09),transparent 65%);opacity:0;transition:opacity .4s;pointer-events:none}
+.prc:hover{transform:translateY(-6px);border-color:var(--c20)}
+.prc:hover::before{opacity:1}
+.prc.feat{border-color:rgba(0,85,255,.55);background:linear-gradient(180deg,rgba(0,85,255,.07),var(--bg2) 55%)}
+.prc.feat{animation:prGlow 3.2s ease-in-out infinite}
+@keyframes prGlow{0%,100%{box-shadow:0 0 0 0 rgba(0,85,255,0)}50%{box-shadow:0 0 34px -6px rgba(0,85,255,.35)}}
+.prc-badge{position:absolute;top:0;right:0;background:var(--blue);color:#fff;font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:0 0 0 3px}
+.prc-badge.ghost{background:transparent;color:var(--c40);border:1px solid var(--c10);border-top:none;border-right:none}
+.prc-name{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--c60);margin-bottom:16px}
+.prc-price{font-family:var(--disp);font-size:clamp(30px,3.2vw,42px);letter-spacing:.01em;line-height:1;color:var(--cream)}
+.prc-price .sm{font-size:.55em;color:var(--blue)}
+.prc-per{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--c40);margin:10px 0 20px;padding-bottom:18px;border-bottom:1px solid var(--c10)}
+.prc-feat{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px;flex-grow:1}
+.prc-feat li{font-size:12.5px;line-height:1.55;color:var(--c60);padding-left:18px;position:relative}
+.prc-feat li::before{content:'✓';position:absolute;left:0;color:var(--blue);font-size:11px}
+.prc-feat li strong{color:var(--cream);font-weight:600}
+.prc-btn{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:12px;border:1px solid var(--c20);border-radius:2px;color:var(--c80);transition:all .3s}
+.prc-btn:hover{background:var(--cream);color:var(--bg);border-color:var(--cream)}
+.prc.feat .prc-btn{background:var(--blue);border-color:var(--blue);color:#fff}
+.prc.feat .prc-btn:hover{background:var(--cream);border-color:var(--cream);color:var(--bg)}
+.pr-note{margin-top:26px;border:1px solid rgba(0,85,255,.3);border-radius:3px;padding:20px 26px;display:flex;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(0,85,255,.08),transparent 60%)}
+.pr-note-ic{font-size:20px;flex-shrink:0}
+.pr-note p{font-size:13.5px;line-height:1.7;color:var(--c60)}
+.pr-note p strong{color:var(--cream);font-weight:600}
+@media(max-width:1100px){.pr-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.pr-grid{grid-template-columns:1fr}.pr-note{flex-direction:column;text-align:center;gap:8px}}
 </style>
 </head>
 <body>
@@ -366,6 +397,7 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
     <a class="fm-link" href="#mapzone"   onclick="closeMenu()"><span data-i18n="nav_global">Global</span></a>
     <a class="fm-link" href="#process"   onclick="closeMenu()"><span data-i18n="nav_process">Process</span></a>
     <a class="fm-link" href="portfolio.html"><span data-i18n="nav_work">Portfolio</span></a>
+    <a class="fm-link" href="#pricing"   onclick="closeMenu()"><span data-i18n="nav_pricing">Pricing</span></a>
     <a class="fm-link" href="#contact"   onclick="closeMenu()"><span style="color:var(--blue)" data-i18n="nav_contact">Contact</span></a>
   </nav>
   <div class="fm-foot">
@@ -605,6 +637,82 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
   </div>
 </section>
 
+<!-- PRICING -->
+<section id="pricing" class="sec">
+  <div class="wrap">
+    <div class="sec-lbl rv" data-i18n="lbl_pricing">Pricing</div>
+    <h2 class="st rv d1">
+      <span class="sw"><span class="si" data-i18n="pr_h1">Simple,</span></span>
+      <span class="sw" style="color:var(--blue)"><span class="si" data-i18n="pr_h2">Honest Pricing.</span></span>
+    </h2>
+    <p class="pr-sub rv d2" data-i18n="pr_sub">One-time pricing — no subscriptions, no surprises. You pay once, you own everything.</p>
+
+    <div class="pr-grid">
+      <div class="prc rv d1">
+        <div class="prc-name" data-i18n="pr1_name">3D Virtual Tour</div>
+        <div class="prc-price">$300–500</div>
+        <div class="prc-per" data-i18n="pr1_per">Per space · based on size</div>
+        <ul class="prc-feat">
+          <li data-i18n="pr1_f1">Full Matterport 3D scan of your space</li>
+          <li data-i18n="pr1_f2">Immersive walkthrough on any device</li>
+          <li data-i18n="pr1_f3">Shareable link — embed on your website &amp; Google</li>
+          <li data-i18n="pr1_f4">Filmed on-site, delivered fast</li>
+        </ul>
+        <a href="#contact" class="prc-btn" data-i18n="prc_btn">Get Started →</a>
+      </div>
+
+      <div class="prc feat rv d2">
+        <div class="prc-badge" data-i18n="pr2_badge">No Monthly Fees</div>
+        <div class="prc-name" data-i18n="pr2_name">Website</div>
+        <div class="prc-price">$1,000</div>
+        <div class="prc-per" data-i18n="pr2_per">One-time · you own it forever</div>
+        <ul class="prc-feat">
+          <li data-i18n="pr2_f1">Custom high-end design, built to convert</li>
+          <li data-i18n="pr2_f2">Mobile-ready + SEO optimized</li>
+          <li data-i18n="pr2_f3">Bilingual EN/FR available</li>
+          <li data-i18n="pr2_f4"><strong>Full admin access</strong> — update anything yourself</li>
+          <li data-i18n="pr2_f5"><strong>$0/month.</strong> No subscriptions, ever</li>
+        </ul>
+        <a href="#contact" class="prc-btn" data-i18n="prc_btn2">Get Started →</a>
+      </div>
+
+      <div class="prc rv d3">
+        <div class="prc-badge ghost" data-i18n="pr3_badge">Best for Restaurants</div>
+        <div class="prc-name" data-i18n="pr3_name">Media Package</div>
+        <div class="prc-price">$1,000</div>
+        <div class="prc-per" data-i18n="pr3_per">Complete content bundle</div>
+        <ul class="prc-feat">
+          <li data-i18n="pr3_f1">3D virtual tour included</li>
+          <li data-i18n="pr3_f2">Professional photos for Instagram &amp; Google</li>
+          <li data-i18n="pr3_f3">Promo videos for social media</li>
+          <li data-i18n="pr3_f4">Menu redesign — print-ready</li>
+          <li data-i18n="pr3_f5">QR code menu generation</li>
+        </ul>
+        <a href="#contact" class="prc-btn" data-i18n="prc_btn3">Get Started →</a>
+      </div>
+
+      <div class="prc rv d4">
+        <div class="prc-badge ghost" data-i18n="pr4_badge">Social Media</div>
+        <div class="prc-name" data-i18n="pr4_name">Custom</div>
+        <div class="prc-price" data-i18n="pr4_price">Let's Talk</div>
+        <div class="prc-per" data-i18n="pr4_per">Tailored to your goals</div>
+        <ul class="prc-feat">
+          <li data-i18n="pr4_f1">Social media management</li>
+          <li data-i18n="pr4_f2">Content creation &amp; posting</li>
+          <li data-i18n="pr4_f3">Ad campaigns &amp; growth strategy</li>
+          <li data-i18n="pr4_f4">Mix &amp; match any services above</li>
+        </ul>
+        <a href="#contact" class="prc-btn" data-i18n="prc_btn4">Get a Quote →</a>
+      </div>
+    </div>
+
+    <div class="pr-note rv d2">
+      <div class="pr-note-ic">🔑</div>
+      <p data-i18n="pr_note"><strong>You own your website — completely.</strong> One-time payment, zero monthly fees. We hand over full admin access so you can update text, photos, menus — anything — whenever you want. No hostage fees, no lock-in.</p>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section id="ctaband">
   <div class="wrap">
@@ -775,7 +883,24 @@ var TRANS={
     sv1:'Virtual Tours & Matterport 3D',sv2:'Photography & Videography',sv3:'AI Automation & AI Agents',
     sv4:'Digital Marketing & Ads',sv5:'Website Development',sv6:'CRM & Business Automation',
     ft_desc:'Digital Growth & AI Solutions. Helping businesses attract more customers and increase sales.',
-    ft_services:'Services',ft_company:'Company',ft_contact:'Contact'
+    ft_services:'Services',ft_company:'Company',ft_contact:'Contact',
+    nav_pricing:'Pricing',lbl_pricing:'Pricing',pr_h1:'Simple,',pr_h2:'Honest Pricing.',
+    pr_sub:'One-time pricing — no subscriptions, no surprises. You pay once, you own everything.',
+    pr1_name:'3D Virtual Tour',pr1_per:'Per space · based on size',
+    pr1_f1:'Full Matterport 3D scan of your space',pr1_f2:'Immersive walkthrough on any device',
+    pr1_f3:'Shareable link — embed on your website &amp; Google',pr1_f4:'Filmed on-site, delivered fast',
+    pr2_badge:'No Monthly Fees',pr2_name:'Website',pr2_per:'One-time · you own it forever',
+    pr2_f1:'Custom high-end design, built to convert',pr2_f2:'Mobile-ready + SEO optimized',
+    pr2_f3:'Bilingual EN/FR available',pr2_f4:'<strong>Full admin access</strong> — update anything yourself',
+    pr2_f5:'<strong>$0/month.</strong> No subscriptions, ever',
+    pr3_badge:'Best for Restaurants',pr3_name:'Media Package',pr3_per:'Complete content bundle',
+    pr3_f1:'3D virtual tour included',pr3_f2:'Professional photos for Instagram &amp; Google',
+    pr3_f3:'Promo videos for social media',pr3_f4:'Menu redesign — print-ready',pr3_f5:'QR code menu generation',
+    pr4_badge:'Social Media',pr4_name:'Custom',pr4_price:"Let's Talk",pr4_per:'Tailored to your goals',
+    pr4_f1:'Social media management',pr4_f2:'Content creation &amp; posting',
+    pr4_f3:'Ad campaigns &amp; growth strategy',pr4_f4:'Mix &amp; match any services above',
+    prc_btn:'Get Started →',prc_btn2:'Get Started →',prc_btn3:'Get Started →',prc_btn4:'Get a Quote →',
+    pr_note:'<strong>You own your website — completely.</strong> One-time payment, zero monthly fees. We hand over full admin access so you can update text, photos, menus — anything — whenever you want. No hostage fees, no lock-in.'
   },
   fr:{
     nav_services:'Services',nav_about:'À Propos',nav_global:'Mondial',nav_process:'Processus',
@@ -831,7 +956,24 @@ var TRANS={
     sv1:'Visites Virtuelles & Matterport 3D',sv2:'Photographie & Vidéo',sv3:'Automatisation IA',
     sv4:'Marketing Digital & Publicités',sv5:'Développement Web',sv6:'CRM & Automatisation',
     ft_desc:'Croissance Digitale & Solutions IA. Aider les entreprises à attirer plus de clients.',
-    ft_services:'Services',ft_company:'Entreprise',ft_contact:'Contact'
+    ft_services:'Services',ft_company:'Entreprise',ft_contact:'Contact',
+    nav_pricing:'Tarifs',lbl_pricing:'Tarifs',pr_h1:'Des Prix',pr_h2:'Simples et Honnêtes.',
+    pr_sub:'Tarification unique — pas d\'abonnement, pas de surprise. Vous payez une fois, tout vous appartient.',
+    pr1_name:'Visite Virtuelle 3D',pr1_per:'Par espace · selon la superficie',
+    pr1_f1:'Numérisation Matterport 3D complète de votre espace',pr1_f2:'Visite immersive sur tous les appareils',
+    pr1_f3:'Lien partageable — intégrable à votre site &amp; Google',pr1_f4:'Filmé sur place, livré rapidement',
+    pr2_badge:'Aucuns Frais Mensuels',pr2_name:'Site Web',pr2_per:'Paiement unique · à vous pour toujours',
+    pr2_f1:'Design haut de gamme sur mesure, conçu pour convertir',pr2_f2:'Optimisé mobile + SEO',
+    pr2_f3:'Bilingue FR/EN disponible',pr2_f4:'<strong>Accès admin complet</strong> — modifiez tout vous-même',
+    pr2_f5:'<strong>0$/mois.</strong> Aucun abonnement, jamais',
+    pr3_badge:'Idéal Restaurants',pr3_name:'Forfait Média',pr3_per:'Contenu complet pour votre entreprise',
+    pr3_f1:'Visite virtuelle 3D incluse',pr3_f2:'Photos professionnelles pour Instagram &amp; Google',
+    pr3_f3:'Vidéos promo pour réseaux sociaux',pr3_f4:'Refonte de menu — prêt à imprimer',pr3_f5:'Génération de menu code QR',
+    pr4_badge:'Réseaux Sociaux',pr4_name:'Sur Mesure',pr4_price:'Parlons-en',pr4_per:'Adapté à vos objectifs',
+    pr4_f1:'Gestion des réseaux sociaux',pr4_f2:'Création de contenu &amp; publication',
+    pr4_f3:'Campagnes publicitaires &amp; stratégie de croissance',pr4_f4:'Combinez tous les services ci-dessus',
+    prc_btn:'Commencer →',prc_btn2:'Commencer →',prc_btn3:'Commencer →',prc_btn4:'Obtenir un Devis →',
+    pr_note:'<strong>Votre site web vous appartient — entièrement.</strong> Paiement unique, zéro frais mensuels. Nous vous remettons l\'accès admin complet : modifiez textes, photos, menus — tout — quand vous voulez. Aucun frais caché, aucun verrouillage.'
   },
   ar:{
     nav_services:'الخدمات',nav_about:'من نحن',nav_global:'عالمي',nav_process:'العملية',
@@ -887,7 +1029,24 @@ var TRANS={
     sv1:'جولات افتراضية & Matterport',sv2:'التصوير والفيديو',sv3:'أتمتة الذكاء الاصطناعي',
     sv4:'التسويق الرقمي والإعلانات',sv5:'تطوير المواقع',sv6:'CRM وأتمتة الأعمال',
     ft_desc:'نمو رقمي وحلول ذكاء اصطناعي. نساعد الشركات على جذب المزيد من العملاء وزيادة المبيعات.',
-    ft_services:'الخدمات',ft_company:'الشركة',ft_contact:'تواصل'
+    ft_services:'الخدمات',ft_company:'الشركة',ft_contact:'تواصل',
+    nav_pricing:'الأسعار',lbl_pricing:'الأسعار',pr_h1:'أسعار',pr_h2:'بسيطة وواضحة.',
+    pr_sub:'دفعة واحدة — بدون اشتراكات وبدون مفاجآت. تدفع مرة واحدة وتملك كل شيء.',
+    pr1_name:'جولة افتراضية ثلاثية الأبعاد',pr1_per:'لكل مساحة · حسب الحجم',
+    pr1_f1:'مسح Matterport ثلاثي الأبعاد كامل لمساحتك',pr1_f2:'جولة غامرة على أي جهاز',
+    pr1_f3:'رابط قابل للمشاركة — يُدمج في موقعك وGoogle',pr1_f4:'تصوير في الموقع وتسليم سريع',
+    pr2_badge:'بدون رسوم شهرية',pr2_name:'موقع إلكتروني',pr2_per:'دفعة واحدة · ملكك للأبد',
+    pr2_f1:'تصميم راقٍ مخصص مصمم لجذب العملاء',pr2_f2:'متوافق مع الجوال + تحسين SEO',
+    pr2_f3:'ثنائي اللغة EN/FR متاح',pr2_f4:'<strong>صلاحية إدارة كاملة</strong> — عدّل أي شيء بنفسك',
+    pr2_f5:'<strong>0$/شهرياً.</strong> بدون اشتراكات أبداً',
+    pr3_badge:'مثالي للمطاعم',pr3_name:'باقة الميديا',pr3_per:'محتوى متكامل لعملك',
+    pr3_f1:'جولة افتراضية ثلاثية الأبعاد مشمولة',pr3_f2:'صور احترافية لإنستغرام وGoogle',
+    pr3_f3:'فيديوهات ترويجية لوسائل التواصل',pr3_f4:'إعادة تصميم قائمة الطعام — جاهزة للطباعة',pr3_f5:'إنشاء قائمة برمز QR',
+    pr4_badge:'وسائل التواصل',pr4_name:'مخصص',pr4_price:'لنتحدث',pr4_per:'حسب أهدافك',
+    pr4_f1:'إدارة وسائل التواصل الاجتماعي',pr4_f2:'إنشاء المحتوى والنشر',
+    pr4_f3:'حملات إعلانية واستراتيجية نمو',pr4_f4:'اجمع بين أي خدمات أعلاه',
+    prc_btn:'ابدأ الآن ←',prc_btn2:'ابدأ الآن ←',prc_btn3:'ابدأ الآن ←',prc_btn4:'اطلب عرض سعر ←',
+    pr_note:'<strong>موقعك ملكك — بالكامل.</strong> دفعة واحدة، صفر رسوم شهرية. نسلمك صلاحية الإدارة الكاملة لتعديل النصوص والصور والقوائم — أي شيء — متى شئت. بدون رسوم خفية وبدون قيود.'
   }
 };
 
@@ -1210,6 +1369,15 @@ if(card&&cardWrap){
   window.addEventListener('resize',draw,{passive:true});
   (function anim(){draw();requestAnimationFrame(anim);})();
 })();
+
+/* ── Pricing card spotlight ── */
+document.querySelectorAll('.prc').forEach(function(card){
+  card.addEventListener('mousemove',function(e){
+    var r=card.getBoundingClientRect();
+    card.style.setProperty('--mx',(e.clientX-r.left)+'px');
+    card.style.setProperty('--my',(e.clientY-r.top)+'px');
+  });
+});
 
 /* ── Contact Form (Web3Forms) ── */
 (function(){
