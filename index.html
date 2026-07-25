@@ -332,7 +332,11 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
   #nav{padding:20px 24px}.wrap{padding:0 24px}.sec{padding:80px 0}
   .hero-content{padding:0 24px 48px}
   .ab-grid,.why-grid,.ct-grid{grid-template-columns:1fr}
-  .svc-row{grid-template-columns:44px 1fr;padding:22px 0}.svc-img{display:none}
+  .svc-row{grid-template-columns:44px 1fr;padding:22px 0}
+  /* show the service visuals on phone as a full-width band */
+  .svc-img{display:block;grid-column:1/-1;height:170px;margin-top:16px;opacity:1;transform:none;border-color:rgba(0,85,255,.28)}
+  /* descriptions can't be hovered on touch — always show them */
+  .svc-exp{grid-template-rows:1fr}
   .ps-grid{grid-template-columns:1fr}.ft-grid{grid-template-columns:1fr}
   .fg-row{grid-template-columns:1fr}.fm-foot{padding:0 24px}
   .splite-left{padding:52px 28px}.splite-right{padding:40px 24px}
@@ -351,7 +355,38 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
 .nav-link{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--c60);transition:color .3s}
 .nav-link:hover{color:var(--cream)}
 @media(max-width:1020px){.nav-links{display:none}}
-@media(max-width:760px){#fx-canvas{display:none}.hero-scan{display:none}}
+@media(max-width:760px){
+  /* on phones there's no room beside the headline — use it as an
+     atmospheric backdrop instead (sits at z-index 1, behind text at z-index 3) */
+  #fx-canvas{right:auto;left:50%;top:38%;transform:translate(-50%,-50%);width:min(92vw,380px);opacity:0}
+  #fx-canvas.on{opacity:.4}
+  .hero-scan{height:90px}
+  /* the two hero CTAs already cover this action on phone */
+  .explore-btn{display:none}
+}
+/* touch devices: no custom cursor, no hover-dependent states */
+.touch #cur-dot,.touch #cur-ring{display:none}
+.touch .svc-img{opacity:1;transform:none}
+@media(hover:none),(pointer:coarse){
+  #cur-dot,#cur-ring{display:none!important}
+  .svc-img{opacity:1;transform:none}
+  .prc:hover{transform:none}
+}
+/* comfortable tap targets on phones (44px min) */
+@media(max-width:768px){
+  /* nav: logo + language + menu only — the hero CTA covers "Get Started" */
+  #nav{padding:14px 20px;gap:10px}
+  .nav-logo{font-size:12.5px;letter-spacing:.08em;flex-shrink:0}
+  .nav-right{gap:10px;flex-shrink:0}
+  .nav-cta{display:none!important}
+  .lang-btn{font-size:8.5px;padding-left:9px;padding-right:9px}
+  #menu-txt{display:none}
+  .menu-btn{min-height:44px;padding:0 4px}
+  .lang-btn{min-height:38px;padding-left:14px;padding-right:14px}
+  .nav-cta{min-height:40px;display:inline-flex;align-items:center}
+  .btn,.prc-btn{min-height:46px}
+  .ft-col a{display:inline-block;padding:3px 0}
+}
 /* ── Pricing ── */
 #pricing .pr-sub{font-size:15px;line-height:1.7;color:var(--c60);max-width:520px;margin:18px 0 50px}
 .pr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:stretch}
