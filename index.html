@@ -354,6 +354,10 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
 .nav-links{display:flex;gap:26px}
 .nav-link{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--c60);transition:color .3s}
 .nav-link:hover{color:var(--cream)}
+.nav-offer{color:var(--blue);position:relative}
+.nav-offer::after{content:'';position:absolute;left:0;right:0;bottom:-4px;height:1px;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease-out)}
+.nav-offer:hover{color:var(--blue)}
+.nav-offer:hover::after{transform:none}
 @media(max-width:1020px){.nav-links{display:none}}
 @media(max-width:760px){
   /* on phones there's no room beside the headline — use it as an
@@ -402,6 +406,48 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
 .prc-name{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--c60);margin-bottom:16px}
 .prc-price{font-family:var(--disp);font-size:clamp(30px,3.2vw,42px);letter-spacing:.01em;line-height:1;color:var(--cream)}
 .prc-price .sm{font-size:.55em;color:var(--blue)}
+.prc-deal{display:block;margin:-6px 0 16px;padding:11px 13px;border:1px solid rgba(0,85,255,.42);border-radius:3px;background:linear-gradient(100deg,rgba(0,85,255,.16),rgba(0,85,255,.04));transition:all .3s var(--ease-out)}
+.prc-deal:hover{border-color:var(--blue);background:linear-gradient(100deg,rgba(0,85,255,.26),rgba(0,85,255,.08))}
+.prc-deal-t{display:block;font-family:var(--disp);font-size:17px;letter-spacing:.02em;color:var(--cream)}
+.prc-deal-s{display:block;font-family:var(--mono);font-size:8px;letter-spacing:.13em;text-transform:uppercase;color:var(--blue);margin-top:4px}
+
+/* ── Launch offer ── */
+#offer{position:relative;padding:110px 0;border-top:1px solid var(--c10);overflow:hidden}
+#offer::before{content:'';position:absolute;top:-40%;right:-10%;width:820px;height:820px;background:radial-gradient(circle,rgba(0,85,255,.15),transparent 62%);pointer-events:none}
+.of-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start}
+.of-tag{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);border:1px solid rgba(0,85,255,.4);border-radius:999px;padding:7px 14px;background:rgba(0,85,255,.08)}
+.of-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);animation:ofp 1.9s ease-in-out infinite}
+@keyframes ofp{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,85,255,.6)}50%{opacity:.65;box-shadow:0 0 0 7px rgba(0,85,255,0)}}
+.of-h{font-family:var(--disp);font-size:clamp(38px,5.6vw,76px);line-height:.94;letter-spacing:-.01em;text-transform:uppercase;margin:20px 0 6px}
+.of-h .strike{position:relative;color:var(--c40)}
+.of-h .strike::after{content:'';position:absolute;left:-2%;right:-2%;top:52%;height:5px;background:var(--blue);transform:rotate(-4deg)}
+.of-h .now{color:var(--blue)}
+.of-sub{font-size:15px;line-height:1.75;color:var(--c60);max-width:440px;margin-top:18px}
+.of-list{list-style:none;margin:26px 0 0;display:flex;flex-direction:column;gap:11px}
+.of-list li{font-size:13.5px;line-height:1.6;color:var(--c80);padding-left:24px;position:relative}
+.of-list li::before{content:'✓';position:absolute;left:0;color:var(--blue);font-size:13px}
+.of-meta{margin-top:26px;padding-top:20px;border-top:1px solid var(--c10);font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--c40);line-height:1.9}
+.of-card{background:var(--bg2);border:1px solid var(--c10);border-radius:5px;padding:32px 30px}
+.of-card h3{font-family:var(--disp);font-size:22px;letter-spacing:.02em;text-transform:uppercase;margin-bottom:6px}
+.of-card .of-cs{font-size:12.5px;color:var(--c60);line-height:1.6;margin-bottom:22px}
+.of-f{margin-bottom:13px}
+.of-f label{display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--c40);margin-bottom:6px}
+.of-f input,.of-f select{width:100%;background:var(--bg);border:1px solid var(--c10);border-radius:2px;padding:12px 13px;font-size:13.5px;color:var(--cream);transition:border-color .3s}
+.of-f input::placeholder{color:var(--c20)}
+.of-f input:focus,.of-f select:focus{outline:none;border-color:rgba(0,85,255,.6)}
+.of-f select option{background:var(--bg2)}
+.of-row{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.of-btn{width:100%;background:var(--blue);color:#fff;border-radius:2px;padding:15px;font-family:var(--disp);font-size:14px;letter-spacing:.09em;text-transform:uppercase;margin-top:8px;position:relative;overflow:hidden;transition:box-shadow .35s}
+.of-btn:hover{box-shadow:0 0 30px -6px rgba(0,85,255,.85)}
+.of-fine{font-size:10.5px;line-height:1.65;color:var(--c40);margin-top:13px;text-align:center}
+.of-fine a{color:var(--blue)}
+.of-ok{display:none;text-align:center;padding:26px 6px}
+.of-ok.on{display:block}
+.of-ok .ok-i{font-size:34px}
+.of-ok h4{font-family:var(--disp);font-size:21px;text-transform:uppercase;margin:12px 0 8px}
+.of-ok p{font-size:13px;color:var(--c60);line-height:1.7}
+@media(max-width:900px){.of-grid{grid-template-columns:1fr;gap:38px}}
+@media(max-width:520px){.of-row{grid-template-columns:1fr}}
 .prc-per{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--c40);margin:10px 0 20px;padding-bottom:18px;border-bottom:1px solid var(--c10)}
 .prc-feat{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px;flex-grow:1}
 .prc-feat li{font-size:12.5px;line-height:1.55;color:var(--c60);padding-left:18px;position:relative}
@@ -440,6 +486,7 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
     <a class="fm-link" href="#process"   onclick="closeMenu()"><span data-i18n="nav_process">Process</span></a>
     <a class="fm-link" href="portfolio.html"><span data-i18n="nav_work">Portfolio</span></a>
     <a class="fm-link" href="#pricing"   onclick="closeMenu()"><span data-i18n="nav_pricing">Pricing</span></a>
+    <a class="fm-link" href="#offer"     onclick="closeMenu()"><span style="color:var(--blue)" data-i18n="nav_offer">$500 Offer</span></a>
     <a class="fm-link" href="#contact"   onclick="closeMenu()"><span style="color:var(--blue)" data-i18n="nav_contact">Contact</span></a>
   </nav>
   <div class="fm-foot">
@@ -456,6 +503,7 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
   <div class="nav-links" aria-label="Primary">
     <a class="nav-link" href="#services" data-i18n="nav_services">Services</a>
     <a class="nav-link" href="#pricing" data-i18n="nav_pricing">Pricing</a>
+    <a class="nav-link nav-offer" href="#offer" data-i18n="nav_offer">$500 Offer</a>
     <a class="nav-link" href="portfolio.html" data-i18n="nav_work">Portfolio</a>
     <a class="nav-link" href="#contact" data-i18n="nav_contact">Contact</a>
   </div>
@@ -493,7 +541,7 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
     <div class="hero-bottom" id="hero-bottom">
       <p class="hero-desc" data-i18n="hero_desc">We help businesses attract more customers, increase sales, and build a stronger online presence through AI automation, digital marketing &amp; immersive virtual experiences.</p>
       <div class="hero-ctas">
-        <a href="#contact" class="btn btn-solid"><span data-i18n="hero_cta1">Start Growing →</span></a>
+        <a href="#offer" class="btn btn-solid"><span data-i18n="hero_cta1">Get Your Tour — $500 →</span></a>
         <a href="#services" class="btn btn-border"><span data-i18n="hero_cta2">Our Services</span></a>
       </div>
     </div>
@@ -704,8 +752,12 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
     <div class="pr-grid">
       <div class="prc rv d1">
         <div class="prc-name" data-i18n="pr1_name">3D Virtual Tour</div>
-        <div class="prc-price">$300–500</div>
-        <div class="prc-per" data-i18n="pr1_per">Per space · based on size</div>
+        <div class="prc-price">$700</div>
+        <div class="prc-per" data-i18n="pr1_per">Per space · one-time</div>
+        <a class="prc-deal" href="#offer">
+          <span class="prc-deal-t" data-i18n="pr1_deal">Get it for $500</span>
+          <span class="prc-deal-s" data-i18n="pr1_deal_s">Launch offer · first 10 businesses →</span>
+        </a>
         <ul class="prc-feat">
           <li data-i18n="pr1_f1">Full Matterport 3D scan of your space</li>
           <li data-i18n="pr1_f2">Immersive walkthrough on any device</li>
@@ -763,6 +815,65 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
     <div class="pr-note rv d2">
       <div class="pr-note-ic">🔑</div>
       <p data-i18n="pr_note"><strong>You own your website — completely.</strong> One-time payment, zero monthly fees. We hand over full admin access so you can update text, photos, menus — anything — whenever you want. No hostage fees, no lock-in.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LAUNCH OFFER -->
+<section id="offer">
+  <div class="wrap of-grid">
+    <div>
+      <span class="of-tag rv"><span class="of-dot"></span><span data-i18n="of_tag">Launch Offer · First 10 Businesses</span></span>
+      <h1 class="of-h rv d1">
+        <span class="strike">$700</span> <span class="now">$500</span>
+      </h1>
+      <div class="prc-per rv d1" style="border:none;padding:0;margin:0" data-i18n="of_price_sub">3D Virtual Tour · one-time · no monthly fees</div>
+      <p class="of-sub rv d2" data-i18n="of_sub">We're capturing our first 10 businesses at a launch rate. Register below and we'll lock in $500 for your space — $200 off the regular price.</p>
+      <ul class="of-list rv d3">
+        <li data-i18n="of_l1">Full Matterport 3D scan of your business</li>
+        <li data-i18n="of_l2">Published to your Google Business Profile</li>
+        <li data-i18n="of_l3">Embed link for your website &amp; social media</li>
+        <li data-i18n="of_l4">Professionally edited stills included</li>
+        <li data-i18n="of_l5">One-time payment — nothing monthly, ever</li>
+      </ul>
+      <div class="of-meta rv d4" data-i18n="of_meta">No deposit to register · We confirm your spot within 24 hours</div>
+    </div>
+
+    <div class="of-card rv d2">
+      <div id="of-form-wrap">
+        <h3 data-i18n="of_ct">Claim Your Spot</h3>
+        <p class="of-cs" data-i18n="of_cs">Takes 30 seconds. We'll email you to confirm availability and book the capture.</p>
+        <form id="offer-form" novalidate>
+          <input type="hidden" name="access_key" value="32d4e8ae-4d1f-4990-858e-dc074c55bbbe"/>
+          <input type="hidden" name="subject" value="🎯 LAUNCH OFFER — New $500 Registration"/>
+          <input type="hidden" name="from_name" value="B12 Ventures — Launch Offer"/>
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off"/>
+          <div class="of-f"><label data-i18n="of_biz">Business Name</label><input type="text" name="business" placeholder="Chez Marie" required/></div>
+          <div class="of-row">
+            <div class="of-f"><label data-i18n="of_name">Your Name</label><input type="text" name="contact_name" placeholder="Marie" required autocomplete="given-name"/></div>
+            <div class="of-f"><label data-i18n="of_city">City</label><input type="text" name="city" placeholder="Laval" required/></div>
+          </div>
+          <div class="of-f"><label data-i18n="of_em">Email</label><input type="email" name="email" placeholder="marie@chezmarie.com" required autocomplete="email"/></div>
+          <div class="of-f">
+            <label data-i18n="of_type">Type of Business</label>
+            <select name="business_type">
+              <option data-i18n="of_t1">Restaurant / Café</option>
+              <option data-i18n="of_t2">Retail / Boutique</option>
+              <option data-i18n="of_t3">Salon / Barber / Spa</option>
+              <option data-i18n="of_t4">Clinic / Office</option>
+              <option data-i18n="of_t5">Event Venue</option>
+              <option data-i18n="of_t6">Other</option>
+            </select>
+          </div>
+          <button type="submit" class="of-btn" id="of-btn" data-i18n="of_btn">Claim My $500 Spot →</button>
+          <p class="of-fine"><span data-i18n="of_fine">By registering you agree to our</span> <a href="terms.html" target="_blank" data-i18n="cf_legal_t">Terms &amp; Conditions</a> <span data-i18n="cf_legal_and">and</span> <a href="privacy.html" target="_blank" data-i18n="cf_legal_p">Privacy Policy</a>.</p>
+        </form>
+      </div>
+      <div class="of-ok" id="of-ok">
+        <div class="ok-i">🎯</div>
+        <h4 data-i18n="of_ok_h">Spot Requested</h4>
+        <p data-i18n="of_ok_p">We've got your details. You'll hear from us within 24 hours to confirm your spot and schedule the capture.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -889,7 +1000,7 @@ var TRANS={
     hero_kicker:'AI-Powered Digital Growth Agency — Montréal, QC',
     hero_t2:'Ventures',hero_t3:'Digital',hero_t4:'Growth.',
     hero_desc:'We help businesses attract more customers, increase sales, and build a stronger online presence through AI automation, digital marketing & immersive virtual experiences.',
-    hero_cta1:'Start Growing →',hero_cta2:'Our Services',
+    hero_cta1:'Get Your Tour — $500 →',hero_cta2:'Our Services',
     lbl_mission:'Our Mission',about_h:'Help Businesses Grow Faster With Technology.',
     about_p1:'At B12 Ventures, we combine AI automation, digital marketing, and immersive virtual experiences to help businesses attract more customers and increase sales.',
     about_p2:'Our mission: deliver measurable growth while saving you time through smart technology.',
@@ -941,7 +1052,22 @@ var TRANS={
     hero_scroll:'Scroll to explore',
     nav_pricing:'Pricing',lbl_pricing:'Pricing',pr_h1:'Simple,',pr_h2:'Honest Pricing.',
     pr_sub:'One-time pricing — no subscriptions, no surprises. You pay once, you own everything.',
-    pr1_name:'3D Virtual Tour',pr1_per:'Per space · based on size',
+    pr1_name:'3D Virtual Tour',pr1_per:'Per space · one-time',
+    pr1_deal:'Get it for $500',pr1_deal_s:'Launch offer · first 10 businesses →',
+    of_tag:'Launch Offer · First 10 Businesses',
+    of_price_sub:'3D Virtual Tour · one-time · no monthly fees',
+    of_sub:"We're capturing our first 10 businesses at a launch rate. Register below and we'll lock in $500 for your space — $200 off the regular price.",
+    of_l1:'Full Matterport 3D scan of your business',of_l2:'Published to your Google Business Profile',
+    of_l3:'Embed link for your website &amp; social media',of_l4:'Professionally edited stills included',
+    of_l5:'One-time payment — nothing monthly, ever',
+    of_meta:'No deposit to register · We confirm your spot within 24 hours',
+    of_ct:'Claim Your Spot',of_cs:"Takes 30 seconds. We'll email you to confirm availability and book the capture.",
+    of_biz:'Business Name',of_name:'Your Name',of_city:'City',of_em:'Email',of_type:'Type of Business',
+    of_t1:'Restaurant / Café',of_t2:'Retail / Boutique',of_t3:'Salon / Barber / Spa',
+    of_t4:'Clinic / Office',of_t5:'Event Venue',of_t6:'Other',
+    of_btn:'Claim My $500 Spot →',of_fine:'By registering you agree to our',
+    of_ok_h:'Spot Requested',of_ok_p:"We've got your details. You'll hear from us within 24 hours to confirm your spot and schedule the capture.",
+    nav_offer:'$500 Offer',
     pr1_f1:'Full Matterport 3D scan of your space',pr1_f2:'Immersive walkthrough on any device',
     pr1_f3:'Shareable link — embed on your website &amp; Google',pr1_f4:'Filmed on-site, delivered fast',
     pr2_badge:'No Monthly Fees',pr2_name:'Website',pr2_per:'One-time · you own it forever',
@@ -963,7 +1089,7 @@ var TRANS={
     hero_kicker:'Agence de Croissance Digitale & IA — Montréal, QC',
     hero_t2:'Ventures',hero_t3:'Croissance',hero_t4:'Digitale.',
     hero_desc:"Nous aidons les entreprises à attirer plus de clients, augmenter les ventes et construire une présence en ligne plus forte grâce à l'IA et au marketing digital.",
-    hero_cta1:'Commencer à Croître →',hero_cta2:'Nos Services',
+    hero_cta1:'Votre Visite 3D — 500 $ →',hero_cta2:'Nos Services',
     lbl_mission:'Notre Mission',about_h:'Aider les Entreprises à Croître Plus Vite.',
     about_p1:"Chez B12 Ventures, nous combinons l'automatisation IA, le marketing digital et les expériences virtuelles immersives pour aider les entreprises à attirer plus de clients.",
     about_p2:'Notre mission : livrer une croissance mesurable tout en vous faisant gagner du temps.',
@@ -1015,7 +1141,22 @@ var TRANS={
     hero_scroll:'Défiler pour explorer',
     nav_pricing:'Tarifs',lbl_pricing:'Tarifs',pr_h1:'Des Prix',pr_h2:'Simples et Honnêtes.',
     pr_sub:'Tarification unique — pas d\'abonnement, pas de surprise. Vous payez une fois, tout vous appartient.',
-    pr1_name:'Visite Virtuelle 3D',pr1_per:'Par espace · selon la superficie',
+    pr1_name:'Visite Virtuelle 3D',pr1_per:'Par espace · paiement unique',
+    pr1_deal:'Obtenez-la à 500 $',pr1_deal_s:'Offre de lancement · 10 premiers commerces →',
+    of_tag:'Offre de Lancement · 10 Premiers Commerces',
+    of_price_sub:'Visite Virtuelle 3D · paiement unique · aucun frais mensuel',
+    of_sub:"Nous numérisons nos 10 premiers commerces à tarif de lancement. Inscrivez-vous et nous bloquons 500 $ pour votre espace — 200 $ de rabais.",
+    of_l1:'Numérisation Matterport 3D complète de votre commerce',of_l2:'Publiée sur votre fiche Google Business',
+    of_l3:'Lien intégrable pour votre site web et vos réseaux sociaux',of_l4:'Photos professionnelles retouchées incluses',
+    of_l5:'Paiement unique — jamais de frais mensuels',
+    of_meta:'Aucun dépôt requis · Nous confirmons votre place sous 24 h',
+    of_ct:'Réservez Votre Place',of_cs:'30 secondes. Nous vous écrivons pour confirmer la disponibilité et planifier la captation.',
+    of_biz:"Nom du Commerce",of_name:'Votre Nom',of_city:'Ville',of_em:'Courriel',of_type:"Type de Commerce",
+    of_t1:'Restaurant / Café',of_t2:'Commerce / Boutique',of_t3:'Salon / Barbier / Spa',
+    of_t4:'Clinique / Bureau',of_t5:'Salle de Réception',of_t6:'Autre',
+    of_btn:'Réserver Ma Place à 500 $ →',of_fine:'En vous inscrivant, vous acceptez nos',
+    of_ok_h:'Place Demandée',of_ok_p:"Nous avons vos coordonnées. Vous aurez de nos nouvelles sous 24 h pour confirmer votre place et planifier la captation.",
+    nav_offer:'Offre 500 $',
     pr1_f1:'Numérisation Matterport 3D complète de votre espace',pr1_f2:'Visite immersive sur tous les appareils',
     pr1_f3:'Lien partageable — intégrable à votre site &amp; Google',pr1_f4:'Filmé sur place, livré rapidement',
     pr2_badge:'Aucuns Frais Mensuels',pr2_name:'Site Web',pr2_per:'Paiement unique · à vous pour toujours',
@@ -1408,7 +1549,7 @@ if(card&&cardWrap){
     return t;
   }
   var loaded=0,imgs=[new Image(),new Image()];
-  imgs[0].src='hero-fx.png';imgs[1].src='hero-fx-depth.webp';
+  imgs[0].src='hero-fx.webp';imgs[1].src='hero-fx-depth.webp';
   imgs.forEach(function(im,i){im.onload=function(){mkTex(i,im);if(++loaded===2){cv.classList.add('on');op=0;raf();}};im.onerror=function(){cv.style.display='none';};});
 
   var px=0,py=0,tx=0,ty=0,op=0,run=false;
@@ -1432,6 +1573,31 @@ if(card&&cardWrap){
       requestAnimationFrame(loop);
     })();
   }
+})();
+
+/* ── Launch offer registration ── */
+(function(){
+  var f=document.getElementById('offer-form');
+  if(!f) return;
+  var btn=document.getElementById('of-btn');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!f.checkValidity()){ f.reportValidity(); return; }
+    var original=btn.textContent;
+    btn.textContent='Sending…'; btn.disabled=true;
+    fetch('https://api.web3forms.com/submit',{
+      method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)
+    }).then(function(r){return r.json();}).then(function(d){
+      if(!d.success) throw new Error('failed');
+      document.getElementById('of-form-wrap').style.display='none';
+      document.getElementById('of-ok').classList.add('on');
+      if(window.gtag) gtag('event','offer_register');
+      if(window.dataLayer) window.dataLayer.push({event:'offer_register'});
+    }).catch(function(){
+      btn.textContent='Something went wrong — try again';
+      setTimeout(function(){ btn.textContent=original; btn.disabled=false; },2600);
+    });
+  });
 })();
 
 /* ── Pricing card spotlight ── */
