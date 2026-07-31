@@ -480,3 +480,60 @@ footer{background:var(--bg);border-top:1px solid var(--c10);padding:56px 0 32px}
 .page-hero h1 .b{color:var(--blue)}
 .ph-sub{position:relative;font-size:16px;line-height:1.75;color:var(--c60);max-width:580px;margin-top:22px}
 @media(max-width:768px){.page-hero{padding:120px 0 40px}}
+
+/* ── Real Estate ── */
+.re-hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+#re-pkg{padding:64px 0 0}
+.re-pkg-card{border:1px solid var(--c10);border-radius:5px;background:linear-gradient(180deg,var(--bg2),var(--bg));overflow:hidden}
+.re-pkg-top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding:32px 38px;border-bottom:1px solid var(--c10);flex-wrap:wrap}
+.re-pkg-top .k{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue)}
+.re-pkg-top h3{font-family:var(--disp);font-size:clamp(24px,3.2vw,40px);text-transform:uppercase;margin-top:8px;line-height:.95}
+.re-price{text-align:right}
+.re-price .n{font-family:var(--disp);font-size:clamp(46px,6.4vw,76px);line-height:.85}
+.re-price .n em{font-style:normal;color:var(--blue)}
+.re-price .p{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--c40);margin-top:8px}
+.re-inc{display:grid;grid-template-columns:repeat(3,1fr)}
+.re-inc .it{padding:32px 30px;border-right:1px solid var(--c10)}
+.re-inc .it:last-child{border-right:none}
+.re-inc .it .ic{font-size:26px;line-height:1}
+.re-inc .it h4{font-family:var(--disp);font-size:17px;text-transform:uppercase;letter-spacing:.02em;margin:14px 0 8px}
+.re-inc .it p{font-size:12.5px;line-height:1.6;color:var(--c60)}
+.re-note{text-align:center;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--c40);padding:18px;border-top:1px solid var(--c10)}
+@media(max-width:760px){.re-inc{grid-template-columns:1fr}.re-inc .it{border-right:none;border-bottom:1px solid var(--c10)}.re-price{text-align:left}.re-pkg-top{align-items:flex-start}}
+.re-why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+.re-why .w{border:1px solid var(--c10);border-radius:4px;padding:28px;background:var(--bg2)}
+.re-why .w .ic{font-size:22px}
+.re-why .w h4{font-family:var(--disp);font-size:18px;text-transform:uppercase;margin:12px 0 8px}
+.re-why .w p{font-size:13px;line-height:1.65;color:var(--c60)}
+@media(max-width:760px){.re-why{grid-template-columns:1fr}}
+.re-faq{margin-top:28px;border-top:1px solid var(--c10)}
+.re-faq details{border-bottom:1px solid var(--c10);padding:18px 4px}
+.re-faq summary{cursor:pointer;font-family:var(--disp);font-size:16px;text-transform:uppercase;letter-spacing:.02em;list-style:none;display:flex;justify-content:space-between;gap:20px}
+.re-faq summary::-webkit-details-marker{display:none}
+.re-faq summary::after{content:'+';color:var(--blue);font-weight:400}
+.re-faq details[open] summary::after{content:'−'}
+.re-faq p{font-size:13px;line-height:1.7;color:var(--c60);margin-top:12px;max-width:660px}
+/* real estate band on pricing page */
+.re-band{margin-top:44px;border:1px solid rgba(0,85,255,.32);border-radius:5px;overflow:hidden;background:linear-gradient(120deg,rgba(0,85,255,.1),transparent 62%)}
+.re-band-in{display:grid;grid-template-columns:1.35fr 1fr;gap:24px;align-items:center;padding:34px 38px}
+.re-band .k{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue)}
+.re-band h3{font-family:var(--disp);font-size:clamp(26px,3.4vw,40px);text-transform:uppercase;margin:10px 0 12px;line-height:.95}
+.re-band p{font-size:13.5px;line-height:1.7;color:var(--c60);max-width:520px}
+.re-band .r{text-align:right}
+.re-band .r .n{font-family:var(--disp);font-size:clamp(42px,5vw,66px);line-height:.85}
+.re-band .r .n em{font-style:normal;color:var(--blue)}
+.re-band .r .per{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--c40);margin:8px 0 16px}
+@media(max-width:760px){.re-band-in{grid-template-columns:1fr}.re-band .r{text-align:left}}
+
+/* ── Quantum Field hero background ── */
+.qfield{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.page-hero>.wrap{position:relative;z-index:2}
+#top>.wrap{position:relative;z-index:2}
+
+/* ── Offer landing ── */
+.ol-vals{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+.ol-vals .v{display:flex;align-items:flex-start;gap:10px;font-size:12.5px;line-height:1.5;color:var(--c60);border:1px solid var(--c10);border-radius:4px;padding:16px;background:var(--bg2)}
+.ol-vals .v::before{content:'✓';color:var(--blue);font-weight:700;flex-shrink:0}
+@media(max-width:860px){.ol-vals{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.ol-vals{grid-template-columns:1fr}}
+.re-why .w .sn{font-family:var(--disp);font-size:32px;color:var(--blue);line-height:1;display:block;margin-bottom:8px}

@@ -5,6 +5,46 @@ var TRANS={
   en:{
     nav_home:'Home',nav_services:'Services',nav_about:'About',nav_global:'Global',nav_process:'Process',
     nav_work:'Portfolio',nav_contact:'Contact',nav_cta:'Get Started →',nav_menu:'Menu',
+    nav_re:'Real Estate',re_nav_cta:'Book a Shoot →',
+    re_kick:'For Realtors & Brokers · Canada & Morocco',
+    re_h1_html:'Sell Listings<br/><span class="b">Faster.</span>',
+    re_sub:'Cinematic drone video, magazine-grade photography and an immersive 3D virtual visit — everything a listing needs to stand out and sell. One flat rate: <strong>$300 per listing</strong>, delivered in 48 hours.',
+    re_cta1:'Book a Listing Shoot →',re_cta2:'See Our Work',
+    re_pkg_k:'The Listing Package',re_pkg_name:'Drone · Photos · 3D Tour',re_pkg_per:'Per listing · one flat rate',
+    re_i1_h:'Cinematic Drone Video',re_i1_p:'Aerial reveal of the property, lot and neighbourhood — the shot that stops the scroll and sells the location.',
+    re_i2_h:'Professional Photography',re_i2_p:'HDR, magazine-grade interior & exterior stills — colour-corrected and MLS / Centris-ready.',
+    re_i3_h:'Immersive 3D Virtual Visit',re_i3_p:'Buyers walk the whole property 24/7 from any device — embeddable on MLS, your site and Google.',
+    re_pkg_note:'One flat rate per listing · No subscriptions · 48-hour turnaround · You own every file',
+    re_why_lbl:'Why It Works',re_why_h1:'List Like',re_why_h2:'Luxury.',
+    re_w1_h:'Stop the Scroll',re_w1_p:'Aerial footage and video make a listing impossible to ignore in a feed full of flat phone photos.',
+    re_w2_h:'Fewer Wasted Showings',re_w2_p:'A 3D tour lets buyers walk the whole home before they book — so the visits you get are serious ones.',
+    re_w3_h:'Ready in 48 Hours',re_w3_p:'We shoot on-site and deliver drone video, edited photos and your 3D tour link within two days.',
+    re_form_tag:'Book a Listing Shoot',re_form_h:'$300<br/>Per Listing.',re_form_sub:'Tell us about the property and we\'ll confirm your shoot within 24 hours. No deposit to book — pay once the work is delivered.',
+    re_form_badge:'Everything Included',re_form_tname:'The Listing Package',
+    re_form_f1:'Cinematic drone video',re_form_f2:'Professional HDR photography',re_form_f3:'Immersive 3D virtual visit',re_form_f4:'<strong>48-hour turnaround — you own every file</strong>',
+    re_form_meta:'Volume pricing available for teams & brokerages · Ask us',
+    re_form_ct:'Book Your Shoot',re_form_cs:'Takes 30 seconds. We\'ll email you to confirm the date and the address.',
+    re_ff_name:'Your Name',re_ff_biz:'Brokerage / Agency',re_ff_type:'Property Type',re_ff_btn:'Book My Listing Shoot →',
+    re_pt1:'Condo / Apartment',re_pt2:'House',re_pt3:'Townhouse / Plex',re_pt4:'Luxury / Estate',re_pt5:'Commercial',re_pt6:'Land / Development',
+    re_ok_h:'Shoot Requested',re_ok_p:'We\'ve got the details. You\'ll hear from us within 24 hours to lock in the date and confirm the address.',
+    re_faq_lbl:'FAQ',re_faq_h1:'Good',re_faq_h2:'To Know.',
+    re_q1:'What areas do you cover?',re_a1:'We shoot across Greater Montréal and most of Québec, and we serve select markets in Morocco. Travel outside the core area may add a small fee — just ask.',
+    re_q2:'How fast do I get the files?',re_a2:'Standard turnaround is 48 hours from the shoot: edited photos, drone video and your 3D tour link, all delivered digitally and ready for MLS / Centris.',
+    re_q3:'Is $300 really per listing?',re_a3:'Yes — one flat rate per property covers the drone video, professional photos and the immersive 3D virtual visit. No subscriptions, no hidden fees. Teams and brokerages doing volume get custom pricing.',
+    re_q4:'Do I need to be there for the shoot?',re_a4:'Not necessarily — as long as we have access to the property. We coordinate timing with you or the seller and handle the rest on-site.',
+    re_q5:'Who owns the photos and video?',re_a5:'You do. Every file is handed over to you with full rights to use across MLS, your website, and social media — no watermarks, no lock-in.',
+    re_cta_sup:'Listing This Week?',re_cta_h1:'Let\'s Make It',re_cta_h2:'Look Incredible.',re_cta_sub:'Drone, photos and a 3D tour for $300 — delivered in 48 hours. Book your shoot and we\'ll confirm within a day.',re_cta_btn1:'Book a Listing Shoot →',
+    re_band_k:'New · For Real Estate Agents',re_band_h:'Sell Listings Faster.',re_band_p:'Drone video, professional photos and an immersive 3D virtual visit — everything your listing needs to stand out. Delivered in 48 hours.',re_band_per:'Per listing',re_band_btn:'See Real Estate →',
+    ol_kick:'Launch Offer · First 10 Businesses',
+    ol_h1_html:'Put Your Business<br/><span class="b">On The Map.</span>',
+    ol_sub:'A full immersive 3D virtual tour of your space, published to Google — for a one-time <strong>$500</strong>. No monthly fees, no lock-in. We\'re onboarding our first 10 businesses at launch pricing.',
+    ol_cta1:'Claim Your Spot →',ol_cta2:'See Full Pricing',
+    ol_v1:'One-time price — zero monthly fees',ol_v2:'Published to your Google Business Profile',ol_v3:'Filmed on-site, delivered fast',ol_v4:'You own everything — no lock-in',
+    ol_how_lbl:'How It Works',ol_how_h1:'Three Steps',ol_how_h2:'To Live.',
+    ol_s1_h:'Register',ol_s1_p:'Fill the 30-second form and we confirm your spot within 24 hours — no deposit to reserve.',
+    ol_s2_h:'We Capture',ol_s2_p:'We come on-site and film a full immersive 3D scan of your space, professionally.',
+    ol_s3_h:'You Go Live',ol_s3_p:'Your virtual tour is published to Google and ready to embed on your site and social media.',
+    ol_cta_sup:'Only 10 Spots',ol_cta_h1:'Lock In',ol_cta_h2:'Launch Pricing.',ol_cta_sub:'Register now and we\'ll hold your spot at $500. No deposit, no obligation.',
     hero_kicker:'AI-Powered Digital Growth Agency — Montréal, QC',
     hero_t2:'Ventures',hero_t3:'Digital',hero_t4:'Growth.',
     hero_desc:'We help businesses attract more customers, increase sales, and build a stronger online presence through AI automation, digital marketing & immersive virtual experiences.',
@@ -98,6 +138,46 @@ var TRANS={
   fr:{
     nav_home:'Accueil',nav_services:'Services',nav_about:'À Propos',nav_global:'Mondial',nav_process:'Processus',
     nav_work:'Portfolio',nav_contact:'Contact',nav_cta:'Commencer →',nav_menu:'Menu',
+    nav_re:'Immobilier',re_nav_cta:'Réserver →',
+    re_kick:'Pour Courtiers & Agents · Canada & Maroc',
+    re_h1_html:'Vendez Plus<br/><span class="b">Vite.</span>',
+    re_sub:'Vidéo par drone cinématographique, photographie de qualité magazine et une visite virtuelle 3D immersive — tout ce qu\'une inscription doit avoir pour se démarquer et se vendre. Un tarif unique : <strong>300 $ par inscription</strong>, livré en 48 heures.',
+    re_cta1:'Réserver une Séance →',re_cta2:'Voir Nos Réalisations',
+    re_pkg_k:'Le Forfait Inscription',re_pkg_name:'Drone · Photos · Visite 3D',re_pkg_per:'Par inscription · tarif unique',
+    re_i1_h:'Vidéo par Drone',re_i1_p:'Vue aérienne de la propriété, du terrain et du quartier — l\'image qui capte l\'attention et vend l\'emplacement.',
+    re_i2_h:'Photographie Professionnelle',re_i2_p:'Photos HDR de qualité magazine, intérieur et extérieur — corrigées et prêtes pour Centris / MLS.',
+    re_i3_h:'Visite Virtuelle 3D Immersive',re_i3_p:'Les acheteurs parcourent toute la propriété 24/7 depuis n\'importe quel appareil — intégrable sur Centris, votre site et Google.',
+    re_pkg_note:'Tarif unique par inscription · Sans abonnement · Livraison en 48 h · Tous les fichiers vous appartiennent',
+    re_why_lbl:'Pourquoi Ça Marche',re_why_h1:'Une Vitrine',re_why_h2:'de Luxe.',
+    re_w1_h:'Arrêtez le Défilement',re_w1_p:'Les images aériennes et la vidéo rendent une inscription impossible à ignorer dans un fil rempli de photos prises au téléphone.',
+    re_w2_h:'Moins de Visites Inutiles',re_w2_p:'Une visite 3D permet aux acheteurs de parcourir toute la maison avant de réserver — les visites obtenues sont donc sérieuses.',
+    re_w3_h:'Prêt en 48 Heures',re_w3_p:'Nous filmons sur place et livrons la vidéo par drone, les photos éditées et votre lien de visite 3D en deux jours.',
+    re_form_tag:'Réserver une Séance',re_form_h:'300 $<br/>Par Inscription.',re_form_sub:'Parlez-nous de la propriété et nous confirmerons votre séance sous 24 heures. Aucun dépôt pour réserver — vous payez une fois le travail livré.',
+    re_form_badge:'Tout Inclus',re_form_tname:'Le Forfait Inscription',
+    re_form_f1:'Vidéo par drone cinématographique',re_form_f2:'Photographie HDR professionnelle',re_form_f3:'Visite virtuelle 3D immersive',re_form_f4:'<strong>Livraison en 48 h — tous les fichiers vous appartiennent</strong>',
+    re_form_meta:'Tarifs de volume pour équipes & agences · Demandez-nous',
+    re_form_ct:'Réservez Votre Séance',re_form_cs:'30 secondes. Nous vous écrirons pour confirmer la date et l\'adresse.',
+    re_ff_name:'Votre Nom',re_ff_biz:'Agence / Courtier',re_ff_type:'Type de Propriété',re_ff_btn:'Réserver Ma Séance →',
+    re_pt1:'Condo / Appartement',re_pt2:'Maison',re_pt3:'Maison de ville / Plex',re_pt4:'Luxe / Domaine',re_pt5:'Commercial',re_pt6:'Terrain / Développement',
+    re_ok_h:'Séance Demandée',re_ok_p:'Nous avons les détails. Vous aurez de nos nouvelles sous 24 heures pour fixer la date et confirmer l\'adresse.',
+    re_faq_lbl:'FAQ',re_faq_h1:'Bon',re_faq_h2:'à Savoir.',
+    re_q1:'Quels secteurs couvrez-vous ?',re_a1:'Nous filmons dans le Grand Montréal et la majeure partie du Québec, ainsi que dans certains marchés au Maroc. Un déplacement hors de la zone principale peut entraîner de petits frais — demandez-nous.',
+    re_q2:'En combien de temps ai-je les fichiers ?',re_a2:'Le délai standard est de 48 heures après la séance : photos éditées, vidéo par drone et votre lien de visite 3D, livrés numériquement et prêts pour Centris / MLS.',
+    re_q3:'Est-ce vraiment 300 $ par inscription ?',re_a3:'Oui — un tarif unique par propriété couvre la vidéo par drone, les photos professionnelles et la visite virtuelle 3D immersive. Sans abonnement, sans frais cachés. Les équipes et agences en volume obtiennent des tarifs personnalisés.',
+    re_q4:'Dois-je être présent pour la séance ?',re_a4:'Pas nécessairement — tant que nous avons accès à la propriété. Nous coordonnons l\'horaire avec vous ou le vendeur et gérons le reste sur place.',
+    re_q5:'À qui appartiennent les photos et la vidéo ?',re_a5:'À vous. Chaque fichier vous est remis avec tous les droits d\'utilisation sur Centris, votre site web et les réseaux sociaux — sans filigrane, sans verrouillage.',
+    re_cta_sup:'Une Inscription Cette Semaine ?',re_cta_h1:'Rendons-la',re_cta_h2:'Incroyable.',re_cta_sub:'Drone, photos et visite 3D pour 300 $ — livré en 48 heures. Réservez votre séance et nous confirmons sous un jour.',re_cta_btn1:'Réserver une Séance →',
+    re_band_k:'Nouveau · Pour Agents Immobiliers',re_band_h:'Vendez Plus Vite.',re_band_p:'Vidéo par drone, photos professionnelles et une visite virtuelle 3D immersive — tout ce que votre inscription doit avoir. Livré en 48 heures.',re_band_per:'Par inscription',re_band_btn:'Voir Immobilier →',
+    ol_kick:'Offre de Lancement · 10 Premières Entreprises',
+    ol_h1_html:'Mettez Votre Entreprise<br/><span class="b">Sur La Carte.</span>',
+    ol_sub:'Une visite virtuelle 3D immersive complète de votre espace, publiée sur Google — pour un montant unique de <strong>500 $</strong>. Aucuns frais mensuels, aucun engagement. Nous intégrons nos 10 premières entreprises au tarif de lancement.',
+    ol_cta1:'Réservez Votre Place →',ol_cta2:'Voir Tous Les Tarifs',
+    ol_v1:'Prix unique — aucuns frais mensuels',ol_v2:'Publié sur votre fiche Google Business',ol_v3:'Filmé sur place, livré rapidement',ol_v4:'Vous possédez tout — sans engagement',
+    ol_how_lbl:'Comment Ça Marche',ol_how_h1:'Trois Étapes',ol_how_h2:'Pour Être En Ligne.',
+    ol_s1_h:'Inscrivez-vous',ol_s1_p:'Remplissez le formulaire de 30 secondes et nous confirmons votre place sous 24 heures — aucun dépôt requis.',
+    ol_s2_h:'On Capture',ol_s2_p:'Nous venons sur place filmer un scan 3D immersif complet de votre espace, professionnellement.',
+    ol_s3_h:'Vous Êtes En Ligne',ol_s3_p:'Votre visite virtuelle est publiée sur Google et prête à intégrer sur votre site et vos réseaux sociaux.',
+    ol_cta_sup:'Seulement 10 Places',ol_cta_h1:'Verrouillez',ol_cta_h2:'Le Tarif de Lancement.',ol_cta_sub:'Inscrivez-vous maintenant et nous gardons votre place à 500 $. Sans dépôt, sans obligation.',
     hero_kicker:'Agence de Croissance Digitale & IA — Montréal, QC',
     hero_t2:'Ventures',hero_t3:'Croissance',hero_t4:'Digitale.',
     hero_desc:"Nous aidons les entreprises à attirer plus de clients, augmenter les ventes et construire une présence en ligne plus forte grâce à l'IA et au marketing digital.",
@@ -405,6 +485,101 @@ if(card&&cardWrap){
   tick();
 })();
 
+/* ── Quantum Field — shared hero background (interior pages) ── */
+(function(){
+  var canvases=document.querySelectorAll('canvas.qfield');
+  if(!canvases.length) return;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  canvases.forEach(function(c){ field(c); });
+
+  function field(c){
+    var ctx=c.getContext('2d');
+    var host=c.parentElement;
+    var DPR=Math.min(window.devicePixelRatio||1,2);
+    var W=0,H=0,pts=[],t=0,raf=null;
+    var mouse={x:-9999,y:-9999,on:false};
+
+    function size(){
+      var r=host.getBoundingClientRect();
+      W=Math.max(1,r.width); H=Math.max(1,r.height);
+      c.width=Math.round(W*DPR); c.height=Math.round(H*DPR);
+      ctx.setTransform(DPR,0,0,DPR,0,0);
+    }
+    function build(){
+      var mobile=W<640;
+      var N=Math.max(14,Math.min(mobile?34:72,Math.floor(W*H/13000)));
+      pts=[];
+      for(var i=0;i<N;i++){
+        pts.push({
+          x:Math.random()*W, y:Math.random()*H,
+          vx:(Math.random()-.5)*.20, vy:(Math.random()-.5)*.20,
+          r:Math.random()*1.4+.5,
+          cyan:Math.random()>.55,
+          ph:Math.random()*Math.PI*2
+        });
+      }
+    }
+    size(); build();
+
+    if(window.ResizeObserver){
+      var ro=new ResizeObserver(function(){ var pw=W; size(); if(Math.abs(pw-W)>60) build(); });
+      ro.observe(host);
+    } else {
+      window.addEventListener('resize',function(){ size(); build(); },{passive:true});
+    }
+    host.addEventListener('mousemove',function(e){
+      var r=host.getBoundingClientRect();
+      mouse.x=e.clientX-r.left; mouse.y=e.clientY-r.top; mouse.on=true;
+    },{passive:true});
+    host.addEventListener('mouseleave',function(){ mouse.on=false; mouse.x=mouse.y=-9999; });
+
+    var LINK=132;
+    function frame(){
+      t+=0.016;
+      ctx.clearRect(0,0,W,H);
+      if(mouse.on){
+        var g=ctx.createRadialGradient(mouse.x,mouse.y,0,mouse.x,mouse.y,150);
+        g.addColorStop(0,'rgba(0,85,255,0.10)'); g.addColorStop(1,'rgba(0,85,255,0)');
+        ctx.fillStyle=g; ctx.fillRect(mouse.x-150,mouse.y-150,300,300);
+      }
+      var i,a,b,p;
+      for(i=0;i<pts.length;i++){
+        p=pts[i]; p.x+=p.vx; p.y+=p.vy;
+        if(p.x<0||p.x>W)p.vx*=-1;
+        if(p.y<0||p.y>H)p.vy*=-1;
+        if(mouse.on){
+          var dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.sqrt(dx*dx+dy*dy);
+          if(d<120&&d>0){ var f=(120-d)/120*0.06; p.vx+=dx/d*f; p.vy+=dy/d*f; }
+        }
+        var sp=Math.sqrt(p.vx*p.vx+p.vy*p.vy); if(sp>0.9){ p.vx=p.vx/sp*0.9; p.vy=p.vy/sp*0.9; }
+      }
+      for(a=0;a<pts.length;a++){
+        for(b=a+1;b<pts.length;b++){
+          var lx=pts[a].x-pts[b].x,ly=pts[a].y-pts[b].y,ld=Math.sqrt(lx*lx+ly*ly);
+          if(ld<LINK){
+            ctx.beginPath(); ctx.moveTo(pts[a].x,pts[a].y); ctx.lineTo(pts[b].x,pts[b].y);
+            ctx.strokeStyle='rgba(0,85,255,'+(1-ld/LINK)*0.13+')'; ctx.lineWidth=0.6; ctx.stroke();
+          }
+        }
+      }
+      for(i=0;i<pts.length;i++){
+        p=pts[i]; var pulse=0.6+Math.sin(t*1.4+p.ph)*0.4; var rad=p.r*(0.8+pulse*0.5);
+        ctx.beginPath(); ctx.arc(p.x,p.y,rad,0,Math.PI*2);
+        ctx.fillStyle=p.cyan?'rgba(0,200,180,'+(0.26+pulse*0.30)+')':'rgba(0,85,255,'+(0.34+pulse*0.34)+')';
+        ctx.fill();
+      }
+      raf=requestAnimationFrame(frame);
+    }
+
+    if(reduce){ frame(); if(raf){cancelAnimationFrame(raf);raf=null;} return; }
+    document.addEventListener('visibilitychange',function(){
+      if(document.hidden){ if(raf){cancelAnimationFrame(raf);raf=null;} }
+      else if(!raf){ raf=requestAnimationFrame(frame); }
+    });
+    raf=requestAnimationFrame(frame);
+  }
+})();
+
 /* ── WORLD MAP CANVAS ── */
 (function(){
   var c=document.getElementById('world-canvas');if(!c)return;
@@ -644,6 +819,48 @@ if(card&&cardWrap){
       if(window.gtag) gtag('event','offer_register');
       if(window.dataLayer) window.dataLayer.push({event:'offer_register'});
       if(window.fbq) fbq('track','Lead',{content_name:'$500 Launch Offer',content_category:'virtual_tour'});
+    }).catch(function(){
+      btn.textContent='Something went wrong — try again';
+      setTimeout(function(){ btn.textContent=original; btn.disabled=false; },2600);
+    });
+  });
+})();
+
+/* ── Real Estate listing-shoot registration ── */
+(function(){
+  var f=document.getElementById('re-form');
+  if(!f) return;
+  var btn=document.getElementById('re-btn');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!f.checkValidity()){ f.reportValidity(); return; }
+    var original=btn.textContent;
+    btn.textContent='Sending…'; btn.disabled=true;
+
+    var fd=new FormData(f);
+    var g=function(k){return (fd.get(k)||'').toString().trim();};
+    toGHL({
+      first_name:g('contact_name'),
+      email:g('email'),
+      company_name:g('business'),
+      city:g('city'),
+      business_type:g('business_type'),
+      offer:g('package'),
+      source:'Real Estate Landing',
+      form_type:'real_estate',
+      page:location.href,
+      language:currentLang
+    });
+
+    fetch('https://api.web3forms.com/submit',{
+      method:'POST',headers:{'Accept':'application/json'},body:fd
+    }).then(function(r){return r.json();}).then(function(d){
+      if(!d.success) throw new Error('failed');
+      document.getElementById('of-form-wrap').style.display='none';
+      document.getElementById('re-ok').classList.add('on');
+      if(window.gtag) gtag('event','realestate_book');
+      if(window.dataLayer) window.dataLayer.push({event:'realestate_book'});
+      if(window.fbq) fbq('track','Lead',{content_name:'Real Estate $300/Listing',content_category:'real_estate'});
     }).catch(function(){
       btn.textContent='Something went wrong — try again';
       setTimeout(function(){ btn.textContent=original; btn.disabled=false; },2600);
