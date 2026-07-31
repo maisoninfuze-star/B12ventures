@@ -2,6 +2,23 @@
 <html lang="en" dir="ltr" id="html-root">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1387499166899119');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1387499166899119&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 <title>B12 VENTURES — Digital Growth & AI Solutions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -1585,14 +1602,31 @@ if(card&&cardWrap){
     if(!f.checkValidity()){ f.reportValidity(); return; }
     var original=btn.textContent;
     btn.textContent='Sending…'; btn.disabled=true;
+
+    var fd=new FormData(f);
+    var g=function(k){return (fd.get(k)||'').toString().trim();};
+    toGHL({
+      first_name:g('contact_name'),
+      email:g('email'),
+      company_name:g('business'),
+      city:g('city'),
+      business_type:g('business_type'),
+      offer:'$500 Launch Offer — 3D Virtual Tour',
+      source:'Website $500 Launch Offer',
+      form_type:'launch_offer',
+      page:location.href,
+      language:currentLang
+    });
+
     fetch('https://api.web3forms.com/submit',{
-      method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)
+      method:'POST',headers:{'Accept':'application/json'},body:fd
     }).then(function(r){return r.json();}).then(function(d){
       if(!d.success) throw new Error('failed');
       document.getElementById('of-form-wrap').style.display='none';
       document.getElementById('of-ok').classList.add('on');
       if(window.gtag) gtag('event','offer_register');
       if(window.dataLayer) window.dataLayer.push({event:'offer_register'});
+      if(window.fbq) fbq('track','Lead',{content_name:'$500 Launch Offer',content_category:'virtual_tour'});
     }).catch(function(){
       btn.textContent='Something went wrong — try again';
       setTimeout(function(){ btn.textContent=original; btn.disabled=false; },2600);
@@ -1609,6 +1643,21 @@ document.querySelectorAll('.prc').forEach(function(card){
   });
 });
 
+/* ── GoHighLevel inbound webhook ──
+   Every lead is sent to GHL *and* to Web3Forms/Gmail. GHL is fired
+   independently so a failure there can never block the confirmation or
+   lose the lead — Gmail stays as the backstop. */
+var GHL_HOOK='https://services.leadconnectorhq.com/hooks/0Ku7xjVh2VyzsJCejRwy/webhook-trigger/ea0bcf97-3639-44f1-b318-44024de40d2f';
+function toGHL(payload){
+  try{
+    return fetch(GHL_HOOK,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload)
+    }).catch(function(){});
+  }catch(e){ return Promise.resolve(); }
+}
+
 /* ── Contact Form (Web3Forms) ── */
 (function(){
   var form=document.getElementById('contact-form');
@@ -1622,6 +1671,19 @@ document.querySelectorAll('.prc').forEach(function(card){
     btn.textContent='Sending...';
 
     var formData=new FormData(form);
+    var g=function(k){return (formData.get(k)||'').toString().trim();};
+    toGHL({
+      first_name:g('first_name'),
+      last_name:g('last_name'),
+      email:g('email'),
+      service_interest:g('service'),
+      message:g('message'),
+      source:'Website Contact Form',
+      form_type:'contact',
+      page:location.href,
+      language:currentLang
+    });
+
     fetch('https://api.web3forms.com/submit',{
       method:'POST',
       headers:{'Accept':'application/json'},
@@ -1631,6 +1693,7 @@ document.querySelectorAll('.prc').forEach(function(card){
     .then(function(data){
       if(data.success){
         btn.textContent='✓ Sent! We\'ll reply within 24h';
+        if(window.fbq) fbq('track','Lead',{content_name:'Contact Form',content_category:'inquiry'});
         form.reset();
       } else {
         throw new Error(data.message||'Submission failed');
