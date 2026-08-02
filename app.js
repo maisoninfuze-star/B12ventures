@@ -6,6 +6,85 @@ var TRANS={
     nav_home:'Home',nav_services:'Services',nav_about:'About',nav_global:'Global',nav_process:'Process',
     nav_work:'Portfolio',nav_contact:'Contact',nav_cta:'Get Started →',nav_menu:'Menu',
     nav_re:'Real Estate',re_nav_cta:'Book a Shoot →',
+    h_nav_cta:'Free Growth Audit →',
+    h_kick:'Growth Systems for Local Business · Canada & Morocco',
+    h_h1_html:'Turn More Leads Into<br/><span class="b">Paying Customers.</span>',
+    h_sub:'B12 Ventures builds the websites, ad campaigns, AI agents and automated follow-up that help local businesses generate, manage and close more opportunities — as one connected system, not six disconnected tools.',
+    h_cta1:'Get Your Free Growth Audit →',h_cta2:'See Client Results',
+    h_assure:'Free audit · No obligation · Reply within 24 hours',
+    h_eco_head:'Your Growth System',
+    h_eco_1t:'Ad',h_eco_1c:'A qualified click from Meta or Google',
+    h_eco_2t:'Landing Page',h_eco_2c:'Built to turn visitors into enquiries',
+    h_eco_3t:'AI Agent',h_eco_3c:'Answers & qualifies, 24/7',
+    h_eco_4t:'CRM',h_eco_4c:'Every lead captured, nothing lost',
+    h_eco_5t:'Follow-Up',h_eco_5c:'Automated SMS & email that nurture',
+    h_eco_6t:'Appointment',h_eco_6c:'Booked on your calendar',
+    h_trust_lbl:'Real work, delivered for real local businesses across Canada & Morocco',
+    h_tm1:'Spaces captured & published',h_tm2:'Countries served · CA & MA',h_tm3:'Services, one growth system',h_tm4:'Google rating — add once live',
+    h_sys_lbl:'The B12 Growth System',h_sys_h1:'One System.',h_sys_h2:'Not Six Services.',
+    h_sys_sub:'Most agencies sell you tools. We build the machine that connects them — so every ad dollar, every click and every lead flows through one system built around how you actually win customers.',
+    h_attract_h:'Attract',h_attract_p:'Get in front of the right local customers and give them a reason to click.',
+    h_attract_t1:'Meta Ads',h_attract_t2:'Google Ads',h_attract_t3:'SEO & Google Maps',h_attract_t4:'Photo & Video',h_attract_t5:'3D Virtual Tours',
+    h_convert_h:'Convert',h_convert_p:'Turn that attention into booked appointments and captured leads — automatically.',
+    h_convert_t1:'Premium Websites',h_convert_t2:'Landing Pages',h_convert_t3:'AI Chat Agents',h_convert_t4:'AI Voice Agents',h_convert_t5:'Online Booking',
+    h_scale_h:'Scale',h_scale_p:'Follow up with every lead, manage your pipeline and close more — without lifting a finger.',
+    h_scale_t1:'CRM Setup',h_scale_t2:'SMS & Email Automation',h_scale_t3:'Sales Pipelines',h_scale_t4:'Lead Nurturing',h_scale_t5:'Reporting',
+    h_res_lbl:'Selected Work',h_res_h1:'Real Clients.',h_res_h2:'Live Results.',
+    h_res_sub:"A sample of businesses we've put online and on the map. Each one is live — click through and see the work.",
+    h_cs_cat_rest:'Restaurant',h_cs_cat_retail:'Retail',h_cs_cat_service:'Local Service',
+    h_cs_chal:'Challenge',h_cs_sol:'Solution',h_cs_visit:'Visit live site',
+    h_cs1_chal:'Hard to find online and no way to preview the space.',h_cs1_sol:'Custom website, immersive 3D tour and a full Google presence.',
+    h_cs2_chal:"A large store shoppers couldn't experience before visiting.",h_cs2_sol:'Aisle-by-aisle 3D scan, website and Google Maps visibility.',
+    h_cs3_chal:'No professional web presence to win and book new clients.',h_cs3_sol:'A fast, modern website built to capture and convert enquiries.',
+    h_res_note:"Quantified campaign results (leads, cost-per-lead, ROI) are shared on request once client reporting is signed off — we don't publish numbers we can't back up.",
+    h_res_more:'View full portfolio →',
+    h_ind_lbl:'Who We Build For',h_ind_h1:'Built for Businesses That',h_ind_h2:'Depend on Local Customers.',
+    h_ind1_h:'Automotive Dealerships',h_ind1_p:'Fill your lot with buyers: inventory ads, lead capture and AI that follows up on every enquiry instantly.',
+    h_ind2_h:'Real Estate',h_ind2_p:'Sell listings faster with cinematic media, 3D tours and automated buyer follow-up.',
+    h_ind3_h:'Restaurants',h_ind3_p:'Get discovered, get booked: Google visibility, 3D tours and reservations on autopilot.',
+    h_ind4_h:'Retail Stores',h_ind4_p:'Bring more foot traffic in with local ads, strong media and a site that actually sells.',
+    h_ind5_h:'Beauty & Wellness',h_ind5_p:'Keep the chair full: online booking, reminders and AI that answers every message.',
+    h_ind6_h:'Local Services',h_ind6_p:"Never miss a call: an AI voice agent books jobs 24/7 while you're on-site.",
+    h_ind_go:'Get a growth audit →',h_ind_go2:'See real estate →',
+    h_why_lbl:'Why B12 Ventures',h_why_h1:'One Partner.',h_why_h2:'The Whole System.',
+    h_why1_h:'One team for everything',h_why1_p:"Marketing, technology and automation under one roof — no juggling five vendors who don't talk to each other.",
+    h_why2_h:'Built around your sales process',h_why2_p:'We design the system around how you actually close customers — not a generic template.',
+    h_why3_h:'AI plus human strategy',h_why3_p:'Automation handles the repetitive work; real strategists decide what to build and why.',
+    h_why4_h:'Conversion-focused, not vanity',h_why4_p:'Every decision serves one goal: more booked appointments and closed customers.',
+    h_why5_h:'Fast, scoped execution',h_why5_p:'Clear timelines confirmed in writing before we start — no open-ended projects.',
+    h_why6_h:'International experience',h_why6_p:"Project experience across Canada, Morocco and the UAE — we've built for local markets and beyond.",
+    h_proc_lbl:'How We Work',h_proc_h1:'From Audit',h_proc_h2:'To Compounding Growth.',
+    h_ps1_h:'Growth Audit',h_ps1_p:"A free review of your website, ads, reviews and follow-up. You get a clear, prioritized list of what's leaking leads.",h_ps1_t:'Deliverable: audit + action plan',
+    h_ps2_h:'Strategy & System Design',h_ps2_p:'We map the full Attract → Convert → Scale system to your goals and quote it — fixed scope, in writing.',h_ps2_t:'Deliverable: strategy + quote',
+    h_ps3_h:'Build & Launch',h_ps3_p:'We build the site, campaigns, AI agents and automations, test everything, and launch.',h_ps3_t:'Timeline: depends on scope — confirmed up front',
+    h_ps4_h:'Optimize & Scale',h_ps4_p:"We watch the numbers, improve what's working, and report back. Growth compounds month over month.",h_ps4_t:'Ongoing: monthly optimization + reporting',
+    h_af_tag:'Free Growth Audit',h_af_h:"Find Out What's<br/>Leaking Your Leads.",
+    h_af_sub:"Tell us about your business and we'll review your website, ads, reviews and follow-up — then send back a clear plan to attract more leads and close more of them. Free, no obligation.",
+    h_af_l1:"A prioritized list of what's costing you customers",h_af_l2:'Quick wins you can act on right away',h_af_l3:'A clear recommendation — no hard sell',
+    h_af_meta:'We reply within 24 hours · Prefer to talk? Use the chat widget, bottom-right',
+    h_af_ct:'Get Your Free Growth Audit',h_af_cs:"Takes about a minute. No phone number required — we'll reach out by email.",
+    h_ff_name:'Full Name',h_ff_biz:'Business Name',h_ff_em:'Email',h_ff_web:'Website',h_ff_ind:'Industry',h_ff_bud:'Monthly Marketing Budget',h_ff_sv:'Service of Interest',h_ff_ch:'Main Business Challenge',h_ff_btn:'Get My Free Growth Audit →',
+    h_af_fine:'By submitting this form you agree to our',
+    h_af_ok_h:'Audit Requested',h_af_ok_p:"We've got your details. You'll receive your growth audit and next steps by email within 24 hours.",
+    h_ind_o1:'Automotive dealership',h_ind_o2:'Real estate',h_ind_o3:'Restaurant / Café',h_ind_o4:'Retail / Boutique',h_ind_o5:'Beauty & wellness',h_ind_o6:'Local service business',h_ind_o7:'Other',
+    h_bud_o1:'Not sure yet',h_bud_o2:'Under $1,000 / mo',h_bud_o3:'$1,000–3,000 / mo',h_bud_o4:'$3,000–7,000 / mo',h_bud_o5:'$7,000+ / mo',h_bud_o6:'One-time project',
+    h_sv_o1:'Not sure — recommend what I need',h_sv_o2:'Website / landing page',h_sv_o3:'Meta / Google Ads',h_sv_o4:'AI chat / voice agent',h_sv_o5:'CRM & automation',h_sv_o6:'Photography / video / 3D tour',h_sv_o7:'The full growth system',
+    h_faq_lbl:'Questions',h_faq_h1:'Good',h_faq_h2:'To Know.',
+    h_q1:'What industries do you work with?',h_a1:'Automotive dealerships, real estate professionals, restaurants, retail stores, beauty and wellness businesses, and local service businesses across Canada and Morocco.',
+    h_q2:'How much do your services cost?',h_a2:'Every engagement is scoped to your goals. Most start with a free growth audit; from there we quote either a fixed project price or a monthly retainer depending on what you need.',
+    h_q3:'Do you offer monthly packages?',h_a3:'Yes. Some work is one-time — a website or a 3D tour — while ads, CRM automation and follow-up usually run monthly. We recommend the model that fits your goals.',
+    h_q4:'How long does a website take?',h_a4:'Most sites launch in two to four weeks depending on scope and how quickly we get your content. We confirm a timeline in writing before we start.',
+    h_q5:'Can you connect to our current CRM?',h_a5:'Usually, yes. We work primarily with GoHighLevel and integrate with most common CRMs, calendars and booking tools.',
+    h_q6:'Can you manage Meta Ads and Google Ads?',h_a6:"Yes. We build, launch and optimize both, and connect them to your landing pages and automated follow-up so leads don't fall through the cracks.",
+    h_q7:'Do you provide content creation?',h_a7:'Yes — professional photography, video, drone footage and immersive 3D virtual tours, plus ad creative and social content.',
+    h_q8:'What is an AI voice agent?',h_a8:'An AI receptionist that answers calls 24/7, qualifies callers, books appointments and logs everything in your CRM — so you never miss a lead, even after hours.',
+    h_q9:'Do you work outside Canada?',h_a9:"Yes. We're based in Canada and also serve clients in Morocco, with international project experience.",
+    h_q10:'What happens after launch?',h_a10:"We monitor performance, optimize your campaigns and automations, and report on what's working. Growth is ongoing — not one-and-done.",
+    h_fc_sup:'Stop Juggling Tools',h_fc_h1:"Your business doesn't need more tools.",h_fc_h2:'It needs one system that works.',
+    h_fc_sub:"One system that attracts leads, follows up automatically, and helps you close more customers. Let's build it.",
+    h_fc_btn:'Book Your Free Growth Audit →',
+    h_ft_desc:'Growth systems for local business. Websites, ads, AI agents and automation that turn more leads into paying customers — across Canada & Morocco.',
+    h_ft_s1:'Meta & Google Ads',h_ft_s2:'AI Chat & Voice Agents',h_ft_s3:'CRM & Automation',h_ft_s5:'Real Estate Media',
     re_kick:'For Realtors & Brokers · Canada & Morocco',
     re_h1_html:'Sell Listings<br/><span class="b">Faster.</span>',
     re_sub:'Cinematic drone video, magazine-grade photography and an immersive 3D virtual visit — everything a listing needs to stand out and sell. One flat rate: <strong>$300 per listing</strong>, delivered in 48 hours.',
@@ -139,6 +218,85 @@ var TRANS={
     nav_home:'Accueil',nav_services:'Services',nav_about:'À Propos',nav_global:'Mondial',nav_process:'Processus',
     nav_work:'Portfolio',nav_contact:'Contact',nav_cta:'Commencer →',nav_menu:'Menu',
     nav_re:'Immobilier',re_nav_cta:'Réserver →',
+    h_nav_cta:'Audit Gratuit →',
+    h_kick:'Systèmes de Croissance pour PME Locales · Canada & Maroc',
+    h_h1_html:'Transformez Vos Prospects en<br/><span class="b">Clients Payants.</span>',
+    h_sub:"B12 Ventures bâtit les sites web, campagnes publicitaires, agents IA et relances automatisées qui aident les entreprises locales à générer, gérer et conclure plus d'opportunités — comme un seul système connecté, pas six outils déconnectés.",
+    h_cta1:'Obtenez Votre Audit Gratuit →',h_cta2:'Voir Nos Résultats',
+    h_assure:'Audit gratuit · Sans engagement · Réponse sous 24 h',
+    h_eco_head:'Votre Système de Croissance',
+    h_eco_1t:'Publicité',h_eco_1c:'Un clic qualifié depuis Meta ou Google',
+    h_eco_2t:"Page d'atterrissage",h_eco_2c:'Conçue pour convertir les visiteurs',
+    h_eco_3t:'Agent IA',h_eco_3c:'Répond et qualifie, 24/7',
+    h_eco_4t:'CRM',h_eco_4c:'Chaque prospect capturé, rien de perdu',
+    h_eco_5t:'Relance',h_eco_5c:'SMS et courriels automatisés qui nourrissent',
+    h_eco_6t:'Rendez-vous',h_eco_6c:'Réservé à votre calendrier',
+    h_trust_lbl:'Du vrai travail, livré pour de vraies entreprises locales au Canada et au Maroc',
+    h_tm1:'Espaces captés et publiés',h_tm2:'Pays servis · CA & MA',h_tm3:'Services, un seul système',h_tm4:'Note Google — à ajouter',
+    h_sys_lbl:'Le Système de Croissance B12',h_sys_h1:'Un Système.',h_sys_h2:'Pas Six Services.',
+    h_sys_sub:'La plupart des agences vous vendent des outils. Nous bâtissons la machine qui les relie — pour que chaque dollar publicitaire, chaque clic et chaque prospect passe par un seul système conçu autour de votre façon de gagner des clients.',
+    h_attract_h:'Attirer',h_attract_p:'Placez-vous devant les bons clients locaux et donnez-leur une raison de cliquer.',
+    h_attract_t1:'Publicités Meta',h_attract_t2:'Google Ads',h_attract_t3:'SEO & Google Maps',h_attract_t4:'Photo & Vidéo',h_attract_t5:'Visites 3D',
+    h_convert_h:'Convertir',h_convert_p:'Transformez cette attention en rendez-vous réservés et prospects capturés — automatiquement.',
+    h_convert_t1:'Sites Web Haut de Gamme',h_convert_t2:"Pages d'atterrissage",h_convert_t3:'Agents de Clavardage IA',h_convert_t4:'Agents Vocaux IA',h_convert_t5:'Réservation en Ligne',
+    h_scale_h:'Développer',h_scale_p:'Relancez chaque prospect, gérez votre pipeline et concluez plus — sans lever le petit doigt.',
+    h_scale_t1:'Configuration CRM',h_scale_t2:'Automatisation SMS & Courriel',h_scale_t3:'Pipelines de Vente',h_scale_t4:'Nurturing',h_scale_t5:'Rapports',
+    h_res_lbl:'Réalisations',h_res_h1:'Vrais Clients.',h_res_h2:'Résultats Réels.',
+    h_res_sub:"Un échantillon d'entreprises que nous avons mises en ligne et sur la carte. Chacune est active — cliquez et voyez le travail.",
+    h_cs_cat_rest:'Restaurant',h_cs_cat_retail:'Commerce',h_cs_cat_service:'Service Local',
+    h_cs_chal:'Défi',h_cs_sol:'Solution',h_cs_visit:'Voir le site',
+    h_cs1_chal:'Difficile à trouver en ligne, aucun aperçu du lieu.',h_cs1_sol:'Site web sur mesure, visite 3D immersive et présence Google complète.',
+    h_cs2_chal:'Un grand magasin que les clients ne pouvaient pas découvrir avant de venir.',h_cs2_sol:'Numérisation 3D allée par allée, site web et visibilité Google Maps.',
+    h_cs3_chal:'Aucune présence web professionnelle pour gagner et réserver des clients.',h_cs3_sol:'Un site rapide et moderne conçu pour capturer et convertir les demandes.',
+    h_res_note:'Les résultats chiffrés des campagnes (prospects, coût par prospect, ROI) sont partagés sur demande une fois le rapport client approuvé — nous ne publions pas de chiffres invérifiables.',
+    h_res_more:'Voir tout le portfolio →',
+    h_ind_lbl:'Pour Qui Nous Bâtissons',h_ind_h1:'Conçu pour les Entreprises Qui',h_ind_h2:'Dépendent des Clients Locaux.',
+    h_ind1_h:'Concessionnaires Auto',h_ind1_p:"Remplissez votre lot d'acheteurs : publicités d'inventaire, capture de prospects et IA qui relance chaque demande instantanément.",
+    h_ind2_h:'Immobilier',h_ind2_p:'Vendez vos inscriptions plus vite avec des médias cinématographiques, des visites 3D et une relance automatisée des acheteurs.',
+    h_ind3_h:'Restaurants',h_ind3_p:'Soyez découvert, soyez réservé : visibilité Google, visites 3D et réservations en pilote automatique.',
+    h_ind4_h:'Commerces de Détail',h_ind4_p:'Attirez plus de clients en magasin avec des publicités locales, de bons médias et un site qui vend vraiment.',
+    h_ind5_h:'Beauté & Bien-être',h_ind5_p:'Gardez la chaise pleine : réservation en ligne, rappels et IA qui répond à chaque message.',
+    h_ind6_h:'Services Locaux',h_ind6_p:'Ne manquez jamais un appel : un agent vocal IA réserve les mandats 24/7 pendant que vous êtes sur le terrain.',
+    h_ind_go:'Obtenir un audit →',h_ind_go2:"Voir l'immobilier →",
+    h_why_lbl:'Pourquoi B12 Ventures',h_why_h1:'Un Partenaire.',h_why_h2:'Tout le Système.',
+    h_why1_h:'Une équipe pour tout',h_why1_p:'Marketing, technologie et automatisation sous un même toit — sans jongler avec cinq fournisseurs qui ne se parlent pas.',
+    h_why2_h:'Bâti autour de votre processus de vente',h_why2_p:'Nous concevons le système autour de votre façon réelle de conclure — pas un gabarit générique.',
+    h_why3_h:'IA plus stratégie humaine',h_why3_p:"L'automatisation gère le travail répétitif; de vrais stratèges décident quoi bâtir et pourquoi.",
+    h_why4_h:'Axé sur la conversion',h_why4_p:'Chaque décision sert un seul but : plus de rendez-vous réservés et de clients conclus.',
+    h_why5_h:'Exécution rapide et cadrée',h_why5_p:'Des échéanciers clairs confirmés par écrit avant de commencer — aucun projet sans fin.',
+    h_why6_h:'Expérience internationale',h_why6_p:'Expérience de projets au Canada, au Maroc et aux Émirats — nous bâtissons pour les marchés locaux et au-delà.',
+    h_proc_lbl:'Notre Façon de Faire',h_proc_h1:"De l'Audit",h_proc_h2:'à la Croissance Composée.',
+    h_ps1_h:'Audit de Croissance',h_ps1_p:'Une revue gratuite de votre site, publicités, avis et relances. Vous obtenez une liste claire et priorisée de ce qui vous fait perdre des prospects.',h_ps1_t:"Livrable : audit + plan d'action",
+    h_ps2_h:'Stratégie & Conception',h_ps2_p:'Nous cartographions le système Attirer → Convertir → Développer selon vos objectifs et le chiffrons — portée fixe, par écrit.',h_ps2_t:'Livrable : stratégie + devis',
+    h_ps3_h:'Construction & Lancement',h_ps3_p:'Nous bâtissons le site, les campagnes, les agents IA et les automatisations, testons tout, et lançons.',h_ps3_t:"Délai : selon la portée — confirmé d'avance",
+    h_ps4_h:'Optimisation & Croissance',h_ps4_p:'Nous suivons les chiffres, améliorons ce qui fonctionne et faisons un rapport. La croissance se compose mois après mois.',h_ps4_t:'En continu : optimisation + rapports mensuels',
+    h_af_tag:'Audit de Croissance Gratuit',h_af_h:'Découvrez Ce Qui<br/>Vous Fait Perdre des Prospects.',
+    h_af_sub:'Parlez-nous de votre entreprise et nous examinerons votre site, vos publicités, vos avis et vos relances — puis nous vous renverrons un plan clair pour attirer et conclure plus. Gratuit, sans engagement.',
+    h_af_l1:'Une liste priorisée de ce qui vous coûte des clients',h_af_l2:'Des gains rapides à appliquer dès maintenant',h_af_l3:'Une recommandation claire — sans pression',
+    h_af_meta:'Réponse sous 24 h · Préférez discuter ? Utilisez le clavardage, en bas à droite',
+    h_af_ct:'Obtenez Votre Audit Gratuit',h_af_cs:'Environ une minute. Aucun numéro requis — nous vous écrirons par courriel.',
+    h_ff_name:'Nom Complet',h_ff_biz:"Nom de l'Entreprise",h_ff_em:'Courriel',h_ff_web:'Site Web',h_ff_ind:'Secteur',h_ff_bud:'Budget Marketing Mensuel',h_ff_sv:'Service Souhaité',h_ff_ch:"Principal Défi d'Affaires",h_ff_btn:'Obtenir Mon Audit Gratuit →',
+    h_af_fine:'En soumettant ce formulaire, vous acceptez nos',
+    h_af_ok_h:'Audit Demandé',h_af_ok_p:'Nous avons vos coordonnées. Vous recevrez votre audit de croissance et les prochaines étapes par courriel sous 24 heures.',
+    h_ind_o1:'Concessionnaire automobile',h_ind_o2:'Immobilier',h_ind_o3:'Restaurant / Café',h_ind_o4:'Commerce / Boutique',h_ind_o5:'Beauté & bien-être',h_ind_o6:'Entreprise de services locaux',h_ind_o7:'Autre',
+    h_bud_o1:'Pas encore sûr',h_bud_o2:'Moins de 1 000 $ / mois',h_bud_o3:'1 000–3 000 $ / mois',h_bud_o4:'3 000–7 000 $ / mois',h_bud_o5:'7 000 $+ / mois',h_bud_o6:'Projet unique',
+    h_sv_o1:'Pas sûr — recommandez-moi',h_sv_o2:"Site web / page d'atterrissage",h_sv_o3:'Publicités Meta / Google',h_sv_o4:'Agent IA clavardage / vocal',h_sv_o5:'CRM & automatisation',h_sv_o6:'Photo / vidéo / visite 3D',h_sv_o7:'Le système de croissance complet',
+    h_faq_lbl:'Questions',h_faq_h1:'Bon',h_faq_h2:'à Savoir.',
+    h_q1:'Avec quels secteurs travaillez-vous ?',h_a1:"Concessionnaires automobiles, professionnels de l'immobilier, restaurants, commerces de détail, entreprises de beauté et bien-être, et entreprises de services locaux au Canada et au Maroc.",
+    h_q2:'Combien coûtent vos services ?',h_a2:'Chaque mandat est adapté à vos objectifs. La plupart débutent par un audit gratuit; ensuite nous chiffrons un prix fixe ou un forfait mensuel selon vos besoins.',
+    h_q3:'Offrez-vous des forfaits mensuels ?',h_a3:"Oui. Certains travaux sont uniques — un site web ou une visite 3D — tandis que les publicités, l'automatisation CRM et les relances sont généralement mensuelles. Nous recommandons le modèle adapté à vos objectifs.",
+    h_q4:'Combien de temps prend un site web ?',h_a4:"La plupart des sites sont lancés en deux à quatre semaines selon la portée et la rapidité à obtenir votre contenu. Nous confirmons l'échéancier par écrit avant de commencer.",
+    h_q5:'Pouvez-vous vous connecter à notre CRM actuel ?',h_a5:'Généralement, oui. Nous travaillons surtout avec GoHighLevel et intégrons la plupart des CRM, calendriers et outils de réservation courants.',
+    h_q6:'Gérez-vous les publicités Meta et Google ?',h_a6:"Oui. Nous les créons, lançons et optimisons, et les relions à vos pages d'atterrissage et relances automatisées pour ne perdre aucun prospect.",
+    h_q7:'Offrez-vous la création de contenu ?',h_a7:'Oui — photographie professionnelle, vidéo, images par drone et visites virtuelles 3D immersives, ainsi que du contenu publicitaire et social.',
+    h_q8:"Qu'est-ce qu'un agent vocal IA ?",h_a8:'Une réceptionniste IA qui répond aux appels 24/7, qualifie les appelants, réserve des rendez-vous et enregistre tout dans votre CRM — pour ne jamais manquer un prospect, même après les heures.',
+    h_q9:"Travaillez-vous à l'extérieur du Canada ?",h_a9:'Oui. Nous sommes basés au Canada et servons aussi des clients au Maroc, avec une expérience de projets internationaux.',
+    h_q10:'Que se passe-t-il après le lancement ?',h_a10:'Nous surveillons la performance, optimisons vos campagnes et automatisations, et faisons un rapport. La croissance est continue — pas une seule fois.',
+    h_fc_sup:'Arrêtez de Jongler',h_fc_h1:"Votre entreprise n'a pas besoin de plus d'outils.",h_fc_h2:"Elle a besoin d'un système qui fonctionne.",
+    h_fc_sub:'Un seul système qui attire les prospects, relance automatiquement et vous aide à conclure plus de clients. Bâtissons-le.',
+    h_fc_btn:'Réservez Votre Audit Gratuit →',
+    h_ft_desc:'Systèmes de croissance pour PME locales. Sites web, publicités, agents IA et automatisation qui transforment les prospects en clients — au Canada et au Maroc.',
+    h_ft_s1:'Publicités Meta & Google',h_ft_s2:'Agents IA Clavardage & Vocal',h_ft_s3:'CRM & Automatisation',h_ft_s5:'Médias Immobiliers',
     re_kick:'Pour Courtiers & Agents · Canada & Maroc',
     re_h1_html:'Vendez Plus<br/><span class="b">Vite.</span>',
     re_sub:'Vidéo par drone cinématographique, photographie de qualité magazine et une visite virtuelle 3D immersive — tout ce qu\'une inscription doit avoir pour se démarquer et se vendre. Un tarif unique : <strong>300 $ par inscription</strong>, livré en 48 heures.',
@@ -381,7 +539,10 @@ var obs=new IntersectionObserver(function(entries){
     if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}
   });
 },{threshold:.08});
-document.querySelectorAll('.rv,.st,.ab-img,.why-photo').forEach(function(el){obs.observe(el);});
+var reduceMo=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.querySelectorAll('.rv,.st,.ab-img,.why-photo').forEach(function(el){
+  if(reduceMo) el.classList.add('vis'); else obs.observe(el);
+});
 
 /* ── Counter ── */
 function animCnt(el){
@@ -944,6 +1105,68 @@ function toGHL(payload){
         btn.textContent=defaultTxt();
       },5000);
     });
+  });
+})();
+
+/* ── FAQ accordion ── */
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var item=q.closest('.faq-item');
+    var isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(i){
+      i.classList.remove('open'); i.querySelector('.faq-q').setAttribute('aria-expanded','false');
+    });
+    if(!isOpen){ item.classList.add('open'); q.setAttribute('aria-expanded','true'); }
+  });
+});
+
+/* ── Growth Audit form (GHL + Web3Forms, no phone — chat widget is the sole SMS opt-in) ── */
+(function(){
+  var f=document.getElementById('audit-form');
+  if(!f) return;
+  var btn=document.getElementById('audit-btn');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!f.checkValidity()){ f.reportValidity(); return; }
+    var original=btn.textContent;
+    btn.textContent='Sending…'; btn.disabled=true;
+    var fd=new FormData(f);
+    var g=function(k){return (fd.get(k)||'').toString().trim();};
+    toGHL({
+      first_name:g('full_name'),
+      email:g('email'),
+      company_name:g('business'),
+      website:g('website'),
+      industry:g('industry'),
+      budget:g('budget'),
+      service_interest:g('service'),
+      message:g('challenge'),
+      source:'Website Growth Audit',
+      form_type:'growth_audit',
+      page:location.href,
+      language:currentLang
+    });
+    fetch('https://api.web3forms.com/submit',{
+      method:'POST',headers:{'Accept':'application/json'},body:fd
+    }).then(function(r){return r.json();}).then(function(d){
+      if(!d.success) throw new Error('failed');
+      document.getElementById('audit-form-wrap').style.display='none';
+      document.getElementById('audit-ok').classList.add('on');
+      if(window.gtag) gtag('event','growth_audit');
+      if(window.dataLayer) window.dataLayer.push({event:'growth_audit'});
+      if(window.fbq) fbq('track','Lead',{content_name:'Free Growth Audit',content_category:'audit'});
+    }).catch(function(){
+      btn.textContent='Something went wrong — try again';
+      setTimeout(function(){ btn.textContent=original; btn.disabled=false; },2600);
+    });
+  });
+})();
+
+/* ── Dynamic copyright year ── */
+(function(){
+  var y=new Date().getFullYear();
+  document.querySelectorAll('.ft-copy').forEach(function(el){
+    el.innerHTML=el.innerHTML.replace(/©\s*\d{4}/,'© '+y);
   });
 })();
 
